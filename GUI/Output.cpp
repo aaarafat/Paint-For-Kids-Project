@@ -155,6 +155,16 @@ color Output::getCrntFillColor() const	//get current filling color
 int Output::getCrntPenWidth() const		//get current pen width
 {	return UI.PenWidth;	}
 
+/////////////////////////////////////////////////////////////////////////////////////////
+void Output::CheckPoint(Point& P, Input* pIn)
+{
+	while(P.y < UI.ToolBarHeight || P.y > UI.height - UI.StatusBarHeight || P.x < UI.ToolBarHeight)
+	{
+		PrintMessage("Please, click on the draw area");
+		pIn->GetPointClicked(P.x, P.y);
+	}
+
+}
 //======================================================================================//
 //								Figures Drawing Functions								//
 //======================================================================================//
@@ -181,38 +191,106 @@ void Output::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) co
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 	
 }
-void Output::DrawLine(Point P1, Point P2, bool selected) const 
-{	color DrawingClr;
-drawstyle style;
-	if(selected)	
-		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
-		else			
-		DrawingClr =getCrntDrawColor();
-	pWind->SetPen(DrawingClr,1);
-	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y);
 
-}
-void Output::DrawTri(Point P1, Point P2, Point P3 ,GfxInfo RectGfxInfo, bool selected) const
-	{
+void Output::DrawTri(Point P1, Point P2, Point P3,  GfxInfo TriGfxInfo, bool selected) const
+{
 	color DrawingClr;
 	if(selected)	
 		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
 	else			
-		DrawingClr = RectGfxInfo.DrawClr;
+		DrawingClr = TriGfxInfo.DrawClr;
 	
 	pWind->SetPen(DrawingClr,1);
 	drawstyle style;
-	if (RectGfxInfo.isFilled)	
+	if (TriGfxInfo.isFilled)	
 	{
 		style = FILLED;		
-		pWind->SetBrush(RectGfxInfo.FillClr);
+		pWind->SetBrush(TriGfxInfo.FillClr);
 	}
 	else	
 		style = FRAME;
 
 	
-	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y,P3.x, P3.y, style);
+	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
+}
+void Output::DrawL(Point P1, Point P2, GfxInfo LiGfxInfo, bool selected) const
+{
+	color DrawingClr;
+	if(selected)	
+		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
+	else			
+		DrawingClr = LiGfxInfo.DrawClr;
 	
+	pWind->SetPen(DrawingClr,1);
+	drawstyle style;
+	if (LiGfxInfo.isFilled)	
+	{
+		style = FILLED;		
+		pWind->SetBrush(LiGfxInfo.FillClr);
+	}
+	else	
+		style = FRAME;
+
+	
+	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+}
+void Output::DrawRhom(Point P1, GfxInfo RhomGfxInfo, bool selected) const
+{
+	color DrawingClr;
+	if(selected)	
+		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
+	else			
+		DrawingClr = RhomGfxInfo.DrawClr;
+	
+	pWind->SetPen(DrawingClr,1);
+	drawstyle style;
+	if (RhomGfxInfo.isFilled)	
+	{
+		style = FILLED;		
+		pWind->SetBrush(RhomGfxInfo.FillClr);
+	}
+	else	
+		style = FRAME;
+	if(P1.y - 100 < UI.ToolBarHeight)
+	{
+		P1.y = P1.y + (UI.ToolBarHeight - (P1.y - 100));
+	}
+	if(P1.x - 50 < UI.ToolBarHeight)
+	{
+		P1.x = P1.x + (UI.ToolBarHeight - (P1.x - 50));
+	}
+
+	const int x[] = {P1.x + 50, P1.x, P1.x - 50, P1.x};
+	const int y[] = {P1.y, P1.y - 100, P1.y, P1.y + 100}; 
+	pWind->DrawPolygon(x, y, 4, style);
+}
+
+void Output::DrawEli(Point P1, GfxInfo EliGfxInfo, bool selected) const
+{
+	color DrawingClr;
+	if(selected)	
+		DrawingClr = UI.HighlightColor; //Figure should be drawn highlighted
+	else			
+		DrawingClr = EliGfxInfo.DrawClr;
+	
+	pWind->SetPen(DrawingClr,1);
+	drawstyle style;
+	if (EliGfxInfo.isFilled)	
+	{
+		style = FILLED;		
+		pWind->SetBrush(EliGfxInfo.FillClr);
+	}
+	else	
+		style = FRAME;
+	if(P1.y - 50 < UI.ToolBarHeight)
+	{
+		P1.y = P1.y + (UI.ToolBarHeight - (P1.y - 50));
+	}
+	if(P1.x - 100 < UI.ToolBarHeight)
+	{
+		P1.x = P1.x + (UI.ToolBarHeight - (P1.x - 100));
+	}
+	pWind->DrawEllipse(P1.x + 100, P1.y + 50, P1.x - 100, P1.y - 50, style);
 }
 
 

@@ -199,12 +199,5 @@
       <Filter>GUI Classes</Filter>
     </ClInclude>
     <ClInclude Include="DEFS.h" />
-    <ClInclude Include="resource.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="PT Project.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="C:\Users\Darkin\Downloads\paint.ico" />
   </ItemGroup>
 </Project>
