@@ -273,6 +273,10 @@ int main()
 		case DRAWING_AREA:
 				pOut->PrintMessage("Action: a click on the Drawing Area, Click anywhere");
 				break;
+		
+		case PLAYING_AREA:
+			pOut->PrintMessage("Action: a click on the Playing Area, Click anywhere");
+			break;
 
 		case EMPTY:
 				pOut->PrintMessage("Action: a click on empty area in the Design Tool Bar, Click anywhere");
