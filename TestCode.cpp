@@ -36,7 +36,7 @@ int main()
 	pIn->GetPointClicked(x,y);	//Wait for any click
 
 	GfxInfo gfxInfo;//to be used with draw function of the class Ouput
-	Point P1, P2;
+	Point P1, P2, P3;
 
 	/// 2.1- Rectangle Test ///
 	/// =================== 
@@ -112,7 +112,6 @@ int main()
 
 	/// 2.3- Triangle Test ///
 	/// =================== 
-	Point P3;
 	pOut->PrintMessage("Drawing a Triangle, filled/non-filled and Highlighted filled/non-filled,  Click to continue");
 	pIn->GetPointClicked(x,y);	//Wait for any click
 	// 2.3.1 - Drawing non-filled triangle
