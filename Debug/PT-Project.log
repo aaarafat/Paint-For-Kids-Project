@@ -1,9 +1,0 @@
-﻿Build started 11/3/2018 7:05:09 PM.
-     1>Project "X:\C++\Project\PT-Project.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         PT-Project.vcxproj -> X:\C++\Project\.\Debug\PT Project.exe
-     1>Done Building Project "X:\C++\Project\PT-Project.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.27
