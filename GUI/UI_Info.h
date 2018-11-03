@@ -53,8 +53,8 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	//Note: Items are ordered here as they appear in menu
 	//If you want to change the menu items order, change the order here
 	
-	PLY_ITM_EXIT,
-	ITM_TODRAW,
+	//TODO: Add more items names here
+
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 	
 };
@@ -81,7 +81,6 @@ struct UI_Info	//User Interface Info.
 	color HighlightColor;	//Highlighting color
 	color MsgColor;			//Messages color
 	color BkGrndColor;		//Background color
-	color ToolBarColor;		//Toolbar color
 	color StatusBarColor;	//Status bar color
 	int PenWidth;			//width of the pen that draws shapes
 

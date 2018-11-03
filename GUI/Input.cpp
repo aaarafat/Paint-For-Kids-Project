@@ -79,7 +79,7 @@ ActionType Input::GetUserAction() const
 			case ITM_TRI: return DRAW_TRI;
 			case ITM_RHOMBUS: return DRAW_RHOMBUS;
 			case ITM_ELIPSE: return DRAW_ELLIPSE;
-			case ITM_SWITCH: return TO_PLAY;				
+						
 			case ITM_EXIT: return EXIT;	
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -97,31 +97,10 @@ ActionType Input::GetUserAction() const
 	}
 	else	//GUI is in PLAY mode
 	{
-		//[1] If user clicks on the Toolbar
-		if ( y >= 0 && y < UI.ToolBarHeight)
-		{	
-			//Check whick Menu item was clicked
-			//==> This assumes that menu items are lined up horizontally <==
-			int ClickedItemOrder = (x / UI.MenuItemWidth);
-			//Divide x coord of the point clicked by the menu item width (int division)
-			//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
-
-			switch (ClickedItemOrder)
-			{
-			case PLY_ITM_EXIT: return EXIT;	
-			case ITM_TODRAW: return TO_DRAW;
-			default: return EMPTY;	//A click on empty place in desgin toolbar
-			}
-		}
-
-		//[2] User clicks on the playing area
-		if ( y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
-		{
-			return PLAYING_AREA;	
-		}
-		
-		//[3] User clicks on the status bar
-		return STATUS;	
+		///TODO:
+		//perform checks similar to Draw mode checks above
+		//and return the correspoding action
+		return TO_PLAY;	//just for now. This should be updated
 	}	
 
 }
