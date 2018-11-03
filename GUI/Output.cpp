@@ -77,7 +77,7 @@ void Output::CreateDrawToolBar() const
 	UI.InterfaceMode = MODE_DRAW;
 	Clear2ndToolBar(); //Clears the toolbar before drawing
 	ClearToolBar();
-	//You can draw the tool bar icons in any way you want.
+	//draw the tool bar icons
 	//Below is one possible way
 	
 	//First prepare List of images for each menu item
@@ -92,7 +92,7 @@ void Output::CreateDrawToolBar() const
 	MenuItemImages[ITM_SWITCH] = "images\\MenuItems\\Menu_Switch.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
-	//TODO: Prepare images for each menu item and add it to the list
+	//Prepare images for each menu item and add it to the list
 	string ToolsItemImages[DRAW_ITM_COUNT];
 	ToolsItemImages[ITM_COPY] = "images\\MenuItems\\Copy.jpg";
 	ToolsItemImages[ITM_CUT] = "images\\MenuItems\\Cut.jpg";
@@ -149,7 +149,7 @@ void Output::CreatePlayToolBar() const
 	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);	
 	//Draw a line above the statusbar
 	pWind->DrawLine(0, UI.height - UI.StatusBarHeight-1, UI.width, UI.height - UI.StatusBarHeight-1);
-	//Draw a line Beside the Toolssbar
+	//Draw a line Beside the Toolbar
 	pWind->DrawLine(UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight, UI.height - UI.StatusBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -204,7 +204,7 @@ int Output::getCrntPenWidth() const		//get current pen width
 /////////////////////////////////////////////////////////////////////////////////////////
 void Output::CheckPoint(Point& P, Input* pIn)
 {
-	while(P.y < UI.ToolBarHeight || P.y > UI.height - UI.StatusBarHeight || P.x < UI.ToolBarHeight)
+	while(P.y < UI.ToolBarHeight + 1 || P.y > UI.height - UI.StatusBarHeight - 1 || P.x < UI.ToolBarHeight + 1)
 	{
 		PrintMessage("Please, click on the draw area");
 		pIn->GetPointClicked(P.x, P.y);
@@ -297,14 +297,19 @@ void Output::DrawRhom(Point P1, GfxInfo RhomGfxInfo, bool selected) const
 	}
 	else	
 		style = FRAME;
-	if(P1.y - 100 < UI.ToolBarHeight)
+	if(P1.y - 100 < UI.ToolBarHeight + 1)
 	{
-		P1.y = P1.y + (UI.ToolBarHeight - (P1.y - 100));
+		P1.y = UI.ToolBarHeight + 101;
 	}
-	if(P1.x - 50 < UI.ToolBarHeight)
+	if(P1.x - 50 < UI.ToolBarHeight + 1)
 	{
-		P1.x = P1.x + (UI.ToolBarHeight - (P1.x - 50));
+		P1.x = UI.ToolBarHeight + 51;
 	}
+	if(P1.y + 100 > UI.height - UI.StatusBarHeight - 1)
+	{
+		P1.y = UI.height - UI.StatusBarHeight - 1 - 100;
+	}
+
 
 	const int x[] = {P1.x + 50, P1.x, P1.x - 50, P1.x};
 	const int y[] = {P1.y, P1.y - 100, P1.y, P1.y + 100}; 
@@ -328,13 +333,17 @@ void Output::DrawEli(Point P1, GfxInfo EliGfxInfo, bool selected) const
 	}
 	else	
 		style = FRAME;
-	if(P1.y - 50 < UI.ToolBarHeight)
+	if(P1.y - 50 < UI.ToolBarHeight + 1)
 	{
-		P1.y = P1.y + (UI.ToolBarHeight - (P1.y - 50));
+		P1.y = UI.ToolBarHeight + 51;
 	}
-	if(P1.x - 100 < UI.ToolBarHeight)
+	if(P1.x - 100 < UI.ToolBarHeight + 1)
 	{
-		P1.x = P1.x + (UI.ToolBarHeight - (P1.x - 100));
+		P1.x = UI.ToolBarHeight + 101;
+	}
+	if(P1.y + 50 > UI.height - UI.StatusBarHeight - 1)
+	{
+		P1.y = UI.height - UI.StatusBarHeight - 51;
 	}
 	pWind->DrawEllipse(P1.x + 100, P1.y + 50, P1.x - 100, P1.y - 50, style);
 }
