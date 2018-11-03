@@ -6,6 +6,9 @@ PT-Project.sdf
 *.lo
 *.o
 *.obj
+*.sln
+*.vcxproj
+*.vcxproj.filters
 
 # Precompiled Headers
 *.gch
