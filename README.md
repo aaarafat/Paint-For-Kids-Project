@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 #LOL xD = Dx 
 
-
+HASSAN 5AWAAAAAAAAAAAAAAAAL
 
 #D'x = x'D
