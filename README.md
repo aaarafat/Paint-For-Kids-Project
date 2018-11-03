@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #LOL xD = Dx 
 
 
