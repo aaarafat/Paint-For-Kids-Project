@@ -144,8 +144,13 @@ void Output::CreatePlayToolBar() const
 
 
 	//Draw a line under the toolbar
-	pWind->SetPen(RED, 3);
-	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
+	pWind->SetPen(LIGHTSLATEGREY, 1);
+	pWind->DrawLine(0, 0, UI.width, 0);
+	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);	
+	//Draw a line above the statusbar
+	pWind->DrawLine(0, UI.height - UI.StatusBarHeight-1, UI.width, UI.height - UI.StatusBarHeight-1);
+	//Draw a line Beside the Toolssbar
+	pWind->DrawLine(UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight, UI.height);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -162,7 +167,7 @@ void Output::Clear2ndToolBar() const
 {
 	pWind->SetBrush(UI.ToolBarColor);
 	pWind->SetPen(UI.ToolBarColor, 1);
-	pWind->DrawRectangle(0, UI.ToolBarHeight, UI.ToolBarHeight, UI.width - UI.StatusBarHeight);
+	pWind->DrawRectangle(0, UI.ToolBarHeight, UI.ToolBarHeight, UI.width - UI.StatusBarHeight - UI.ToolBarHeight);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
