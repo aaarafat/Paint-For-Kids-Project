@@ -116,7 +116,7 @@ void Output::CreateDrawToolBar() const
 	//Draw a line above the statusbar
 	pWind->DrawLine(0, UI.height - UI.StatusBarHeight-1, UI.width, UI.height - UI.StatusBarHeight-1);
 	//Draw a line Beside the Toolssbar
-	pWind->DrawLine(UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight, UI.height);	
+	pWind->DrawLine(UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight, UI.height - UI.StatusBarHeight);	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -150,7 +150,7 @@ void Output::CreatePlayToolBar() const
 	//Draw a line above the statusbar
 	pWind->DrawLine(0, UI.height - UI.StatusBarHeight-1, UI.width, UI.height - UI.StatusBarHeight-1);
 	//Draw a line Beside the Toolssbar
-	pWind->DrawLine(UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight, UI.height);
+	pWind->DrawLine(UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight, UI.height - UI.StatusBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
