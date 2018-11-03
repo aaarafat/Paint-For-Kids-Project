@@ -167,7 +167,7 @@ void Output::Clear2ndToolBar() const
 {
 	pWind->SetBrush(UI.ToolBarColor);
 	pWind->SetPen(UI.ToolBarColor, 1);
-	pWind->DrawRectangle(0, UI.ToolBarHeight, UI.ToolBarHeight, UI.width - UI.StatusBarHeight - UI.ToolBarHeight);
+	pWind->DrawRectangle(0, UI.ToolBarHeight, UI.ToolBarHeight, UI.height - UI.StatusBarHeight - UI.ToolBarHeight);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
