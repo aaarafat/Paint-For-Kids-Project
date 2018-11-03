@@ -21,6 +21,7 @@ Output::Output()
 	UI.FillColor = GREEN;	//Filling color
 	UI.MsgColor = DARKSLATEGREY;		//Messages color
 	UI.BkGrndColor = LIGHTGRAY;	//Background color
+	UI.ToolBarColor = WHITE; //Toolbar Color
 	UI.HighlightColor = MAGENTA;	//This color should NOT be used to draw figures. use if for highlight only
 	UI.StatusBarColor = DARKGRAY;
 	UI.PenWidth = 2;	//width of the figures frames
@@ -74,7 +75,8 @@ void Output::ClearStatusBar() const
 void Output::CreateDrawToolBar() const
 {
 	UI.InterfaceMode = MODE_DRAW;
-
+	Clear2ndToolBar(); //Clears the toolbar before drawing
+	ClearToolBar();
 	//You can draw the tool bar icons in any way you want.
 	//Below is one possible way
 	
@@ -121,10 +123,49 @@ void Output::CreateDrawToolBar() const
 void Output::CreatePlayToolBar() const
 {
 	UI.InterfaceMode = MODE_PLAY;
-	///TODO: write code to create Play mode menu
+	ClearToolBar();   //Clears the toolbar before drawing
+	Clear2ndToolBar(); 
+	//You can draw the tool bar icons in any way you want.
+	//Below is one possible way
+	
+	//First prepare List of images for each menu item
+	//To control the order of these images in the menu, 
+	//reoder them in UI_Info.h ==> enum DrawMenuItem
+	string MenuItemImages[PLAY_ITM_COUNT];
+	MenuItemImages[PLY_ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
+	MenuItemImages[ITM_TODRAW] = "images\\MenuItems\\Menu_Switch.jpg";
+
+	//TODO: Prepare images for each menu item and add it to the list
+
+	//Draw menu item one image at a time
+	for(int i=0; i<PLAY_ITM_COUNT; i++)
+		pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+
+
+
+	//Draw a line under the toolbar
+	pWind->SetPen(RED, 3);
+	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
+void Output::ClearToolBar() const
+{
+	pWind->SetBrush(UI.ToolBarColor);
+	pWind->SetPen(UI.ToolBarColor, 1);
+	pWind->DrawRectangle(0, 0, UI.width, UI.ToolBarHeight);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+void Output::Clear2ndToolBar() const
+{
+	pWind->SetBrush(UI.ToolBarColor);
+	pWind->SetPen(UI.ToolBarColor, 1);
+	pWind->DrawRectangle(0, UI.ToolBarHeight, UI.ToolBarHeight, UI.width - UI.StatusBarHeight);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
 void Output::ClearDrawArea() const
 {
 	pWind->SetPen(UI.BkGrndColor, 1);
