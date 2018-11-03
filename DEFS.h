@@ -21,7 +21,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	SAVE_BY_TYPE,	//Save the all the figures that have a specific type
 	LOAD,			//Load a graph from a file
 	EXIT,			//Exit the application
-
+	PLAYING_AREA,   //A click on the playing area 
 	DRAWING_AREA,	//A click on the drawing area
 	STATUS,			//A click on the status bar
 	EMPTY,			//A click on empty place in the toolbar
