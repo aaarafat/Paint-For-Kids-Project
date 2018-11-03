@@ -17,13 +17,18 @@ public:
 	Input* CreateInput() const; //creates a pointer to the Input object	
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
+	void ClearToolBar() const; //Clears the toolbar
+	void Clear2ndToolBar() const; //Clears the 2nd toolbar
 	
 	// -- Figures Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected=false) const;  //Draw a rectangle
-	void DrawLine(Point P1,Point P2, bool selected=false ) const;
-	void DrawTri(Point P1, Point P2, Point P3 ,GfxInfo RectGfxInfo, bool selected=false) const;
-	///Make similar functions for drawing all other figure types.
-	
+	void DrawTri(Point P1, Point P2, Point P3,  GfxInfo TriGfxInfo, bool selected=false) const;
+	void DrawL(Point P1, Point P2, GfxInfo LiGfxInfo, bool selected = false) const;
+	void DrawEli(Point P1, GfxInfo EliGfxInfo, bool selected = false) const;
+	void DrawRhom(Point P1, GfxInfo RhomGfxInfo, bool selected = false) const;
+
+
+	void CheckPoint(Point&P, Input* pIn);  //checking whether the point's in the drawing area or not
 	void PrintMessage(string msg) const;	//Print a message on Status bar
 
 	color getCrntDrawColor() const;	//get current drwawing color
