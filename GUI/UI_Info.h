@@ -75,7 +75,7 @@ struct UI_Info	//User Interface Info.
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuItemWidth,		//Width of each item in toolbar menu
-	    ToolsItemHeight;
+	    ToolsItemHeight;	
 
 	color DrawColor;		//Drawing color
 	color FillColor;		//Filling color

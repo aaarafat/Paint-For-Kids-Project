@@ -41,7 +41,7 @@ ActionType Input::GetUserAction() const
 	if(UI.InterfaceMode == MODE_DRAW)	//GUI in the DRAW mode
 	{
 		//[0] If user clicks on the Toolsbar
-		if ( x>= 0 && x < 50 &&y > UI.ToolBarHeight)
+		if ( x>= 0 && x < UI.ToolBarHeight &&y > UI.ToolBarHeight)
 		{	
 			//Check whick Tool item was clicked
 			//==> This assumes that menu items are lined up vertically <==
