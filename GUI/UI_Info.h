@@ -54,6 +54,8 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	//If you want to change the menu items order, change the order here
 	
 	ITM_TODRAW,
+	BY_TYPE,   //by type enum
+	BY_COLOR,  //by color enum
 	PLY_ITM_EXIT,
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 };
