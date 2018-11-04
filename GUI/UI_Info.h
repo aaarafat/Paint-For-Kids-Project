@@ -63,6 +63,8 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 	//If you want to change the menu items order, change the order here
 	
 	ITM_TODRAW,
+	BY_TYPE,   //by type enum
+	BY_COLOR,  //by color enum
 	PLY_ITM_EXIT,
 	PLAY_ITM_COUNT		//no. of menu items ==> This should be the last line in this enum
 };
@@ -92,7 +94,7 @@ struct UI_Info	//User Interface Info.
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuItemWidth,		//Width of each item in toolbar menu
-	    ToolsItemHeight;
+	    ToolsItemHeight;	
 
 	color DrawColor;		//Drawing color
 	color FillColor;		//Filling color

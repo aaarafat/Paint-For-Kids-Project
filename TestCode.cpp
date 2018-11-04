@@ -266,7 +266,15 @@ int main()
 				pOut->PrintMessage("Action: Change Figure's Fill color , Click anywhere");
 				pOut->CreateColorBar();
 				break;
-			
+
+		case CHOOSE_BYCOLOR:
+			pOut->PrintMessage("Action: choose by color, Click anywhere");
+			break;
+		
+		case CHOOSE_BYTYPE:
+			pOut->PrintMessage("Action: choose by type, Click anywhere");
+			break;
+
 		case STATUS:
 				pOut->PrintMessage("Action: a click on the Status Bar, Click anywhere");
 				break;

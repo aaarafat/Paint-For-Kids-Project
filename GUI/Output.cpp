@@ -137,7 +137,8 @@ void Output::CreatePlayToolBar() const
 	string MenuItemImages[PLAY_ITM_COUNT];
 	MenuItemImages[PLY_ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 	MenuItemImages[ITM_TODRAW] = "images\\MenuItems\\Menu_Switch.jpg";
-
+	MenuItemImages[BY_TYPE] = "images\\MenuItems\\By_Type.jpg";
+	MenuItemImages[BY_COLOR] = "images\\MenuItems\\By_Color.jpg";
 	//TODO: Prepare images for each menu item and add it to the list
 
 	//Draw menu item one image at a time
