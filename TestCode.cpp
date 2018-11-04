@@ -259,10 +259,12 @@ int main()
 
 		case CHNG_DRAW_CLR:
 				pOut->PrintMessage("Action: Change Figure's drawing color , Click anywhere");
+				pOut->CreateColorBar();
 				break;
 
 		case CHNG_FILL_CLR:
 				pOut->PrintMessage("Action: Change Figure's Fill color , Click anywhere");
+				pOut->CreateColorBar();
 				break;
 			
 		case STATUS:
@@ -310,6 +312,21 @@ int main()
 				break;
 		case LOAD:
 				pOut->PrintMessage("Action: LOAD, Click anywhere");
+				break;
+		case CLR_BLACK_C:
+				pOut->PrintMessage("ACTION BLACK, Click anywhere");
+				break;
+		case CLR_WHITE_C:
+				pOut->PrintMessage("ACTION WHITE, Click anywhere");
+				break;
+		case CLR_GREEN_C:
+				pOut->PrintMessage("ACTION GREEN, Click anywhere");
+				break;
+		case CLR_RED_C:
+				pOut->PrintMessage("ACTION RED, Click anywhere");
+				break;
+		case CLR_BLUE_C:
+				pOut->PrintMessage("ACTION BLUE, Click anywhere");
 				break;
 		case EXIT:				
 				break;

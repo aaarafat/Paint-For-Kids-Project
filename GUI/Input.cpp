@@ -1,8 +1,7 @@
 #include "Input.h"
 #include "Output.h"
 
-
-Input::Input(window* pW) 
+Input::Input(window* pW)
 {
 	pWind = pW; //point to the passed window
 }
@@ -41,7 +40,7 @@ ActionType Input::GetUserAction() const
 	if(UI.InterfaceMode == MODE_DRAW)	//GUI in the DRAW mode
 	{
 		//[0] If user clicks on the Toolsbar
-		if ( x>= 0 && x < 50 &&y > UI.ToolBarHeight)
+		if ( x>= 0 && x < 50 && y > UI.ToolBarHeight && UI.ToolBarMode == MODE_TOOL)
 		{	
 			//Check whick Tool item was clicked
 			//==> This assumes that menu items are lined up vertically <==
@@ -63,6 +62,22 @@ ActionType Input::GetUserAction() const
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
+		if(x>= 0 && x < 50 && y > UI.ToolBarHeight && UI.ToolBarMode == MODE_CLR)
+		{
+			int ClickedItemOrder = (y / UI.ToolsItemHeight);
+			switch (ClickedItemOrder - 1)
+			{
+			case CLR_BLACK: return CLR_BLACK_C;
+			case CLR_WHITE: return CLR_WHITE_C;
+			case CLR_RED: return CLR_RED_C;
+			case CLR_GREEN: return CLR_GREEN_C;
+			case CLR_BLUE: return CLR_BLUE_C;
+
+			default: return EMPTY;
+			}
+
+		}
+
 		//[1] If user clicks on the Toolbar
 		if ( y >= 0 && y < UI.ToolBarHeight)
 		{	
@@ -79,6 +94,8 @@ ActionType Input::GetUserAction() const
 			case ITM_TRI: return DRAW_TRI;
 			case ITM_RHOMBUS: return DRAW_RHOMBUS;
 			case ITM_ELIPSE: return DRAW_ELLIPSE;
+			case ITM_CHNG_DRAW: return CHNG_DRAW_CLR;
+			case ITM_CHNG_FILL: return CHNG_FILL_CLR;
 			case ITM_SWITCH: return TO_PLAY;			
 			case ITM_EXIT: return EXIT;	
 			

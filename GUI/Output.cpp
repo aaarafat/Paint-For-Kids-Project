@@ -5,7 +5,7 @@ Output::Output()
 {
 	//Initialize user interface parameters
 	UI.InterfaceMode = MODE_DRAW;
-	
+	UI.ToolBarMode = MODE_TOOL;
 	UI.width = 1250;
 	UI.height = 650;
 	UI.wx = 5;
@@ -75,6 +75,7 @@ void Output::ClearStatusBar() const
 void Output::CreateDrawToolBar() const
 {
 	UI.InterfaceMode = MODE_DRAW;
+	UI.ToolBarMode = MODE_TOOL;
 	Clear2ndToolBar(); //Clears the toolbar before drawing
 	ClearToolBar();
 	//draw the tool bar icons
@@ -89,6 +90,8 @@ void Output::CreateDrawToolBar() const
 	MenuItemImages[ITM_TRI] = "images\\MenuItems\\Menu_Tri.jpg";
 	MenuItemImages[ITM_RHOMBUS] = "images\\MenuItems\\Menu_Rhom.jpg";
 	MenuItemImages[ITM_ELIPSE] = "images\\MenuItems\\Menu_Elipse.jpg";
+	MenuItemImages[ITM_CHNG_DRAW] = "images\\MenuItems\\Chng_Color_Draw.jpg";
+	MenuItemImages[ITM_CHNG_FILL] = "images\\MenuItems\\Chng_Color_Fill.jpg";
 	MenuItemImages[ITM_SWITCH] = "images\\MenuItems\\Menu_Switch.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
@@ -153,7 +156,23 @@ void Output::CreatePlayToolBar() const
 	pWind->DrawLine(UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight, UI.height - UI.StatusBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
-
+//creating color bar
+void Output::CreateColorBar() const
+{
+	UI.ToolBarMode = MODE_CLR;
+	Clear2ndToolBar();
+	pWind->SetBrush(BLACK);
+	pWind->DrawRectangle(0, UI.ToolBarHeight, 50, UI.ToolBarHeight + 50, FILLED, 1, 1); 
+	pWind->SetBrush(WHITE);
+	pWind->DrawRectangle(0, UI.ToolBarHeight + 50, 50, UI.ToolBarHeight + 100, FILLED, 1, 1); 
+	pWind->SetBrush(RED);
+	pWind->DrawRectangle(0, UI.ToolBarHeight + 100, 50, UI.ToolBarHeight + 150, FILLED, 1, 1); 
+	pWind->SetBrush(GREEN);
+	pWind->DrawRectangle(0, UI.ToolBarHeight + 150, 50, UI.ToolBarHeight + 200, FILLED, 1, 1); 	
+	pWind->SetBrush(BLUE);
+	pWind->DrawRectangle(0, UI.ToolBarHeight  + 200, 50, UI.ToolBarHeight + 250, FILLED, 1, 1); 
+}
+//////////////////////////////////////////////////////////////////////////////////////////
 void Output::ClearToolBar() const
 {
 	pWind->SetBrush(UI.ToolBarColor);

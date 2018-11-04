@@ -10,8 +10,16 @@
 enum GUI_MODE	//Graphical user interface mode
 {
 	MODE_DRAW,	//Drawing mode (startup mode)
-	MODE_PLAY	//Playing mode
+	MODE_PLAY,	//Playing mode
+	
 };
+
+enum CLR_MODE
+{
+	MODE_CLR,
+	MODE_TOOL,
+};
+
 
 enum DrawMenuItem //The items of the Draw menu (you should add more items)
 {
@@ -22,7 +30,8 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_TRI,
 	ITM_RHOMBUS,
 	ITM_ELIPSE,
-	//TODO: Add more items names here
+	ITM_CHNG_DRAW,
+	ITM_CHNG_FILL,
 	ITM_SWITCH,
 	ITM_EXIT,		//Exit item
 	
@@ -59,6 +68,16 @@ enum PlayMenuItem //The items of the Play menu (you should add more items)
 };
 
 
+enum ColorBar //The items of the color bar
+{
+	CLR_BLACK,
+	CLR_WHITE,
+	CLR_RED,
+	CLR_GREEN,
+	CLR_BLUE,
+
+	COLOR_ITM_COUNT
+};
 
 
 
@@ -67,7 +86,7 @@ __declspec(selectany) //This line to prevent "redefinition error"
 struct UI_Info	//User Interface Info.
 {
 	GUI_MODE InterfaceMode;
-	
+	CLR_MODE ToolBarMode;
 	int	width, height,	    //Window width and height
 		wx , wy,			//Window starting coordinates
 		StatusBarHeight,	//Status Bar Height
