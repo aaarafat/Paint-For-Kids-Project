@@ -162,16 +162,17 @@ void Output::CreateColorBar() const
 {
 	UI.ToolBarMode = MODE_CLR;
 	Clear2ndToolBar();
+	pWind->SetPen(DIMGREY, 1);
 	pWind->SetBrush(BLACK);
-	pWind->DrawRectangle(0, UI.ToolBarHeight, 50, UI.ToolBarHeight + 50, FILLED, 1, 1); 
+	pWind->DrawRectangle(0, UI.ToolBarHeight, 50, UI.ToolBarHeight + 50, FILLED, 20, 20); 
 	pWind->SetBrush(WHITE);
-	pWind->DrawRectangle(0, UI.ToolBarHeight + 50, 50, UI.ToolBarHeight + 100, FILLED, 1, 1); 
+	pWind->DrawRectangle(0, UI.ToolBarHeight + 50, 50, UI.ToolBarHeight + 100, FILLED, 20, 20); 
 	pWind->SetBrush(RED);
-	pWind->DrawRectangle(0, UI.ToolBarHeight + 100, 50, UI.ToolBarHeight + 150, FILLED, 1, 1); 
+	pWind->DrawRectangle(0, UI.ToolBarHeight + 100, 50, UI.ToolBarHeight + 150, FILLED, 20, 20); 
 	pWind->SetBrush(GREEN);
-	pWind->DrawRectangle(0, UI.ToolBarHeight + 150, 50, UI.ToolBarHeight + 200, FILLED, 1, 1); 	
+	pWind->DrawRectangle(0, UI.ToolBarHeight + 150, 50, UI.ToolBarHeight + 200, FILLED, 20, 20); 	
 	pWind->SetBrush(BLUE);
-	pWind->DrawRectangle(0, UI.ToolBarHeight  + 200, 50, UI.ToolBarHeight + 250, FILLED, 1, 1); 
+	pWind->DrawRectangle(0, UI.ToolBarHeight  + 200, 50, UI.ToolBarHeight + 250, FILLED, 20, 20); 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void Output::ClearToolBar() const
