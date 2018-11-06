@@ -323,23 +323,23 @@ int main()
 				break;
 		case CLR_BLACK_C:
 				pOut->PrintMessage("ACTION BLACK, Click anywhere");
-				pOut->CreateDrawToolBar();
+				pOut->Create2ndToolBar();
 				break;
 		case CLR_WHITE_C:
 				pOut->PrintMessage("ACTION WHITE, Click anywhere");
-				pOut->CreateDrawToolBar();
+				pOut->Create2ndToolBar();
 				break;
 		case CLR_GREEN_C:
 				pOut->PrintMessage("ACTION GREEN, Click anywhere");
-				pOut->CreateDrawToolBar();
+				pOut->Create2ndToolBar();
 				break;
 		case CLR_RED_C:
 				pOut->PrintMessage("ACTION RED, Click anywhere");
-				pOut->CreateDrawToolBar();
+				pOut->Create2ndToolBar();
 				break;
 		case CLR_BLUE_C:
 				pOut->PrintMessage("ACTION BLUE, Click anywhere");
-				pOut->CreateDrawToolBar();
+				pOut->Create2ndToolBar();
 				break;
 		case EXIT:				
 				break;

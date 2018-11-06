@@ -72,12 +72,29 @@ void Output::ClearStatusBar() const
 	pWind->DrawRectangle(0, UI.height - UI.StatusBarHeight, UI.width, UI.height);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+void Output::Create2ndToolBar() const{
+	Clear2ndToolBar();
+	string ToolsItemImages[DRAW_ITM_COUNT];
+	ToolsItemImages[ITM_COPY] = "images\\MenuItems\\Copy.jpg";
+	ToolsItemImages[ITM_CUT] = "images\\MenuItems\\Cut.jpg";
+	ToolsItemImages[ITM_PASTE] = "images\\MenuItems\\Paste.jpg";
+	ToolsItemImages[ITM_DELETE] = "images\\MenuItems\\Delete.jpg";
+	ToolsItemImages[ITM_SAVE] = "images\\MenuItems\\Save.jpg";
+	ToolsItemImages[ITM_SAVETYPE] = "images\\MenuItems\\SaveType.jpg";
+	ToolsItemImages[ITM_LOAD] = "images\\MenuItems\\Load.jpg";
+
+	for(int i=0; i<TOOLS_ITM_COUNT; i++)
+		pWind->DrawImage(ToolsItemImages[i], 0, i*UI.ToolBarHeight+UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight);
+
+}
+//////////////////////////////////////////////////////////////////////////////////////////
 void Output::CreateDrawToolBar() const
 {
 	UI.InterfaceMode = MODE_DRAW;
 	UI.ToolBarMode = MODE_TOOL;
 	Clear2ndToolBar(); //Clears the toolbar before drawing
 	ClearToolBar();
+	Create2ndToolBar();
 	//draw the tool bar icons
 	//Below is one possible way
 	
@@ -95,21 +112,12 @@ void Output::CreateDrawToolBar() const
 	MenuItemImages[ITM_SWITCH] = "images\\MenuItems\\Menu_Switch.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
-	//Prepare images for each menu item and add it to the list
-	string ToolsItemImages[DRAW_ITM_COUNT];
-	ToolsItemImages[ITM_COPY] = "images\\MenuItems\\Copy.jpg";
-	ToolsItemImages[ITM_CUT] = "images\\MenuItems\\Cut.jpg";
-	ToolsItemImages[ITM_PASTE] = "images\\MenuItems\\Paste.jpg";
-	ToolsItemImages[ITM_DELETE] = "images\\MenuItems\\Delete.jpg";
-	ToolsItemImages[ITM_SAVE] = "images\\MenuItems\\Save.jpg";
-	ToolsItemImages[ITM_SAVETYPE] = "images\\MenuItems\\SaveType.jpg";
-	ToolsItemImages[ITM_LOAD] = "images\\MenuItems\\Load.jpg";
+
+
 	//Draw menu item one image at a time
 	for(int i=0; i<DRAW_ITM_COUNT; i++)
 		pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 
-	for(int i=0; i<TOOLS_ITM_COUNT; i++)
-		pWind->DrawImage(ToolsItemImages[i], 0, i*UI.ToolBarHeight+UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight);
 
 
 	//Draw a line under the toolbar
