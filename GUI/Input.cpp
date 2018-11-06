@@ -41,7 +41,7 @@ ActionType Input::GetUserAction() const
 	{
 		//[0] If user clicks on the Toolsbar
 
-		if ( x>= 0 && x < 50 && y > UI.ToolBarHeight && UI.ToolBarMode == MODE_TOOL)
+		if (x < UI.ToolBarHeight && y > UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight && UI.ToolBarMode == MODE_TOOL)
 		{	
 			//Check whick Tool item was clicked
 			//==> This assumes that menu items are lined up vertically <==
@@ -63,7 +63,7 @@ ActionType Input::GetUserAction() const
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
-		if(x>= 0 && x < 50 && y > UI.ToolBarHeight && UI.ToolBarMode == MODE_CLR)
+		if(x <= UI.ToolBarHeight && y > UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight && UI.ToolBarMode == MODE_CLR)
 		{
 			int ClickedItemOrder = (y / UI.ToolsItemHeight);
 			switch (ClickedItemOrder - 1)
@@ -80,7 +80,7 @@ ActionType Input::GetUserAction() const
 		}
 
 		//[1] If user clicks on the Toolbar
-		if ( y >= 0 && y < UI.ToolBarHeight)
+		if (y >= 0 && y <= UI.ToolBarHeight)
 		{	
 			//Check whick Menu item was clicked
 			//==> This assumes that menu items are lined up horizontally <==
@@ -116,7 +116,7 @@ ActionType Input::GetUserAction() const
 	else	//GUI is in PLAY mode
 	{
 		//[1] If user clicks on the Toolbar
-		if ( y >= 0 && y < UI.ToolBarHeight)
+		if ( y >= 0 && y <= UI.ToolBarHeight)
 		{	
 			//Check whick Menu item was clicked
 			//==> This assumes that menu items are lined up horizontally <==
@@ -133,14 +133,19 @@ ActionType Input::GetUserAction() const
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
+		//[2]A click on empty place in the 2nd toolbar
+		if(x <= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight && y > UI.ToolBarHeight)
+		{
+			return EMPTY;
+		}
 
-		//[2] User clicks on the playing area
-		if ( y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		//[3] User clicks on the playing area
+		if ( y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight && x >= UI.ToolBarHeight)
 		{
 			return PLAYING_AREA;	
 		}
 		
-		//[3] User clicks on the status bar
+		//[4] User clicks on the status bar
 		return STATUS;	
 	}	
 
