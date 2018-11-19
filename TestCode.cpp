@@ -220,6 +220,7 @@ int main()
 	string text = pIn->GetSrting(pOut);
 	pOut->ClearStatusBar();
 	pOut->PrintMessage("You Entered " + text);
+	Sleep(4000); //showing the message for 4 seconds
 	pIn->GetPointClicked(x,y);	//Wait for any click
 	pOut->ClearDrawArea();
 
