@@ -73,6 +73,8 @@ void Output::ClearStatusBar() const
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void Output::Create2ndToolBar() const{
+	UI.InterfaceMode = MODE_DRAW;
+	UI.ToolBarMode = MODE_TOOL;
 	Clear2ndToolBar();
 	string ToolsItemImages[DRAW_ITM_COUNT];
 	ToolsItemImages[ITM_COPY] = "images\\MenuItems\\Copy.jpg";
