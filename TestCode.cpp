@@ -220,7 +220,7 @@ int main()
 	string text = pIn->GetSrting(pOut);
 	pOut->ClearStatusBar();
 	pOut->PrintMessage("You Entered " + text + " ,Press Enter to continue");
-	pIn->GetKeyClicked(); //waiting for pressing enter
+	pIn->GetEnterPressed(); //waiting for pressing enter
 	pOut->ClearDrawArea();
 
 	///////////////////////////////////////////////////////////////////////////////////

@@ -10,7 +10,7 @@ void Input::GetPointClicked(int &x, int &y) const
 {
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
 }
-void Input::GetKeyClicked() const
+void Input::GetEnterPressed() const
 {
 	char Key;
 	while(true)
