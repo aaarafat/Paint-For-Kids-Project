@@ -10,6 +10,20 @@ void Input::GetPointClicked(int &x, int &y) const
 {
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
 }
+void Input::GetKeyClicked() const
+{
+	char Key;
+	while(true)
+	{
+		pWind->WaitKeyPress(Key);
+		if(Key == 13)
+		{
+			break;
+		}
+
+	}
+
+}
 
 string Input::GetSrting(Output *pO) const 
 {
@@ -28,6 +42,8 @@ string Input::GetSrting(Output *pO) const
 			Label += Key;
 		if (pO)
 			pO->PrintMessage(Label);
+
+
 	}
 }
 

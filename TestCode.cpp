@@ -219,9 +219,8 @@ int main()
 	pOut->PrintMessage("Testing Input ability to read strings");
 	string text = pIn->GetSrting(pOut);
 	pOut->ClearStatusBar();
-	pOut->PrintMessage("You Entered " + text);
-	Sleep(4000); //showing the message for 4 seconds
-	pIn->GetPointClicked(x,y);	//Wait for any click
+	pOut->PrintMessage("You Entered " + text + " ,Press Enter to continue");
+	pIn->GetKeyClicked(); //waiting for pressing enter
 	pOut->ClearDrawArea();
 
 	///////////////////////////////////////////////////////////////////////////////////
