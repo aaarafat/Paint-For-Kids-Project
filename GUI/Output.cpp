@@ -232,16 +232,6 @@ color Output::getCrntFillColor() const	//get current filling color
 int Output::getCrntPenWidth() const		//get current pen width
 {	return UI.PenWidth;	}
 
-/////////////////////////////////////////////////////////////////////////////////////////
-void Output::CheckPoint(Point& P, Input* pIn)
-{
-	while(P.y < UI.ToolBarHeight + 1 || P.y > UI.height - UI.StatusBarHeight - 1 || P.x < UI.ToolBarHeight + 1)
-	{
-		PrintMessage("Please, click on the draw area");
-		pIn->GetPointClicked(P.x, P.y);
-	}
-
-}
 //======================================================================================//
 //								Figures Drawing Functions								//
 //======================================================================================//

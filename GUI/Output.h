@@ -30,7 +30,6 @@ public:
 	void DrawRhom(Point P1, GfxInfo RhomGfxInfo, bool selected = false) const;
 
 
-	void CheckPoint(Point&P, Input* pIn);  //checking whether the point's in the drawing area or not
 	void PrintMessage(string msg) const;	//Print a message on Status bar
 
 	color getCrntDrawColor() const;	//get current drwawing color

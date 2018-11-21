@@ -1,6 +1,5 @@
 #include "Input.h"
 #include "Output.h"
-
 Input::Input(window* pW)
 {
 	pWind = pW; //point to the passed window
@@ -8,6 +7,7 @@ Input::Input(window* pW)
 
 void Input::GetPointClicked(int &x, int &y) const
 {
+
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
 }
 void Input::GetEnterPressed() const
