@@ -50,6 +50,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case CHNG_DRAW_CLR:
 			pOut->CreateColorBar(MODE_CLR_D);
 			break;
+		case SELECT:
+			pOut->PrintMessage("LOOOOOOL");
+			break;
 		case CLR_BLACK_F:
 			UI.FillColor = BLACK;
 			pOut->Create2ndToolBar();

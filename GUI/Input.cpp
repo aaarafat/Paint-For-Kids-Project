@@ -67,6 +67,7 @@ ActionType Input::GetUserAction() const
 
 			switch (ClickedItemOrder-1) // -1 as the tool bar is under the menu bar so ther is 50px (1 after div) initially
 			{
+			case ITM_SELECT: return SELECT;
 			case ITM_COPY: return COPY;
 			case ITM_CUT: return CUT;
 			case ITM_PASTE: return PASTE;

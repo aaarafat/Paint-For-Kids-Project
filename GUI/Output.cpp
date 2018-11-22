@@ -77,6 +77,7 @@ void Output::Create2ndToolBar() const{
 	UI.ToolBarMode = MODE_TOOL;
 	Clear2ndToolBar();
 	string ToolsItemImages[DRAW_ITM_COUNT];
+	ToolsItemImages[ITM_SELECT] = "images\\MenuItems\\SELECT.jpg";
 	ToolsItemImages[ITM_COPY] = "images\\MenuItems\\Copy.jpg";
 	ToolsItemImages[ITM_CUT] = "images\\MenuItems\\Cut.jpg";
 	ToolsItemImages[ITM_PASTE] = "images\\MenuItems\\Paste.jpg";

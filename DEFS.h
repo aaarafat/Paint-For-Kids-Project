@@ -13,6 +13,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	DRAW_ELLIPSE,		//Draw Ellipse
 	CHNG_DRAW_CLR,	//Change the drawing color
 	CHNG_FILL_CLR,	//Change the filling color
+	SELECT,			//Select a figure(s)
     COPY,           //Copy a figure(s)
 	CUT,            //Cut a figure(s)
 	PASTE,          //Paste a figure(s)
