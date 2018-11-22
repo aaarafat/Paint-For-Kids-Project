@@ -16,7 +16,5 @@ void ToDrawMode::Execute()
 
 	pOut->CreateDrawToolBar();
 
-	UI.InterfaceMode=MODE_DRAW;
-
 }
 

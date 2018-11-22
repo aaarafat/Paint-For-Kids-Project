@@ -17,7 +17,6 @@ void ToPlayMode::Execute()
 
 	pOut->CreatePlayToolBar();
 
-	UI.InterfaceMode=MODE_PLAY;
 
 }
 

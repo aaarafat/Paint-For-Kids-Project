@@ -110,6 +110,12 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pOut->Create2ndToolBar();
 			pOut->ClearStatusBar();
 			break;
+		case TO_PLAY:
+			pAct = new ToPlayMode(this);
+			break;
+		case TO_DRAW:
+			pAct = new ToDrawMode(this);
+			break;
 		case EXIT:
 			///create Exit Action here
 			
