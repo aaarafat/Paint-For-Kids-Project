@@ -6,6 +6,7 @@
 
 
 
+#include "Actions\AddRhombAction.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -48,9 +49,67 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			///create AddLineAction here
 
 			break;
-
+		case DRAW_RHOMBUS:
+			pAct = new AddRhombAction(this);
+			break;
+		case CHNG_FILL_CLR:
+			pOut->CreateColorBar(MODE_CLR_F);
+			break;
+		case CHNG_DRAW_CLR:
+			pOut->CreateColorBar(MODE_CLR_D);
+			break;
+		case CLR_BLACK_F:
+			UI.FillColor = BLACK;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_WHITE_F:
+			UI.FillColor = WHITE;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_GREEN_F:
+			UI.FillColor = GREEN;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_RED_F:
+			UI.FillColor = RED;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_BLUE_F:
+			UI.FillColor = BLUE;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_BLACK_D:
+			UI.DrawColor = BLACK;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_WHITE_D:
+			UI.DrawColor = WHITE;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_GREEN_D:
+			UI.DrawColor = GREEN;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_RED_D:
+			UI.DrawColor = RED;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_BLUE_D:
+			UI.DrawColor = BLUE;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
 		case EXIT:
-			///create ExitAction here
+			///create Exit Action here
 			
 			break;
 		
