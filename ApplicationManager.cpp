@@ -59,7 +59,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pOut->CreateColorBar(MODE_CLR_D);
 			break;
 		case SELECT:
-			pOut->PrintMessage("LOOOOOOL");
 			break;
 		case CLR_BLACK_F:
 			UI.FillColor = BLACK;
