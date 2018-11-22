@@ -3,6 +3,7 @@
 #include "Actions\AddTriAction.h"
 #include "Actions\ToDrawMode.h"
 #include "Actions\ToPlayMode.h"
+#include "Actions\AddLineAction.h"
 
 
 
@@ -42,16 +43,18 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case DRAW_RECT:
 			pAct = new AddRectAction(this);
 			break;
+
 		case DRAW_TRI:
 			pAct = new AddTriAction(this);
 		
 		case DRAW_LINE:
-			///create AddLineAction here
-
+			pAct = new AddLineAction(this);
 			break;
+
 		case DRAW_RHOMBUS:
 			pAct = new AddRhombAction(this);
 			break;
+
 		case CHNG_FILL_CLR:
 			pOut->CreateColorBar(MODE_CLR_F);
 			break;
