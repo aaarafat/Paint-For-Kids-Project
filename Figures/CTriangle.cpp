@@ -14,3 +14,21 @@ void CTriangle::Draw(Output* pOut) const
 	//Call Output::DrawTri to draw a triangle on the screen	
 	pOut->DrawTri(Corner1, Corner2, Corner3, FigGfxInfo, Selected);
 }
+bool CTriangle::IsInside(int x, int y)
+{
+   float A = area (Corner1.x, Corner1.y, Corner2.x, Corner2.y, Corner3.x, Corner3.y); 
+   
+   float A1 = area (x, y, Corner2.x, Corner2.y, Corner3.x, Corner3.y); 
+    
+   float A2 = area (Corner1.x, Corner1.y, x, y, Corner3.x, Corner3.y); 
+     
+   float A3 = area (Corner1.x, Corner1.y, Corner2.x, Corner2.y, x, y); 
+    
+   /* Check if sum of A1, A2 and A3 is same as A */ 
+   return (A == A1 + A2 + A3); 
+}
+float CTriangle::area(int x1, int y1, int x2, int y2, int x3, int y3)
+{ 
+	return abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0); 
+} 
+
