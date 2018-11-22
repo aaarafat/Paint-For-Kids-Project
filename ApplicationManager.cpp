@@ -1,5 +1,10 @@
 #include "ApplicationManager.h"
 #include "Actions\AddRectAction.h"
+#include "Actions\AddTriAction.h"
+#include "Actions\ToDrawMode.h"
+#include "Actions\ToPlayMode.h"
+
+
 
 
 //Constructor
@@ -36,7 +41,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case DRAW_RECT:
 			pAct = new AddRectAction(this);
 			break;
-
+		case DRAW_TRI:
+			pAct = new AddTriAction(this);
+		
 		case DRAW_LINE:
 			///create AddLineAction here
 
