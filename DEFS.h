@@ -28,16 +28,11 @@ enum ActionType //The actions supported (you can add more if needed)
 	DRAWING_AREA,	//A click on the drawing area
 	STATUS,			//A click on the status bar
 	EMPTY,			//A click on empty place in the toolbar
-	CLR_BLACK_D,
-	CLR_WHITE_D,
-	CLR_RED_D,
-	CLR_GREEN_D,
-	CLR_BLUE_D,
-	CLR_BLACK_F,
-	CLR_WHITE_F,
-	CLR_RED_F,
-	CLR_GREEN_F,
-	CLR_BLUE_F,
+	CLR_BLACK_C,
+	CLR_WHITE_C,
+	CLR_RED_C,
+	CLR_GREEN_C,
+	CLR_BLUE_C,
 	
 
 	TO_DRAW,		//Switch interface to Draw mode

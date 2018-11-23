@@ -8,6 +8,7 @@
 #include "Actions\AddLineAction.h"
 #include "Actions\AddRhombAction.h"
 #include "Actions\FillClr.h"
+#include "Actions\DrawClr.h"
 
 
 //Constructor
@@ -64,35 +65,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new FillClr(this);
 			break;
 		case CHNG_DRAW_CLR:
-			pOut->CreateColorBar(MODE_CLR_D);
+			pAct = new DrawClr(this);
 			break;
 		case SELECT:
 			pAct = new Select(this);
-			break;
-		case CLR_BLACK_D:
-			UI.DrawColor = BLACK;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_WHITE_D:
-			UI.DrawColor = WHITE;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_GREEN_D:
-			UI.DrawColor = GREEN;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_RED_D:
-			UI.DrawColor = RED;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_BLUE_D:
-			UI.DrawColor = BLUE;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
 			break;
 		case TO_PLAY:
 			pAct = new ToPlayMode(this);
