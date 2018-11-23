@@ -2,6 +2,8 @@
 
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
+	ID = counter;
+	counter += 1000;
 	Corner1 = P1;
 	Corner2 = P2;
 }
@@ -37,4 +39,11 @@ bool CRectangle::IsInside(int x, int y)
 		y1 = Corner2.y;
 	}
 	return (x <= x1 && x >= x2 && y <= y1 && y >= y2);
+}
+void CRectangle::Save(ofstream &OutFile, string filename)
+{
+	//OutFile.open(filename);
+	//if(FigGfxInfo.
+	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
+	// 0 means NO_FILL
 }

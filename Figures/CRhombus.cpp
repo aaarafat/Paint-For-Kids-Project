@@ -3,6 +3,8 @@
 
 CRhombus::CRhombus(Point C, GfxInfo RhomGfxInfo) : CFigure(RhomGfxInfo)
 {
+	ID = counter;
+	counter += 1000;
 	if(C.y - 100 < UI.ToolBarHeight + 1)
 	{
 		C.y = UI.ToolBarHeight + 101;
@@ -42,3 +44,10 @@ float CRhombus::area(int x1, int y1, int x2, int y2, int x3, int y3)
 { 
 	return abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0); 
 } 
+void CRhombus::Save(ofstream &OutFile, string filename)
+{
+	//OutFile.open(filename);
+	//if(FigGfxInfo.
+	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
+	// 0 means NO_FILL
+}
