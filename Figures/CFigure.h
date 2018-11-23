@@ -25,6 +25,7 @@ public:
 	virtual void Draw(Output* pOut) const  = 0 ;		//Draw the figure
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
+	virtual void SetCenter(Point Center)= 0;   //change the figure's center
 
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure

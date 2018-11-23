@@ -31,6 +31,42 @@ float CTriangle::area(int x1, int y1, int x2, int y2, int x3, int y3)
 { 
 	return abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0); 
 } 
+<<<<<<< HEAD
+
+void CTriangle::SetCenter(Point Center)
+{
+	Point C; //the center of the triangle
+	C.x = (Corner1.x+Corner2.x+Corner3.x)/3;
+	C.y = (Corner1.y+Corner2.y+Corner3.y)/3;
+	if (Center.x > C.x)
+	{
+		Corner1.x += Center.x - Corner1.x;
+		Corner2.x += Center.x - Corner2.x;
+		Corner3.x += Center.x - Corner3.x;
+	}
+	else
+	{
+		Corner1.x -= Corner1.x - Center.x;
+		Corner2.x -= Corner2.x - Center.x;
+		Corner3.x -= Corner3.x - Center.x;
+	}
+	if (Center.y > C.y )
+	{
+		Corner1.y += Center.y - Corner1.y;
+		Corner2.y += Center.y - Corner2.y;
+		Corner3.y += Center.y - Corner3.y;
+	}
+	else
+	{
+		Corner1.y -= Corner1.y - Center.y;
+		Corner2.y -= Corner2.y - Center.y;
+		Corner3.y -= Corner3.y - Center.y;
+	}
+}
+
+
+
+=======
 void CTriangle::Save(ofstream &OutFile, string filename)
 {
 	//OutFile.open(filename);
@@ -38,3 +74,4 @@ void CTriangle::Save(ofstream &OutFile, string filename)
 	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
 	// 0 means NO_FILL
 }
+>>>>>>> 048db81ab61d8e51dad859f041d42eaa3ecfee5a
