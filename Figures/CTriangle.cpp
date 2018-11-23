@@ -40,27 +40,27 @@ void CTriangle::SetCenter(Point Center)
 	C.y = (Corner1.y+Corner2.y+Corner3.y)/3;
 	if (Center.x > C.x)
 	{
-		Corner1.x += Center.x - Corner1.x;
-		Corner2.x += Center.x - Corner2.x;
-		Corner3.x += Center.x - Corner3.x;
+		Corner1.x += Center.x - C.x;
+		Corner2.x += Center.x - C.x;
+		Corner3.x += Center.x - C.x;
 	}
 	else
 	{
-		Corner1.x -= Corner1.x - Center.x;
-		Corner2.x -= Corner2.x - Center.x;
-		Corner3.x -= Corner3.x - Center.x;
+		Corner1.x -= C.x - Center.x;
+		Corner2.x -= C.x - Center.x;
+		Corner3.x -= C.x - Center.x;
 	}
 	if (Center.y > C.y )
 	{
-		Corner1.y += Center.y - Corner1.y;
-		Corner2.y += Center.y - Corner2.y;
-		Corner3.y += Center.y - Corner3.y;
+		Corner1.y += Center.y - C.y;
+		Corner2.y += Center.y - C.y;
+		Corner3.y += Center.y - C.y;
 	}
 	else
 	{
-		Corner1.y -= Corner1.y - Center.y;
-		Corner2.y -= Corner2.y - Center.y;
-		Corner3.y -= Corner3.y - Center.y;
+		Corner1.y -= C.y - Center.y;
+		Corner2.y -= C.y - Center.y;
+		Corner3.y -= C.y - Center.y;
 	}
 }
 

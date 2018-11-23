@@ -22,6 +22,10 @@ void Paste::ReadActionParameters()
 		{
 			CopiedF = new CTriangle(*dynamic_cast<CTriangle*>(CopiedF));
 		}
+		else if (dynamic_cast<CRectangle*>(CopiedF))
+		{
+			CopiedF = new CRectangle(*dynamic_cast<CRectangle*>(CopiedF));
+		}
 		else
 		{
 			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));

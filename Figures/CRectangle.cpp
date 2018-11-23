@@ -44,10 +44,10 @@ void CRectangle::SetCenter(Point Center)
 	Point C;
 	C.x = (Corner1.x + Corner2.x)/2;
 	C.y = (Corner1.y + Corner2.y)/2;
-	Corner1.x += Center.x - Corner1.x;
-	Corner2.x += Center.x - Corner2.x;
-	Corner1.y += Center.y - Corner1.y;
-	Corner2.y += Center.y - Corner2.y;
+	Corner1.x += Center.x - C.x;
+	Corner2.x += Center.x - C.x;
+	Corner1.y += Center.y - C.y;
+	Corner2.y += Center.y - C.y;
 }
 
 void CRectangle::Save(ofstream &OutFile, string filename)

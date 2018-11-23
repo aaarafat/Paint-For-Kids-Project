@@ -5,6 +5,7 @@
 #include "..\Figures\CRhombus.h"
 #include "..\Figures\CTriangle.h"
 #include "..\Figures\CElipse.h"
+#include "..\Figures\CRectangle.h"
 #include "..\ApplicationManager.h"
 
 #include "..\GUI\input.h"
