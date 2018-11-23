@@ -15,6 +15,7 @@ public:
 	~CLine(void);
 	virtual void Draw(Output* pOut) const; //draw function for line
 	virtual bool IsInside(int x, int y);
+	virtual void SetCenter(Point Center) {};
 };
 
 #endif

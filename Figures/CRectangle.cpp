@@ -38,3 +38,15 @@ bool CRectangle::IsInside(int x, int y)
 	}
 	return (x <= x1 && x >= x2 && y <= y1 && y >= y2);
 }
+
+void CRectangle::SetCenter(Point Center)
+{
+	Point C;
+	C.x = (Corner1.x + Corner2.x)/2;
+	C.y = (Corner1.y + Corner2.y)/2;
+	Corner1.x += Center.x - Corner1.x;
+	Corner2.x += Center.x - Corner2.x;
+	Corner1.y += Center.y - Corner1.y;
+	Corner2.y += Center.y - Corner2.y;
+}
+

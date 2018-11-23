@@ -12,5 +12,6 @@ public:
 	CTriangle(Point, Point, Point, GfxInfo FigureGfxInfo);
 	virtual void Draw(Output* pOut) const;
 	virtual bool IsInside(int x, int y);
+	virtual void SetCenter(Point Center);   //change the figure's center
 };
 

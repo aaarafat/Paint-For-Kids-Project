@@ -28,4 +28,8 @@ bool CElipse::IsInside(int x, int y)
 	return (x - Center.x) * (x - Center.x) / ((100.0) * (100)) +
 		(y - Center.y) * (y - Center.y) / ((50.0) * (50)) <= 1;
 }
+void CElipse::SetCenter(Point Center)
+{
+	this->Center = Center;
+}
 

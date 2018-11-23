@@ -11,6 +11,7 @@
 #include "Actions\FillClr.h"
 #include "Actions\DrawClr.h"
 #include "Actions\Copy.h"
+#include "Actions\Past.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -79,6 +80,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case COPY:
 			pAct = new Copy(this);
+			break;
+		case PASTE:
+			pAct = new Past(this);
 			break;
 		case EXIT:
 			///create Exit Action here

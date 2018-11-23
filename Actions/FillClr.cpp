@@ -50,7 +50,6 @@ void FillClr::ReadActionParameters()
 
 void FillClr::Execute()
 {
-	bool flag;
 	ReadActionParameters();
 
 	if(true)

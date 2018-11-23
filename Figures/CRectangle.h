@@ -12,6 +12,7 @@ public:
 	bool IsInside(int x, int y);
 	CRectangle(Point , Point, GfxInfo FigureGfxInfo );
 	virtual void Draw(Output* pOut) const;
+	virtual void SetCenter(Point Center);   //change the figure's center
 };
 
 #endif
