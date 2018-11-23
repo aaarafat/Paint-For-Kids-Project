@@ -1,46 +1,42 @@
-#include "FillClr.h"
+#include "DrawClr.h"
 
-
-FillClr::FillClr(ApplicationManager *pApp): Action(pApp)
+DrawClr::DrawClr(ApplicationManager *pApp): Action(pApp)
 {
 }
 
-
-void FillClr::ReadActionParameters()
+void DrawClr::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateColorBar();
-	pOut->PrintMessage("Choose the filling color");
-	flag = true;
+	pOut->PrintMessage("Choose the Drawing color");
 	switch (pManager->GetUserAction())
 	{
 		case CLR_BLACK_C:
-			UI.FillColor = BLACK;
+			UI.DrawColor = BLACK;
 			pOut->Create2ndToolBar();
 			pOut->ClearStatusBar();
 			break;
 		case CLR_WHITE_C:
-			UI.FillColor = WHITE;
+			UI.DrawColor = WHITE;
 			pOut->Create2ndToolBar();
 			pOut->ClearStatusBar();
 			break;
 		case CLR_GREEN_C:
-			UI.FillColor = GREEN;
+			UI.DrawColor = GREEN;
 			pOut->Create2ndToolBar();
 			pOut->ClearStatusBar();
 			break;
 		case CLR_RED_C:
-			UI.FillColor = RED;
+			UI.DrawColor = RED;
 			pOut->Create2ndToolBar();
 			pOut->ClearStatusBar();
 			break;
 		case CLR_BLUE_C:
-			UI.FillColor = BLUE;
+			UI.DrawColor = BLUE;
 			pOut->Create2ndToolBar();
 			pOut->ClearStatusBar();
 			break;
 		default:
-			//flag = false;
 			pOut->Create2ndToolBar();
 			pOut->ClearStatusBar();
 			break;
@@ -48,24 +44,14 @@ void FillClr::ReadActionParameters()
 
 }
 
-void FillClr::Execute()
+void DrawClr::Execute()
 {
-
 	ReadActionParameters();
-
-	bool flag;
-	ReadActionParameters();
-
-
-	if(true)
+	CFigure* F = pManager->GetSelected();
+	if (F != NULL)
 	{
-		CFigure* F = pManager->GetSelected();
-		if (F != NULL)
-		{
-			F->ChngFillClr(UI.FillColor);
-			F->SetSelected(false);
-			pManager->AddSelected(NULL);
-		}
-		ActGfxInfo.isFilled=true;
+		F->ChngDrawClr(UI.DrawColor);
+		F->SetSelected(false);
+		pManager->AddSelected(NULL);
 	}
 }

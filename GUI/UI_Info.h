@@ -16,8 +16,7 @@ enum GUI_MODE	//Graphical user interface mode
 
 enum CLR_MODE
 {
-	MODE_CLR_D,
-	MODE_CLR_F,
+	MODE_CLR,
 	MODE_TOOL,
 };
 
