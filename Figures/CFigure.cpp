@@ -1,7 +1,8 @@
 #include "CFigure.h"
-
+int CFigure::counter;
 CFigure::CFigure(GfxInfo FigureGfxInfo)
-{ 
+{
+	counter = 1000;
 	FigGfxInfo = FigureGfxInfo;	//Default status is non-filled.
 	Selected = false;
 }
