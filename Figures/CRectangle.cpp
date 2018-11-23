@@ -40,7 +40,6 @@ bool CRectangle::IsInside(int x, int y)
 	}
 	return (x <= x1 && x >= x2 && y <= y1 && y >= y2);
 }
-<<<<<<< HEAD
 
 void CRectangle::SetCenter(Point Center)
 {
@@ -53,7 +52,6 @@ void CRectangle::SetCenter(Point Center)
 	Corner2.y += Center.y - Corner2.y;
 }
 
-=======
 void CRectangle::Save(ofstream &OutFile, string filename)
 {
 	//OutFile.open(filename);
@@ -61,4 +59,4 @@ void CRectangle::Save(ofstream &OutFile, string filename)
 	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
 	// 0 means NO_FILL
 }
->>>>>>> 048db81ab61d8e51dad859f041d42eaa3ecfee5a
+

@@ -1,16 +1,16 @@
-#include "Past.h"
+#include "Paste.h"
 
 
-Past::Past(ApplicationManager *pApp):Action(pApp)
+Paste::Paste(ApplicationManager *pApp):Action(pApp)
 {
 }
 
-void Past::ReadActionParameters()
+void Paste::ReadActionParameters()
 {
 	CopiedF = pManager->getClipboard();
 }
 
-void Past::Execute()
+void Paste::Execute()
 {
 	Output * pOut = pManager->GetOutput();
 	Input * pIn = pManager->GetInput();

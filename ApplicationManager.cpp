@@ -11,14 +11,11 @@
 #include "Actions\FillClr.h"
 #include "Actions\DrawClr.h"
 #include "Actions\Copy.h"
-<<<<<<< HEAD
-#include "Actions\Past.h"
-
-=======
+#include "Actions\Paste.h"
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
 #include "GUI\Input.h"
->>>>>>> 048db81ab61d8e51dad859f041d42eaa3ecfee5a
+
 //Constructor
 ApplicationManager::ApplicationManager()
 {
@@ -88,7 +85,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new Copy(this);
 			break;
 		case PASTE:
-			pAct = new Past(this);
+			pAct = new Paste(this);
 			break;
 		case EXIT:
 			///create Exit Action here

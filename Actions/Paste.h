@@ -7,12 +7,12 @@
 #include "..\GUI\input.h"
 #include "..\GUI\Output.h"
 
-class Past :
+class Paste :
 	public Action
 {
 	CFigure* CopiedF;
 public:
-	Past(ApplicationManager *pApp);
+	Paste(ApplicationManager *pApp);
 	
 	virtual void ReadActionParameters();
 

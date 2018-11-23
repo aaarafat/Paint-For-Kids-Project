@@ -44,17 +44,16 @@ float CRhombus::area(int x1, int y1, int x2, int y2, int x3, int y3)
 { 
 	return abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0); 
 } 
-<<<<<<< HEAD
+
 
 void CRhombus::SetCenter(Point Center)
 {
 	this->Center = Center;
-=======
+}
 void CRhombus::Save(ofstream &OutFile, string filename)
 {
 	//OutFile.open(filename);
 	//if(FigGfxInfo.
 	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
 	// 0 means NO_FILL
->>>>>>> 048db81ab61d8e51dad859f041d42eaa3ecfee5a
 }
