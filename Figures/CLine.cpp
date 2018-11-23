@@ -39,3 +39,13 @@ void CLine::Save(ofstream &OutFile, string filename)
 	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
 	// 0 means NO_FILL
 }
+void CLine::SetCenter(Point Center)
+{
+	Point C;
+	C.x = (Point1.x + Point2.x)/2;
+	C.y = (Point1.y + Point2.y)/2;
+	Point1.x += Center.x - C.x;
+	Point2.x += Center.x - C.x;
+	Point1.y += Center.y - C.y;
+	Point2.y += Center.y - C.y;
+}

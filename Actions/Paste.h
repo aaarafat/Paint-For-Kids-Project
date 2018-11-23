@@ -1,11 +1,5 @@
 #pragma once
 #include "Action.h"
-#include "..\Figures\CFigure.h"
-#include "..\Figures\CLine.h"
-#include "..\Figures\CRhombus.h"
-#include "..\Figures\CTriangle.h"
-#include "..\Figures\CElipse.h"
-#include "..\Figures\CRectangle.h"
 #include "..\ApplicationManager.h"
 
 #include "..\GUI\input.h"

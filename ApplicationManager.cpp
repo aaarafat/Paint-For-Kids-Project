@@ -122,8 +122,8 @@ void ApplicationManager::AddSelected(CFigure* S)
 }
 
 
-void ApplicationManager::setClipboard(CFigure *c){
-	Clipboard = c;
+void ApplicationManager::setClipboard(CFigure *C){
+	Clipboard = C;
 }
 
 CFigure *ApplicationManager::getClipboard() const { return Clipboard; }
@@ -195,6 +195,7 @@ ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<FigCount; i++)
 		delete FigList[i];
+	delete Clipboard;
 	delete pIn;
 	delete pOut;
 	
