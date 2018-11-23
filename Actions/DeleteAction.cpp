@@ -17,7 +17,7 @@ void DeleteAction::Execute()
 {
 	Output * pOut = pManager->GetOutput();
 
-	if(pManager->getSelectedFig())
+	if(pManager->GetSelected())
 	{
 		pOut->PrintMessage("The figure is deleted");
 		pManager->DeleteSelectedFigure();

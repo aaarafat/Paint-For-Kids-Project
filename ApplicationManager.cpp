@@ -122,32 +122,29 @@ void ApplicationManager::AddSelected(CFigure* S)
 }
 
 
-void ApplicationManager::setSelectedFig(CFigure *p){
-	SelectedFig = p;
-}
 void ApplicationManager::setClipboard(CFigure *c){
 	Clipboard = c;
 }
 
-
-CFigure *ApplicationManager::getSelectedFig() const { return SelectedFig; }
 CFigure *ApplicationManager::getClipboard() const { return Clipboard; }
 
 //need to be put in DeleteAction class
 void ApplicationManager::DeleteSelectedFigure(){
 	int selectedfigureindex;
-		for (int i = 0; i<FigCount; i++){
-			if(SelectedFig==FigList[i]){
+		for (int i = 0; i<FigCount; i++)
+		{
+			if(SelectedFig==FigList[i])
+			{
 				FigList[i]=NULL;
 				selectedfigureindex=i;
 			}
 		}
-		for(int i=selectedfigureindex;i<FigCount-1;i++){
+		for(int i=selectedfigureindex;i<FigCount-1;i++)
+		{
 			FigList[i]=FigList[i+1];
 		}
 		SelectedFig=NULL;
 		pOut->ClearDrawArea();
-		UpdateInterface();
 		FigCount--;
 }
 ////////////////////////////////////////////////////////////////////////////////////

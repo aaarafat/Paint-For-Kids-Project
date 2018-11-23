@@ -35,9 +35,7 @@ public:
 	void AddFigure(CFigure* pFig);          //Adds a new figure to the FigList
 	void AddSelected(CFigure* S);
 	CFigure *GetFigure(int x, int y) const; //Search for a figure given a point inside the figure
-	void setSelectedFig(CFigure *);
 	void setClipboard(CFigure *);
-	CFigure * getSelectedFig() const;
 	CFigure * getClipboard() const;
 	void DeleteSelectedFigure();			//Removes a figure from the list and updates it
 	
