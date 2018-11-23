@@ -11,7 +11,9 @@
 #include "Actions\FillClr.h"
 #include "Actions\DrawClr.h"
 #include "Actions\Copy.h"
-
+#include "GUI\UI_Info.h"
+#include "GUI\Output.h"
+#include "GUI\Input.h"
 //Constructor
 ApplicationManager::ApplicationManager()
 {
@@ -135,9 +137,12 @@ void ApplicationManager::DeleteSelectedFigure(){
 				selectedfigureindex=i;
 			}
 		}
-		for(int i=selectedfigureindex;i<FigCount-1;i++)
+		for(int i=selectedfigureindex;i<FigCount-1;i++){
 			FigList[i]=FigList[i+1];
+		}
 		SelectedFig=NULL;
+		pOut->ClearDrawArea();
+		UpdateInterface();
 		FigCount--;
 }
 ////////////////////////////////////////////////////////////////////////////////////
