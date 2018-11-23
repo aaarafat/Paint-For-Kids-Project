@@ -40,7 +40,7 @@ void FillClr::ReadActionParameters()
 			pOut->ClearStatusBar();
 			break;
 		default:
-			//flag = false;
+			flag = false;
 			pOut->Create2ndToolBar();
 			pOut->ClearStatusBar();
 			break;
@@ -50,16 +50,10 @@ void FillClr::ReadActionParameters()
 
 void FillClr::Execute()
 {
-
 	ReadActionParameters();
-
-	bool flag;
-	ReadActionParameters();
-
-
-	if(true)
+	CFigure* F = pManager->GetSelected();
+	if(flag)
 	{
-		CFigure* F = pManager->GetSelected();
 		if (F != NULL)
 		{
 			F->ChngFillClr(UI.FillColor);
@@ -68,4 +62,10 @@ void FillClr::Execute()
 		}
 		ActGfxInfo.isFilled=true;
 	}
+	else if(F)
+	{
+		F->SetSelected(false);
+		pManager->AddSelected(NULL);
+	}
+
 }
