@@ -8,7 +8,7 @@ void DrawClr::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateColorBar();
-	pOut->PrintMessage("Choose the Drawing color");
+	pOut->PrintMessage("Choose the Drawing color, Click at the empty area to cancel");
 	switch (pManager->GetUserAction())
 	{
 		case CLR_BLACK_C:
@@ -48,7 +48,7 @@ void DrawClr::Execute()
 {
 	ReadActionParameters();
 	CFigure* F = pManager->GetSelected();
-	if (F != NULL)
+	if (F)
 	{
 		F->ChngDrawClr(UI.DrawColor);
 		F->SetSelected(false);

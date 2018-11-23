@@ -7,6 +7,7 @@
 #include "Actions\Select.h"
 #include "Actions\AddLineAction.h"
 #include "Actions\AddRhombAction.h"
+#include "Actions\DeleteAction.h"
 #include "Actions\FillClr.h"
 #include "Actions\DrawClr.h"
 
@@ -80,7 +81,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			///create Exit Action here
 			
 			break;
-		
+		case DEL:
+			pAct = new DeleteAction(this);
+			break;
 		case STATUS:	//a click on the status bar ==> no action
 			return;
 	}
@@ -108,6 +111,28 @@ void ApplicationManager::AddSelected(CFigure* S)
 	SelectedFig = S;
 }
 
+
+void ApplicationManager::setSelectedFig(CFigure *p){
+	SelectedFig = p;
+}
+
+
+CFigure *ApplicationManager::getSelectedFig() const { return SelectedFig; }
+
+//need to be put in DeleteAction class
+void ApplicationManager::DeleteSelectedFigure(){
+	int selectedfigureindex;
+		for (int i = 0; i<FigCount; i++){
+			if(SelectedFig==FigList[i]){
+				FigList[i]=NULL;
+				selectedfigureindex=i;
+			}
+		}
+		for(int i=selectedfigureindex;i<FigCount-1;i++)
+			FigList[i]=FigList[i+1];
+		SelectedFig=NULL;
+		FigCount--;
+}
 ////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
 {
