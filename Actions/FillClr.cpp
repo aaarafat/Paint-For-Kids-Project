@@ -53,6 +53,14 @@ void FillClr::Execute()
 {
 	ReadActionParameters();
 	CFigure* F = pManager->GetSelected();
+	if(dynamic_cast<CLine*>(F))
+	{
+		F->SetSelected(false);
+		pManager->AddSelected(NULL);
+		ActGfxInfo.isFilled=true;
+		return;
+	}
+
 	if(flag)
 	{
 		if (F)
