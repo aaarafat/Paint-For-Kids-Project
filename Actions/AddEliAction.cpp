@@ -1,13 +1,12 @@
-
 #include "AddEliAction.h"
-#include "f:\git project paint\project\Figures\CElipse.h"
+#include "..\Figures\CElipse.h"
 
-#include "f:\git project paint\project\ApplicationManager.h"
+#include "..\ApplicationManager.h"
 
-#include "f:\git project paint\project\GUI\input.h"
-#include "f:\git project paint\project\GUI\Output.h"
+#include "..\GUI\input.h"
+#include "..\GUI\Output.h"
 
-AddEliAction::AddEliAction(ApplicationManager * pApp):Action(pApp)
+AddEliAction::AddEliAction(ApplicationManager * pApp): Action(pApp)
 {}
 
 void AddEliAction::ReadActionParameters()
@@ -33,10 +32,10 @@ void AddEliAction::Execute()
 	//This action needs to read some parameters first
 	ReadActionParameters();
 	
-	//Create a rectangle with the parameters read from the user
+	//Create an Ellipse with the parameters read from the user
 	CElipse *E=new CElipse(P1, EliGfxInfo);
 
-	//Add the rectangle to the list of figures
+	//Add the Ellipse to the list of figures
 	pManager->AddFigure(E);
 }
 

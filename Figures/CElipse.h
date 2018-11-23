@@ -1,5 +1,5 @@
 #pragma once
-#include "f:\git project paint\project\figures\cfigure.h"
+#include "..\Figures\CFigure.h"
 class CElipse : public CFigure
 {
 private:
@@ -8,6 +8,6 @@ private:
 public:
 	CElipse(Point , GfxInfo FigureGfxInfo );
 	virtual void Draw(Output* pOut) const;
-	bool IsInside(int x, int y){return true;}
+	bool IsInside(int x, int y);
 };
 

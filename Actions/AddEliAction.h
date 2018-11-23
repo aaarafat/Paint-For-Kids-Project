@@ -1,18 +1,17 @@
-
 #pragma once
-#include "f:\git project paint\project\actions\action.h"
+#include "Action.h"
 class AddEliAction : public Action
 {
 	private:
-	Point P1; //Elipse Center
+	Point P1; //Ellipse Center
 	GfxInfo EliGfxInfo;
 public:
 	AddEliAction(ApplicationManager *pApp);
 
-	//Reads Eli parameters
+	//ReadsEllipse parameters
 	virtual void ReadActionParameters();
 	
-	//Add Eli to the ApplicationManager
+	//Add Ellipse to the ApplicationManager
 
 	virtual void Execute();
 };
