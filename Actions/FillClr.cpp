@@ -10,7 +10,7 @@ void FillClr::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateColorBar();
-	pOut->PrintMessage("Choose the filling color");
+	pOut->PrintMessage("Choose the filling color, Click at the empty area to cancel");
 	flag = true;
 	switch (pManager->GetUserAction())
 	{
@@ -54,7 +54,7 @@ void FillClr::Execute()
 	CFigure* F = pManager->GetSelected();
 	if(flag)
 	{
-		if (F != NULL)
+		if (F)
 		{
 			F->ChngFillClr(UI.FillColor);
 			F->SetSelected(false);
