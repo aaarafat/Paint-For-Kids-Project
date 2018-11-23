@@ -13,7 +13,7 @@ class FillClr :
 {
 public:
 	FillClr(ApplicationManager *pApp);
-	virtual void ReadActionParameters();
+	virtual void ReadActionParameters();//bool& flag);
 	virtual void Execute();
 };
 

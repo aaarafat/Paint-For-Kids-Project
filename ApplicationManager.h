@@ -10,7 +10,7 @@
 class ApplicationManager
 {
 	enum { MaxFigCount = 200 };	//Max no of figures
-
+	
 private:
 	int FigCount;		//Actual number of figures
 	CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
@@ -22,7 +22,7 @@ private:
 	Input *pIn;
 	Output *pOut;
 
-public:	
+public:
 	ApplicationManager(); 
 	~ApplicationManager();
 	
@@ -41,6 +41,7 @@ public:
 	Output *GetOutput() const; //Return pointer to the output
 	CFigure* GetSelected();
 	void UpdateInterface() const;	//Redraws all the drawing window	
+
 };
 
 #endif
