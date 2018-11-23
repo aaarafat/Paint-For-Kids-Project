@@ -9,6 +9,7 @@ private:
 	Point Corner1;	
 	Point Corner2;
 public:
+	bool IsInside(int x, int y);
 	CRectangle(Point , Point, GfxInfo FigureGfxInfo );
 	virtual void Draw(Output* pOut) const;
 };

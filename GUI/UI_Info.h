@@ -16,7 +16,8 @@ enum GUI_MODE	//Graphical user interface mode
 
 enum CLR_MODE
 {
-	MODE_CLR,
+	MODE_CLR_D,
+	MODE_CLR_F,
 	MODE_TOOL,
 };
 
@@ -42,7 +43,8 @@ enum ToolsMenuItem //The items of the Draw menu (you should add more items)
 {
 	//Note: Items are ordered here as they appear in menu
 	//If you want to change the menu items order, change the order here
-	ITM_COPY,		//Recangle item in menu
+	ITM_SELECT,
+	ITM_COPY,
 	ITM_CUT,
 	ITM_PASTE,
 	ITM_DELETE,

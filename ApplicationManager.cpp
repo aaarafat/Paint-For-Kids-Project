@@ -1,6 +1,13 @@
 #include "ApplicationManager.h"
 #include "Actions\AddRectAction.h"
 #include "AddEliAction.h"
+#include "Actions\AddTriAction.h"
+#include "Actions\ToDrawMode.h"
+#include "Actions\ToPlayMode.h"
+#include "Actions\Select.h"
+#include "Actions\AddLineAction.h"
+#include "Actions\AddRhombAction.h"
+
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -8,7 +15,7 @@ ApplicationManager::ApplicationManager()
 	//Create Input and output
 	pOut = new Output;
 	pIn = pOut->CreateInput();
-	
+	SelectedFig = NULL;
 	FigCount = 0;
 		
 	//Create an array of figure pointers and set them to NULL		
@@ -40,13 +47,85 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddEliAction(this);
 			break;
 
-		case DRAW_LINE:
-			///create AddLineAction here
-
+		case DRAW_TRI:
+			pAct = new AddTriAction(this);
 			break;
 
+		case DRAW_LINE:
+			pAct = new AddLineAction(this);
+			break;
+
+		case DRAW_RHOMBUS:
+			pAct = new AddRhombAction(this);
+			break;
+
+		case CHNG_FILL_CLR:
+			pOut->CreateColorBar(MODE_CLR_F);
+			break;
+		case CHNG_DRAW_CLR:
+			pOut->CreateColorBar(MODE_CLR_D);
+			break;
+		case SELECT:
+			pAct = new Select(this);
+			break;
+		case CLR_BLACK_F:
+			UI.FillColor = BLACK;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_WHITE_F:
+			UI.FillColor = WHITE;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_GREEN_F:
+			UI.FillColor = GREEN;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_RED_F:
+			UI.FillColor = RED;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_BLUE_F:
+			UI.FillColor = BLUE;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_BLACK_D:
+			UI.DrawColor = BLACK;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_WHITE_D:
+			UI.DrawColor = WHITE;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_GREEN_D:
+			UI.DrawColor = GREEN;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_RED_D:
+			UI.DrawColor = RED;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case CLR_BLUE_D:
+			UI.DrawColor = BLUE;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
+		case TO_PLAY:
+			pAct = new ToPlayMode(this);
+			break;
+		case TO_DRAW:
+			pAct = new ToDrawMode(this);
+			break;
 		case EXIT:
-			///create ExitAction here
+			///create Exit Action here
 			
 			break;
 		
@@ -72,13 +151,25 @@ void ApplicationManager::AddFigure(CFigure* pFig)
 	if(FigCount < MaxFigCount )
 		FigList[FigCount++] = pFig;	
 }
+void ApplicationManager::AddSelected(CFigure* S)
+{
+	SelectedFig = S;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
 {
 	//If a figure is found return a pointer to it.
 	//if this point (x,y) does not belong to any figure return NULL
 
+	for(int i=FigCount - 1; i>-1; i--)
+	{
+		if(FigList[i]->IsInside(x, y))
+		{
+			return FigList[i];
+		}
 
+	}
 	//Add your code here to search for a figure given a point x,y	
 	//Remember that ApplicationManager only calls functions do NOT implement it.
 
@@ -101,6 +192,12 @@ Input *ApplicationManager::GetInput() const
 //Return a pointer to the output
 Output *ApplicationManager::GetOutput() const
 {	return pOut; }
+
+CFigure* ApplicationManager::GetSelected()
+{
+	return SelectedFig;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////
 //Destructor
 ApplicationManager::~ApplicationManager()

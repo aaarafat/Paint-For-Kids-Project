@@ -77,6 +77,7 @@ void Output::Create2ndToolBar() const{
 	UI.ToolBarMode = MODE_TOOL;
 	Clear2ndToolBar();
 	string ToolsItemImages[DRAW_ITM_COUNT];
+	ToolsItemImages[ITM_SELECT] = "images\\MenuItems\\SELECT.jpg";
 	ToolsItemImages[ITM_COPY] = "images\\MenuItems\\Copy.jpg";
 	ToolsItemImages[ITM_CUT] = "images\\MenuItems\\Cut.jpg";
 	ToolsItemImages[ITM_PASTE] = "images\\MenuItems\\Paste.jpg";
@@ -96,6 +97,7 @@ void Output::CreateDrawToolBar() const
 	UI.ToolBarMode = MODE_TOOL;
 	Clear2ndToolBar(); //Clears the toolbar before drawing
 	ClearToolBar();
+	ClearDrawArea();
 	Create2ndToolBar();
 	//draw the tool bar icons
 	//Below is one possible way
@@ -138,6 +140,7 @@ void Output::CreatePlayToolBar() const
 	UI.InterfaceMode = MODE_PLAY;
 	ClearToolBar();   //Clears the toolbar before drawing
 	Clear2ndToolBar(); 
+	ClearDrawArea();
 	//You can draw the tool bar icons in any way you want.
 	//Below is one possible way
 	
@@ -168,10 +171,19 @@ void Output::CreatePlayToolBar() const
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 //creating color bar
-void Output::CreateColorBar() const
+void Output::CreateColorBar(CLR_MODE Mode) const
 {
-	UI.ToolBarMode = MODE_CLR;
+	UI.ToolBarMode = Mode;
 	Clear2ndToolBar();
+	if(UI.ToolBarMode)
+	{
+		PrintMessage("Choose the filling color");
+	}
+	else
+	{
+		PrintMessage("Choose the drawing color");
+	}
+
 	pWind->SetPen(DIMGREY, 1);
 	pWind->SetBrush(BLACK);
 	pWind->DrawRectangle(0, UI.ToolBarHeight, 50, UI.ToolBarHeight + 50, FILLED, 20, 20); 

@@ -14,7 +14,7 @@ public:
 	void Create2ndToolBar() const; //Creates the 2nd toolbar
 	void CreatePlayToolBar() const;	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
-	void CreateColorBar() const;  //create the color bar
+	void CreateColorBar(CLR_MODE Mode) const;  //create the color bar
 
 	Input* CreateInput() const; //creates a pointer to the Input object	
 	void ClearStatusBar() const;	//Clears the status bar

@@ -13,6 +13,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	DRAW_ELLIPSE,		//Draw Ellipse
 	CHNG_DRAW_CLR,	//Change the drawing color
 	CHNG_FILL_CLR,	//Change the filling color
+	SELECT,			//Select a figure(s)
     COPY,           //Copy a figure(s)
 	CUT,            //Cut a figure(s)
 	PASTE,          //Paste a figure(s)
@@ -27,11 +28,17 @@ enum ActionType //The actions supported (you can add more if needed)
 	DRAWING_AREA,	//A click on the drawing area
 	STATUS,			//A click on the status bar
 	EMPTY,			//A click on empty place in the toolbar
-	CLR_BLACK_C,
-	CLR_WHITE_C,
-	CLR_RED_C,
-	CLR_GREEN_C,
-	CLR_BLUE_C,
+	CLR_BLACK_D,
+	CLR_WHITE_D,
+	CLR_RED_D,
+	CLR_GREEN_D,
+	CLR_BLUE_D,
+	CLR_BLACK_F,
+	CLR_WHITE_F,
+	CLR_RED_F,
+	CLR_GREEN_F,
+	CLR_BLUE_F,
+	
 
 	TO_DRAW,		//Switch interface to Draw mode
 	TO_PLAY			//Switch interface to Play mode

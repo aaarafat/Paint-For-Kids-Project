@@ -67,6 +67,7 @@ ActionType Input::GetUserAction() const
 
 			switch (ClickedItemOrder-1) // -1 as the tool bar is under the menu bar so ther is 50px (1 after div) initially
 			{
+			case ITM_SELECT: return SELECT;
 			case ITM_COPY: return COPY;
 			case ITM_CUT: return CUT;
 			case ITM_PASTE: return PASTE;
@@ -79,21 +80,36 @@ ActionType Input::GetUserAction() const
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
-		if(x <= UI.ToolBarHeight && y > UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight && UI.ToolBarMode == MODE_CLR)
+		if(x <= UI.ToolBarHeight && y > UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight && UI.ToolBarMode == MODE_CLR_D)
 		{
 			int ClickedItemOrder = (y / UI.ToolsItemHeight);
 			switch (ClickedItemOrder - 1)
 			{
-			case CLR_BLACK: return CLR_BLACK_C;
-			case CLR_WHITE: return CLR_WHITE_C;
-			case CLR_RED: return CLR_RED_C;
-			case CLR_GREEN: return CLR_GREEN_C;
-			case CLR_BLUE: return CLR_BLUE_C;
+			case CLR_BLACK: return CLR_BLACK_D;
+			case CLR_WHITE: return CLR_WHITE_D;
+			case CLR_RED: return CLR_RED_D;
+			case CLR_GREEN: return CLR_GREEN_D;
+			case CLR_BLUE: return CLR_BLUE_D;
 
 			default: return EMPTY;
 			}
 
 		}
+		if(x <= UI.ToolBarHeight && y > UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight && UI.ToolBarMode == MODE_CLR_F)
+		{
+			int ClickedItemOrder = (y / UI.ToolsItemHeight);
+			switch (ClickedItemOrder - 1)
+			{
+			case CLR_BLACK: return CLR_BLACK_F;
+			case CLR_WHITE: return CLR_WHITE_F;
+			case CLR_RED: return CLR_RED_F;
+			case CLR_GREEN: return CLR_GREEN_F;
+			case CLR_BLUE: return CLR_BLUE_F;
+
+			default: return EMPTY;
+			}
+		}
+
 
 		//[1] If user clicks on the Toolbar
 		if (y >= 0 && y <= UI.ToolBarHeight)
