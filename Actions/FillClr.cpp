@@ -12,7 +12,8 @@ void FillClr::ReadActionParameters()
 	pOut->CreateColorBar();
 	pOut->PrintMessage("Choose the filling color, Click at the empty area to cancel");
 	flag = true;
-	switch (pManager->GetUserAction())
+	ActionType act = pManager->GetUserAction();
+	switch (act)
 	{
 		case CLR_BLACK_C:
 			UI.FillColor = BLACK;
@@ -50,9 +51,6 @@ void FillClr::ReadActionParameters()
 
 void FillClr::Execute()
 {
-	ReadActionParameters();
-
-	if(true)
 	ReadActionParameters();
 	CFigure* F = pManager->GetSelected();
 	if(flag)
