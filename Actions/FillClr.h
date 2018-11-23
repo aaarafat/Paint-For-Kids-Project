@@ -11,9 +11,10 @@
 class FillClr :
 	public Action
 {
+	bool flag; // flag to check if the user didn`t click on the color icons
 public:
 	FillClr(ApplicationManager *pApp);
-	virtual void ReadActionParameters(bool& flag);
+	virtual void ReadActionParameters();
 	virtual void Execute();
 };
 

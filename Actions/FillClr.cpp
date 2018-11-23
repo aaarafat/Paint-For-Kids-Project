@@ -5,12 +5,12 @@ FillClr::FillClr(ApplicationManager *pApp): Action(pApp)
 {
 }
 
-void FillClr::ReadActionParameters(bool& flag)
+void FillClr::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateColorBar(MODE_CLR_F);
 	
-	flag = true; // flag to check if the user didn`t click on the color icons
+	flag = true; 
 	switch (pManager->GetUserAction())
 	{
 	case CLR_BLACK_F:
@@ -49,8 +49,7 @@ void FillClr::ReadActionParameters(bool& flag)
 
 void FillClr::Execute()
 {
-	bool flag;
-	ReadActionParameters(flag);
+	ReadActionParameters();
 
 	if(flag){
 		CFigure* F = pManager->GetSelected();
