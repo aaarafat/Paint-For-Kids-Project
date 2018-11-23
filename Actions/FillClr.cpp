@@ -5,11 +5,12 @@ FillClr::FillClr(ApplicationManager *pApp): Action(pApp)
 {
 }
 
-void FillClr::ReadActionParameters()
+void FillClr::ReadActionParameters(bool& flag)
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateColorBar(MODE_CLR_F);
 	
+	flag = true; // flag to check if the user didn`t click on the color icons
 	switch (pManager->GetUserAction())
 	{
 	case CLR_BLACK_F:
@@ -37,21 +38,30 @@ void FillClr::ReadActionParameters()
 			pOut->Create2ndToolBar();
 			pOut->ClearStatusBar();
 			break;
+		default:
+			flag = false;
+			pOut->Create2ndToolBar();
+			pOut->ClearStatusBar();
+			break;
 	}
 
 }
 
 void FillClr::Execute()
 {
-	ReadActionParameters();
-	CFigure* F = pManager->GetSelected();
-	if (F != NULL)
-	{
-		F->ChngFillClr(UI.FillColor);
-		F->SetSelected(false);
-	}
-	else
-	{
-		ActGfxInfo.isFilled = true;
+	bool flag;
+	ReadActionParameters(flag);
+
+	if(flag){
+		CFigure* F = pManager->GetSelected();
+		if (F != NULL)
+		{
+			F->ChngFillClr(UI.FillColor);
+			F->SetSelected(false);
+		}
+		else
+		{
+			ActGfxInfo.isFilled=true;
+		}
 	}
 }

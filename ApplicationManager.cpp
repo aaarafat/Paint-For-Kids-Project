@@ -18,7 +18,7 @@ ApplicationManager::ApplicationManager()
 	pIn = pOut->CreateInput();
 	SelectedFig = NULL;
 	FigCount = 0;
-		
+	
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
 		FigList[i] = NULL;	
@@ -184,3 +184,6 @@ ApplicationManager::~ApplicationManager()
 	delete pOut;
 	
 }
+
+
+
