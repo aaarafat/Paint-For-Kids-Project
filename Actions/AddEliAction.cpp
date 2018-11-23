@@ -1,6 +1,6 @@
 
 #include "AddEliAction.h"
-#include "f:\git project paint\project\CElipse.h"
+#include "f:\git project paint\project\Figures\CElipse.h"
 
 #include "f:\git project paint\project\ApplicationManager.h"
 

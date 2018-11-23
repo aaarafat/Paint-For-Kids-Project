@@ -1,7 +1,7 @@
 #include "CElipse.h"
 
 
-CElipse::CElipse(Point P1, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
+CElipse::CElipse(Point P1, GfxInfo FigureGfxInfo): CFigure(FigureGfxInfo)
 {
 Center = P1;
 }

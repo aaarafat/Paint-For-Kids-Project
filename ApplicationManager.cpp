@@ -1,6 +1,6 @@
 #include "ApplicationManager.h"
 #include "Actions\AddRectAction.h"
-#include "AddEliAction.h"
+#include "Actions\AddEliAction.h"
 #include "Actions\AddTriAction.h"
 #include "Actions\ToDrawMode.h"
 #include "Actions\ToPlayMode.h"
