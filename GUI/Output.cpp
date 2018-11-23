@@ -97,6 +97,7 @@ void Output::CreateDrawToolBar() const
 	UI.ToolBarMode = MODE_TOOL;
 	Clear2ndToolBar(); //Clears the toolbar before drawing
 	ClearToolBar();
+	ClearDrawArea();
 	Create2ndToolBar();
 	//draw the tool bar icons
 	//Below is one possible way
@@ -139,6 +140,7 @@ void Output::CreatePlayToolBar() const
 	UI.InterfaceMode = MODE_PLAY;
 	ClearToolBar();   //Clears the toolbar before drawing
 	Clear2ndToolBar(); 
+	ClearDrawArea();
 	//You can draw the tool bar icons in any way you want.
 	//Below is one possible way
 	

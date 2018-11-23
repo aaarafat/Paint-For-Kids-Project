@@ -12,8 +12,6 @@ void ToDrawMode::Execute()
 {
 	Output* pOut = pManager->GetOutput();
 
-	pOut->ClearToolBar();
-
 	pOut->CreateDrawToolBar();
 
 }

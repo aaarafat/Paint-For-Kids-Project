@@ -36,5 +36,5 @@ bool CRectangle::IsInside(int x, int y)
 		y2 = Corner1.y;
 		y1 = Corner2.y;
 	}
-	return (x < x1 && x > x2 && y < y1 && y > y2) ? true : false;
+	return (x <= x1 && x >= x2 && y <= y1 && y >= y2);
 }

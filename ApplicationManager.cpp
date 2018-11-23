@@ -4,8 +4,7 @@
 #include "Actions\ToDrawMode.h"
 #include "Actions\ToPlayMode.h"
 #include "Actions\Select.h"
-
-
+#include "Actions\AddLineAction.h"
 #include "Actions\AddRhombAction.h"
 
 //Constructor
@@ -42,16 +41,19 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case DRAW_RECT:
 			pAct = new AddRectAction(this);
 			break;
+
 		case DRAW_TRI:
 			pAct = new AddTriAction(this);
-		
-		case DRAW_LINE:
-			///create AddLineAction here
-
 			break;
+
+		case DRAW_LINE:
+			pAct = new AddLineAction(this);
+			break;
+
 		case DRAW_RHOMBUS:
 			pAct = new AddRhombAction(this);
 			break;
+
 		case CHNG_FILL_CLR:
 			pOut->CreateColorBar(MODE_CLR_F);
 			break;

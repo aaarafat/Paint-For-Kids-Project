@@ -12,9 +12,6 @@ void ToPlayMode::ReadActionParameters()
 void ToPlayMode::Execute()
 {
 	Output* pOut = pManager->GetOutput();
-
-	pOut->ClearToolBar();
-
 	pOut->CreatePlayToolBar();
 
 
