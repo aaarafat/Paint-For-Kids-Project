@@ -330,19 +330,6 @@ void Output::DrawRhom(Point P1, GfxInfo RhomGfxInfo, bool selected) const
 	}
 	else	
 		style = FRAME;
-	if(P1.y - 100 < UI.ToolBarHeight + 1)
-	{
-		P1.y = UI.ToolBarHeight + 101;
-	}
-	if(P1.x - 50 < UI.ToolBarHeight + 1)
-	{
-		P1.x = UI.ToolBarHeight + 51;
-	}
-	if(P1.y + 100 > UI.height - UI.StatusBarHeight - 1)
-	{
-		P1.y = UI.height - UI.StatusBarHeight - 1 - 100;
-	}
-
 
 	const int x[] = {P1.x + 50, P1.x, P1.x - 50, P1.x};
 	const int y[] = {P1.y, P1.y - 100, P1.y, P1.y + 100}; 
@@ -366,18 +353,6 @@ void Output::DrawEli(Point P1, GfxInfo EliGfxInfo, bool selected) const
 	}
 	else	
 		style = FRAME;
-	if(P1.y - 50 < UI.ToolBarHeight + 1)
-	{
-		P1.y = UI.ToolBarHeight + 51;
-	}
-	if(P1.x - 100 < UI.ToolBarHeight + 1)
-	{
-		P1.x = UI.ToolBarHeight + 101;
-	}
-	if(P1.y + 50 > UI.height - UI.StatusBarHeight - 1)
-	{
-		P1.y = UI.height - UI.StatusBarHeight - 51;
-	}
 	pWind->DrawEllipse(P1.x + 100, P1.y + 50, P1.x - 100, P1.y - 50, style);
 }
 

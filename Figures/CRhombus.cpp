@@ -3,6 +3,18 @@
 
 CRhombus::CRhombus(Point C, GfxInfo RhomGfxInfo) : CFigure(RhomGfxInfo)
 {
+	if(C.y - 100 < UI.ToolBarHeight + 1)
+	{
+		C.y = UI.ToolBarHeight + 101;
+	}
+	if(C.x - 50 < UI.ToolBarHeight + 1)
+	{
+		C.x = UI.ToolBarHeight + 51;
+	}
+	if(C.y + 100 > UI.height - UI.StatusBarHeight - 1)
+	{
+		C.y = UI.height - UI.StatusBarHeight - 101;
+	}
 	Center = C;
 }
 
