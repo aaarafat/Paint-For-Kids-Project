@@ -1,6 +1,6 @@
 Hark how the bells,   zpyyyyyyyyyyyyyyyy
 Sweet silver bells,
-All seem to say,
+All seem to say, zpyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 Throw cares away
 
 Christmas is here,
