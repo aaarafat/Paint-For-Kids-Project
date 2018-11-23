@@ -10,7 +10,7 @@
 #include "Actions\DeleteAction.h"
 #include "Actions\FillClr.h"
 #include "Actions\DrawClr.h"
-
+#include "Actions\Copy.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -76,6 +76,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case TO_DRAW:
 			pAct = new ToDrawMode(this);
+			break;
+		case COPY:
+			pAct = new Copy(this);
 			break;
 		case EXIT:
 			///create Exit Action here
