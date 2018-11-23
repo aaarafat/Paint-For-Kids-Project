@@ -14,7 +14,7 @@ public:
 	CLine(Point, Point, GfxInfo FigureGfxInfo); //constructor for line 
 	virtual void Draw(Output* pOut) const; //draw function for line
 	virtual bool IsInside(int x, int y);
-	virtual void SetCenter(Point Center) {};
+	virtual void SetCenter(Point Center);
 	virtual void Save(ofstream &OutFile, string filename);
 
 };
