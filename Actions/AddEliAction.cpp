@@ -19,10 +19,10 @@ void AddEliAction::ReadActionParameters()
 	//Read the Center and store in point P1
 	pIn->GetPointClicked(P1.x, P1.y);
 	CheckPoint(P1, pOut, pIn);
-	EliGfxInfo.isFilled = false;	//default is not filled
+	ActGfxInfo.isFilled = IsFilled();	//default is not filled
 	//get drawing, filling colors and pen width from the interface
-	EliGfxInfo.DrawClr = pOut->getCrntDrawColor();
-	EliGfxInfo.FillClr = pOut->getCrntFillColor();
+	ActGfxInfo.DrawClr = pOut->getCrntDrawColor();
+	ActGfxInfo.FillClr = pOut->getCrntFillColor();
 
 	pOut->ClearStatusBar();
 }
@@ -33,7 +33,7 @@ void AddEliAction::Execute()
 	ReadActionParameters();
 	
 	//Create an Ellipse with the parameters read from the user
-	CElipse *E=new CElipse(P1, EliGfxInfo);
+	CElipse *E=new CElipse(P1, ActGfxInfo);
 
 	//Add the Ellipse to the list of figures
 	pManager->AddFigure(E);

@@ -363,4 +363,3 @@ Output::~Output()
 {
 	delete pWind;
 }
-

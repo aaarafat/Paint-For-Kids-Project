@@ -25,10 +25,8 @@ void AddLineAction::ReadActionParameters()
 	//Read 2nd corner and store in point P2
 	pIn->GetPointClicked(P2.x, P2.y);
 	CheckPoint(P2, pOut, pIn);
-	LiGfxInfo.isFilled = false;	//default is not filled
 	//get drawing, filling colors and pen width from the interface
-	LiGfxInfo.DrawClr = pOut->getCrntDrawColor();
-	LiGfxInfo.FillClr = pOut->getCrntFillColor();
+	ActGfxInfo.DrawClr = pOut->getCrntDrawColor();
 
 	pOut->ClearStatusBar();
 
@@ -41,7 +39,7 @@ void AddLineAction::Execute()
 	ReadActionParameters();
 	
 	//Create a line with the parameters read from the user
-	CLine *L=new CLine(P1, P2, LiGfxInfo);
+	CLine *L=new CLine(P1, P2, ActGfxInfo);
 
 	//Add the line to the list of figures
 	pManager->AddFigure(L);

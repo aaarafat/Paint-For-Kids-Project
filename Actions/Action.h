@@ -12,6 +12,7 @@ class Action
 {
 protected:
 	ApplicationManager *pManager;	//Actions needs AppMngr to do their job
+	GfxInfo ActGfxInfo; //Actions Graphic Informations
 
 public:
 	void CheckPoint(Point&P, Output* pOut, Input* pIn)
@@ -23,13 +24,19 @@ public:
 		}
 	}
 
-	Action(ApplicationManager *pApp) { pManager = pApp; }	//constructor
+	Action(ApplicationManager *pApp) { pManager = pApp; ActGfxInfo.isFilled = false;}	//constructor
 
 	//Reads parameters required for action to execute (code depends on action type)
 	virtual void ReadActionParameters() =0;
 	
 	//Execute action (code depends on action type)
 	virtual void Execute() =0;
+
+	//ActGfx fill info
+	bool IsFilled()
+	{
+		return ActGfxInfo.isFilled;
+	}
 
 };
 

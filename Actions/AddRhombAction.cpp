@@ -21,10 +21,10 @@ void AddRhombAction::ReadActionParameters()
 	pIn->GetPointClicked(P.x, P.y);
 	CheckPoint(P, pOut, pIn);
 
-	RhomGfxInfo.isFilled = false;	//default is not filled
+	ActGfxInfo.isFilled = IsFilled();	//default is not filled
 	//get drawing, filling colors and pen width from the interface
-	RhomGfxInfo.DrawClr = pOut->getCrntDrawColor();
-	RhomGfxInfo.FillClr = pOut->getCrntFillColor();
+	ActGfxInfo.DrawClr = pOut->getCrntDrawColor();
+	ActGfxInfo.FillClr = pOut->getCrntFillColor();
 
 	pOut->ClearStatusBar();
 
@@ -37,7 +37,7 @@ void AddRhombAction::Execute()
 	ReadActionParameters();
 	
 	//Create a rectangle with the parameters read from the user
-	CRhombus *R=new CRhombus(P, RhomGfxInfo);
+	CRhombus *R=new CRhombus(P, ActGfxInfo);
 
 	//Add the rectangle to the list of figures
 	pManager->AddFigure(R);

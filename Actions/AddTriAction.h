@@ -5,7 +5,6 @@ class AddTriAction :
 {
 private:
 	Point P1, P2, P3; //Triangle Corners
-	GfxInfo TriGfxInfo;
 public:
 	AddTriAction(ApplicationManager *pApp);
 
