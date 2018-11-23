@@ -50,6 +50,10 @@ void FillClr::ReadActionParameters()
 
 void FillClr::Execute()
 {
+	bool flag;
+	ReadActionParameters();
+
+	if(true)
 	ReadActionParameters();
 	CFigure* F = pManager->GetSelected();
 	if(flag)
