@@ -3,8 +3,6 @@
 
 CElipse::CElipse(Point P1, GfxInfo FigureGfxInfo): CFigure(FigureGfxInfo)
 {
-	ID = counter;
-	counter += 1000;
 	if(P1.y - 50 < UI.ToolBarHeight + 1)
 	{
 		P1.y = UI.ToolBarHeight + 51;

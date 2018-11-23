@@ -3,8 +3,6 @@
 
 CTriangle::CTriangle(Point P1, Point P2, Point P3, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
-	ID = counter;
-	counter += 1000;
 	Corner1 = P1;
 	Corner2 = P2;
 	Corner3 = P3;
