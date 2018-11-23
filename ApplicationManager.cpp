@@ -115,9 +115,13 @@ void ApplicationManager::AddSelected(CFigure* S)
 void ApplicationManager::setSelectedFig(CFigure *p){
 	SelectedFig = p;
 }
+void ApplicationManager::setClipboard(CFigure *c){
+	Clipboard = c;
+}
 
 
 CFigure *ApplicationManager::getSelectedFig() const { return SelectedFig; }
+CFigure *ApplicationManager::getClipboard() const { return Clipboard; }
 
 //need to be put in DeleteAction class
 void ApplicationManager::DeleteSelectedFigure(){
