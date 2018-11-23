@@ -1,6 +1,6 @@
 #include "ApplicationManager.h"
 #include "Actions\AddRectAction.h"
-
+#include "AddEliAction.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -35,6 +35,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	{
 		case DRAW_RECT:
 			pAct = new AddRectAction(this);
+			break;
+		case DRAW_ELLIPSE:
+			pAct = new AddEliAction(this);
 			break;
 
 		case DRAW_LINE:
