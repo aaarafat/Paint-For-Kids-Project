@@ -5,7 +5,6 @@ class AddLineAction :
 {
 private:
 	Point P1, P2; //Line Corners
-	GfxInfo LiGfxInfo;
 public:
 	AddLineAction(ApplicationManager *pApp);
 

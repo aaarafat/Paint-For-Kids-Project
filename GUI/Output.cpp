@@ -25,7 +25,7 @@ Output::Output()
 	UI.HighlightColor = MAGENTA;	//This color should NOT be used to draw figures. use if for highlight only
 	UI.StatusBarColor = DARKGRAY;
 	UI.PenWidth = 2;	//width of the figures frames
-
+	
 	
 	//Create the output window
 	pWind = CreateWind(UI.width, UI.height, UI.wx, UI.wy);
@@ -171,19 +171,10 @@ void Output::CreatePlayToolBar() const
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 //creating color bar
-void Output::CreateColorBar(CLR_MODE Mode) const
+void Output::CreateColorBar() const
 {
-	UI.ToolBarMode = Mode;
+	UI.ToolBarMode = MODE_CLR;
 	Clear2ndToolBar();
-	if(UI.ToolBarMode)
-	{
-		PrintMessage("Choose the filling color");
-	}
-	else
-	{
-		PrintMessage("Choose the drawing color");
-	}
-
 	pWind->SetPen(DIMGREY, 1);
 	pWind->SetBrush(BLACK);
 	pWind->DrawRectangle(0, UI.ToolBarHeight, 50, UI.ToolBarHeight + 50, FILLED, 20, 20); 
@@ -363,4 +354,3 @@ Output::~Output()
 {
 	delete pWind;
 }
-

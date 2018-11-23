@@ -8,6 +8,8 @@
 #include "Actions\AddLineAction.h"
 #include "Actions\AddRhombAction.h"
 #include "Actions\DeleteAction.h"
+#include "Actions\FillClr.h"
+#include "Actions\DrawClr.h"
 
 
 //Constructor
@@ -18,7 +20,7 @@ ApplicationManager::ApplicationManager()
 	pIn = pOut->CreateInput();
 	SelectedFig = NULL;
 	FigCount = 0;
-		
+	
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
 		FigList[i] = NULL;	
@@ -61,63 +63,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 
 		case CHNG_FILL_CLR:
-			pOut->CreateColorBar(MODE_CLR_F);
+			pAct = new FillClr(this);
 			break;
 		case CHNG_DRAW_CLR:
-			pOut->CreateColorBar(MODE_CLR_D);
+			pAct = new DrawClr(this);
 			break;
 		case SELECT:
 			pAct = new Select(this);
-			break;
-		case CLR_BLACK_F:
-			UI.FillColor = BLACK;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_WHITE_F:
-			UI.FillColor = WHITE;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_GREEN_F:
-			UI.FillColor = GREEN;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_RED_F:
-			UI.FillColor = RED;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_BLUE_F:
-			UI.FillColor = BLUE;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_BLACK_D:
-			UI.DrawColor = BLACK;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_WHITE_D:
-			UI.DrawColor = WHITE;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_GREEN_D:
-			UI.DrawColor = GREEN;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_RED_D:
-			UI.DrawColor = RED;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
-			break;
-		case CLR_BLUE_D:
-			UI.DrawColor = BLUE;
-			pOut->Create2ndToolBar();
-			pOut->ClearStatusBar();
 			break;
 		case TO_PLAY:
 			pAct = new ToPlayMode(this);
@@ -233,3 +185,6 @@ ApplicationManager::~ApplicationManager()
 	delete pOut;
 	
 }
+
+
+

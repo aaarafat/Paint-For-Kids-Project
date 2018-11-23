@@ -4,7 +4,6 @@ class AddRhombAction :	public Action
 {
 private:
 	Point P; //Rhombus Center
-	GfxInfo RhomGfxInfo;
 public:
 	AddRhombAction(ApplicationManager *pApp);
 
