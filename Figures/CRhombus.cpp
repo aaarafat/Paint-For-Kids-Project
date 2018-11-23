@@ -3,8 +3,6 @@
 
 CRhombus::CRhombus(Point C, GfxInfo RhomGfxInfo) : CFigure(RhomGfxInfo)
 {
-	ID = counter;
-	counter += 1000;
 	if(C.y - 100 < UI.ToolBarHeight + 1)
 	{
 		C.y = UI.ToolBarHeight + 101;

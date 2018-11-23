@@ -12,9 +12,8 @@ protected:
 	int ID;		//Each figure has an ID
 	bool Selected;	//true if the figure is selected.
 	GfxInfo FigGfxInfo;	//Figure graphis info
-	static int counter;
-	int DCLR;
-	int FCLR;
+	//int DCLR;
+	//int FCLR;
 	/// Add more parameters if needed.
 
 public:

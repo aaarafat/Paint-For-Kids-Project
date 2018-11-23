@@ -3,8 +3,6 @@
 
 CLine::CLine(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
-	ID = counter;
-	counter += 1000;
 	Point1 = P1;
 	Point2 = P2;
 }
