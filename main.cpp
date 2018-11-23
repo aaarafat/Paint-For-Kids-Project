@@ -17,7 +17,9 @@ int main()
 		AppManager.ExecuteAction(ActType);
 
 		//Update the interface
-		AppManager.UpdateInterface();	
+		if(ActType !=TO_PLAY)
+		AppManager.UpdateInterface();
+
 
 	}while(ActType != EXIT);
 	
