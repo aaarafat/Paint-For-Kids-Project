@@ -3,18 +3,7 @@
 
 CRhombus::CRhombus(Point C, GfxInfo RhomGfxInfo) : CFigure(RhomGfxInfo)
 {
-	if(C.y - 100 < UI.ToolBarHeight + 1)
-	{
-		C.y = UI.ToolBarHeight + 101;
-	}
-	if(C.x - 50 < UI.ToolBarHeight + 1)
-	{
-		C.x = UI.ToolBarHeight + 51;
-	}
-	if(C.y + 100 > UI.height - UI.StatusBarHeight - 1)
-	{
-		C.y = UI.height - UI.StatusBarHeight - 101;
-	}
+	ShiftPoints(C);
 	Center = C;
 }
 
@@ -43,9 +32,9 @@ float CRhombus::area(int x1, int y1, int x2, int y2, int x3, int y3)
 	return abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0); 
 } 
 
-
-void CRhombus::SetCenter(Point C)
-{   	if(C.y - 100 < UI.ToolBarHeight + 1)
+void CRhombus::ShiftPoints(Point& C)
+{
+	if(C.y - 100 < UI.ToolBarHeight + 1)
 	{
 		C.y = UI.ToolBarHeight + 101;
 	}
@@ -57,6 +46,15 @@ void CRhombus::SetCenter(Point C)
 	{
 		C.y = UI.height - UI.StatusBarHeight - 101;
 	}
+}
+
+
+void CRhombus::SetCenter(int& x, int& y)
+{   	
+	Point C;
+	C.x = x;
+	C.y = y;
+	ShiftPoints(C);
 	this->Center = C;
 }
 void CRhombus::Save(ofstream &OutFile, string filename)

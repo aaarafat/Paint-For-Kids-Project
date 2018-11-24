@@ -39,13 +39,43 @@ void CLine::Save(ofstream &OutFile, string filename)
 	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
 	// 0 means NO_FILL
 }
-void CLine::SetCenter(Point Center)
+void CLine::SetCenter(int& x, int& y)
 {
 	Point C;
 	C.x = (Point1.x + Point2.x)/2;
 	C.y = (Point1.y + Point2.y)/2;
-	Point1.x += Center.x - C.x;
-	Point2.x += Center.x - C.x;
-	Point1.y += Center.y - C.y;
-	Point2.y += Center.y - C.y;
+	Point1.x += x - C.x;
+	Point2.x += x - C.x;
+	Point1.y += y - C.y;
+	Point2.y += y - C.y;
+	if(Point1.y < UI.ToolBarHeight + 1)
+	{
+		y = y + (UI.ToolBarHeight + 1 - Point1.y);
+		SetCenter(x, y);
+	}
+	if(Point2.y < UI.ToolBarHeight + 1)
+	{
+		y = y + (UI.ToolBarHeight + 1 - Point2.y);
+		SetCenter(x, y);
+	}
+	if(Point1.x < UI.ToolBarHeight + 1)
+	{
+		x = x + (UI.ToolBarHeight + 1 - Point1.x);
+		SetCenter(x, y);
+	}
+	if(Point2.x < UI.ToolBarHeight + 1)
+	{
+		x = x + (UI.ToolBarHeight + 1 - Point2.x);
+		SetCenter(x, y);
+	}
+	if(Point1.y > UI.height - UI.StatusBarHeight - 1)
+	{
+		y = y - (Point1.y - UI.height + UI.StatusBarHeight + 1);
+		SetCenter(x, y);
+	}
+	if(Point2.y > UI.height - UI.StatusBarHeight - 1)
+	{
+		y = y - (Point2.y - UI.height + UI.StatusBarHeight + 1);
+		SetCenter(x, y);
+	}
 }
