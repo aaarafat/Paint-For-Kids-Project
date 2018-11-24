@@ -88,4 +88,7 @@ void CRectangle::Save(ofstream &OutFile, string filename)
 	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
 	// 0 means NO_FILL
 }
+void CRectangle::PrintInfo(Output* pOut){
+pOut->PrintMessage(strDrawClr()+" "+strFillClr());
+}
 

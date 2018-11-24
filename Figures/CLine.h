@@ -16,7 +16,7 @@ public:
 	virtual bool IsInside(int x, int y);
 	virtual void SetCenter(int& x, int& y);
 	virtual void Save(ofstream &OutFile, string filename);
-
+	virtual void PrintInfo(Output* pOut);
 };
 
 #endif

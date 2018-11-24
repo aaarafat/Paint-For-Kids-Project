@@ -80,3 +80,7 @@ void CLine::SetCenter(int& x, int& y)
 		SetCenter(x, y);
 	}
 }
+void CLine::PrintInfo(Output* pOut){
+pOut->PrintMessage(strDrawClr());
+
+}
