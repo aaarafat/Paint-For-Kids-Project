@@ -14,6 +14,7 @@ protected:
 	GfxInfo FigGfxInfo;	//Figure graphis info
 	int DCLR;
 	int FCLR;
+	int Type;
 	/// Add more parameters if needed.
 
 public:
@@ -28,8 +29,10 @@ public:
 	virtual void SetCenter(int& x, int& y)= 0;   //change the figure's center
 	void setDrawClr() ; // sets an integer for each Draw Color
 	void setFillClr() ; // sets an integer for each Fill Color
+	virtual void setType() = 0;     // sets the type of the Figure
 	string strDrawClr() ;  // returns Draw Color as a string 
 	string strFillClr() ;  // returns Fill Color as a string 
+	string strType();      // returns Type as a string
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 

@@ -2,7 +2,7 @@
 
 
 CLine::CLine(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
-{
+{   setType();
 	FigGfxInfo.isFilled = false;
 	Point1 = P1;
 	Point2 = P2;
@@ -81,6 +81,9 @@ void CLine::SetCenter(int& x, int& y)
 	}
 }
 void CLine::PrintInfo(Output* pOut){
-pOut->PrintMessage(strDrawClr());
+pOut->PrintMessage(strType()+" "+strDrawClr());
 
+}
+void CLine::setType(){
+Type = 2;
 }

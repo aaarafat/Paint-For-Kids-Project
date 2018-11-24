@@ -2,7 +2,7 @@
 
 
 CTriangle::CTriangle(Point P1, Point P2, Point P3, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
-{
+{   setType();
 	Corner1 = P1;
 	Corner2 = P2;
 	Corner3 = P3;
@@ -119,8 +119,12 @@ void CTriangle::Save(ofstream &OutFile, string filename)
 }
 void CTriangle::PrintInfo(Output* pOut){
     if(FigGfxInfo.isFilled == true)
-		pOut->PrintMessage(strDrawClr()+" "+strFillClr());
+		pOut->PrintMessage(strType()+" "+strDrawClr()+" "+strFillClr());
 	else
-        pOut->PrintMessage(strDrawClr()+" No-Fill");
+        pOut->PrintMessage(strType()+" "+strDrawClr()+" No-Fill");
 }
+void CTriangle::setType(){
+Type = 3;
+}
+
 

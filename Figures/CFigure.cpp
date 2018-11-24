@@ -44,6 +44,14 @@ if(FCLR==4) return "Green";
 if(FCLR==5) return "Blue";
 }
 
+string CFigure::strType(){
+if(Type==1) return "Rectangle";
+if(Type==2) return "Line";
+if(Type==3) return "Triangle";
+if(Type==4) return "Rhombus";
+if(Type==5) return "Ellipse";
+}
+
 void CFigure::SetSelected(bool s)
 {	Selected = s; }
 

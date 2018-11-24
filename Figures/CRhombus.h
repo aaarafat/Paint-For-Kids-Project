@@ -14,4 +14,5 @@ public:
 	virtual void ShiftPoints(Point& c);
 	virtual void Save(ofstream &OutFile, string filename);
 	virtual void PrintInfo(Output* pOut);
+	virtual void setType();
 };

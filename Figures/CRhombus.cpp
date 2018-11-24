@@ -2,7 +2,7 @@
 
 
 CRhombus::CRhombus(Point C, GfxInfo RhomGfxInfo) : CFigure(RhomGfxInfo)
-{
+{   setType();
 	ShiftPoints(C);
 	Center = C;
 }
@@ -66,7 +66,10 @@ void CRhombus::Save(ofstream &OutFile, string filename)
 }
 void CRhombus::PrintInfo(Output* pOut){
 	if(FigGfxInfo.isFilled == true)
-		pOut->PrintMessage(strDrawClr()+" "+strFillClr());
+		pOut->PrintMessage(strType()+" "+strDrawClr()+" "+strFillClr());
 	else
-        pOut->PrintMessage(strDrawClr()+" No-Fill");
+        pOut->PrintMessage(strType()+" "+strDrawClr()+" No-Fill");
+}
+void CRhombus::setType(){
+Type = 4;
 }

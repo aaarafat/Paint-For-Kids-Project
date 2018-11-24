@@ -1,7 +1,7 @@
 #include "CRectangle.h"
 
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
-{
+{   setType();
 	Corner1 = P1;
 	Corner2 = P2;
 }
@@ -90,8 +90,11 @@ void CRectangle::Save(ofstream &OutFile, string filename)
 }
 void CRectangle::PrintInfo(Output* pOut){
     if(FigGfxInfo.isFilled == true)
-		pOut->PrintMessage(strDrawClr()+" "+strFillClr());
+		pOut->PrintMessage(strType()+" "+strDrawClr()+" "+strFillClr());
 	else
-        pOut->PrintMessage(strDrawClr()+" No-Fill");
+        pOut->PrintMessage(strType()+" "+strDrawClr()+" No-Fill");
+}
+void CRectangle::setType(){
+Type = 1;
 }
 

@@ -2,9 +2,10 @@
 
 
 CElipse::CElipse(Point P1, GfxInfo FigureGfxInfo): CFigure(FigureGfxInfo)
-{
+{   setType();
 	ShiftPoints(P1);
 	Center = P1;
+	
 }
 
 void CElipse::Draw(Output* pOut) const{
@@ -52,8 +53,12 @@ void CElipse::Save(ofstream &OutFile, string filename)
 void CElipse::PrintInfo(Output* pOut)
 {
 	if(FigGfxInfo.isFilled == true)
-		pOut->PrintMessage(strDrawClr()+" "+strFillClr());
+		pOut->PrintMessage(strType()+" "+strDrawClr()+" "+strFillClr());
 	else
-        pOut->PrintMessage(strDrawClr()+" No-Fill");
+        pOut->PrintMessage(strType()+" "+strDrawClr()+" No-Fill");
+}
+
+void CElipse::setType(){
+Type = 5;
 }
 
