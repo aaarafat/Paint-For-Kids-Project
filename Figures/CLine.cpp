@@ -3,13 +3,14 @@
 
 CLine::CLine(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
+	FigGfxInfo.isFilled = false;
 	Point1 = P1;
 	Point2 = P2;
 }
 
 void CLine::Draw(Output* pOut) const
 {
-	//Call Output::DrawL to draw a line on the screen	
+	//Call Output::DrawL to draw a line on the screen
 	pOut->DrawL(Point1, Point2, FigGfxInfo, Selected);
 }
 

@@ -24,7 +24,7 @@ public:
 		}
 	}
 
-	Action(ApplicationManager *pApp) {pManager = pApp; ActGfxInfo.isFilled = pManager->GetFilled();}	//constructor
+	Action(ApplicationManager *pApp) {pManager = pApp; ActGfxInfo.isFilled = pManager->GetInput()->GetFilled();}	//constructor
 
 	//Reads parameters required for action to execute (code depends on action type)
 	virtual void ReadActionParameters() =0;

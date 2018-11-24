@@ -198,16 +198,6 @@ CFigure* ApplicationManager::GetSelected()
 	return SelectedFig;
 }
 ////////////////////////////////////////////////////////////////////////////////////
-bool ApplicationManager::GetFilled()
-{
-	return filled;
-}
-void ApplicationManager::SetFilled()
-{
-	filled = true;
-}
-
-////////////////////////////////////////////////////////////////////////////////////
 //Destructor
 ApplicationManager::~ApplicationManager()
 {

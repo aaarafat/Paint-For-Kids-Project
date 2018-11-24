@@ -44,9 +44,7 @@ public:
 	Output *GetOutput() const; //Return pointer to the output
 	CFigure* GetSelected();
 	void UpdateInterface() const;	//Redraws all the drawing window	
-	// -- Style Management Function(s)
-	bool GetFilled();
-	void SetFilled();
+
 };
 
 #endif

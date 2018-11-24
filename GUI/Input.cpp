@@ -3,6 +3,7 @@
 Input::Input(window* pW)
 {
 	pWind = pW; //point to the passed window
+	filled = false;
 }
 
 void Input::GetPointClicked(int &x, int &y) const
@@ -168,6 +169,14 @@ ActionType Input::GetUserAction() const
 
 }
 /////////////////////////////////
+bool Input::GetFilled()
+{
+	return filled;
+}
+void Input::SetFilled()
+{
+	filled = true;
+}
 	
 Input::~Input()
 {

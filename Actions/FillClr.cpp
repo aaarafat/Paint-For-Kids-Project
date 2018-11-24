@@ -57,7 +57,7 @@ void FillClr::Execute()
 	{
 		F->SetSelected(false);
 		pManager->AddSelected(NULL);
-		pManager->SetFilled();
+		pManager->GetInput()->SetFilled();
 		return;
 	}
 
@@ -69,7 +69,7 @@ void FillClr::Execute()
 			F->SetSelected(false);
 			pManager->AddSelected(NULL);
 		}
-		pManager->SetFilled();
+		pManager->GetInput()->SetFilled();
 	}
 	else if(F)
 	{
