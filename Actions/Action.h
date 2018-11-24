@@ -4,6 +4,7 @@
 #include "..\DefS.h"
 #include "..\GUI\UI_Info.h"
 #include "..\GUI\Output.h"
+#include "..\ApplicationManager.h"
 class ApplicationManager; //forward class declaration
 
 
@@ -13,7 +14,6 @@ class Action
 protected:
 	ApplicationManager *pManager;	//Actions needs AppMngr to do their job
 	GfxInfo ActGfxInfo; //Actions Graphic Informations
-
 public:
 	void CheckPoint(Point&P, Output* pOut, Input* pIn)
 	{
@@ -24,7 +24,7 @@ public:
 		}
 	}
 
-	Action(ApplicationManager *pApp) { pManager = pApp;ActGfxInfo.isFilled = false;}	//constructor
+	Action(ApplicationManager *pApp) {pManager = pApp; ActGfxInfo.isFilled = pManager->GetFilled();}	//constructor
 
 	//Reads parameters required for action to execute (code depends on action type)
 	virtual void ReadActionParameters() =0;

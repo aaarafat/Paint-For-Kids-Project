@@ -57,7 +57,7 @@ void FillClr::Execute()
 	{
 		F->SetSelected(false);
 		pManager->AddSelected(NULL);
-		ActGfxInfo.isFilled=true;
+		pManager->SetFilled();
 		return;
 	}
 
@@ -69,7 +69,7 @@ void FillClr::Execute()
 			F->SetSelected(false);
 			pManager->AddSelected(NULL);
 		}
-		ActGfxInfo.isFilled=true;
+		pManager->SetFilled();
 	}
 	else if(F)
 	{

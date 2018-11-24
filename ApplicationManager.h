@@ -17,7 +17,7 @@ private:
 
 	CFigure* SelectedFig; //Pointer to the selected figure
 	CFigure* Clipboard;   //Pointer to the copied/cut figure
-	
+	bool filled;
 	//Pointers to Input and Output classes
 	Input *pIn;
 	Output *pOut;
@@ -44,7 +44,9 @@ public:
 	Output *GetOutput() const; //Return pointer to the output
 	CFigure* GetSelected();
 	void UpdateInterface() const;	//Redraws all the drawing window	
-
+	// -- Style Management Function(s)
+	bool GetFilled();
+	void SetFilled();
 };
 
 #endif

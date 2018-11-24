@@ -25,7 +25,7 @@ ApplicationManager::ApplicationManager()
 	SelectedFig = NULL;
 	Clipboard = NULL;
 	FigCount = 0;
-	
+	filled = false;
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
 		FigList[i] = NULL;	
@@ -192,6 +192,15 @@ Output *ApplicationManager::GetOutput() const
 CFigure* ApplicationManager::GetSelected()
 {
 	return SelectedFig;
+}
+////////////////////////////////////////////////////////////////////////////////////
+bool ApplicationManager::GetFilled()
+{
+	return filled;
+}
+void ApplicationManager::SetFilled()
+{
+	filled = true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
