@@ -1,1 +1,1 @@
-Copy Bugs: Doesn't copy triangles, rectangles and lines
+Copy Bugs: It's available to draw on the toolbar
