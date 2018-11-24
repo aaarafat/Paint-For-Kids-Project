@@ -1,6 +1,6 @@
 #include "CutAction.h"
 
-#include "Copy.h"
+#include "CopyAction.h"
 #include "..\ApplicationManager.h"
 #include"..\Figures\CFigure.h"
 

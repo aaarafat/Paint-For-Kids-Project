@@ -10,7 +10,7 @@
 #include "Actions\DeleteAction.h"
 #include "Actions\FillClr.h"
 #include "Actions\DrawClr.h"
-#include "Actions\Copy.h"
+#include "Actions\CopyAction.h"
 #include "Actions\Paste.h"
 #include "Actions\CutAction.h"
 #include "GUI\UI_Info.h"
@@ -84,7 +84,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new ToDrawMode(this);
 			break;
 		case COPY:
-			pAct = new Copy(this);
+			pAct = new CopyAction(this);
 			break;
 		case CUT:
 			pAct = new CutAction(this);

@@ -1,14 +1,14 @@
-#include "Copy.h"
+#include "CopyAction.h"
 
 
 
-Copy::Copy(ApplicationManager *pApp) : Action(pApp){}
-void Copy::ReadActionParameters()
+CopyAction::CopyAction(ApplicationManager *pApp) : Action(pApp){}
+void CopyAction::ReadActionParameters()
 {
 	CopiedF = pManager->GetSelected();
 }
 
-void Copy::Execute()
+void CopyAction::Execute()
 {
 	Output * pOut = pManager->GetOutput();
 	ReadActionParameters();

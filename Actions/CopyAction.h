@@ -10,12 +10,12 @@
 
 #include "..\GUI\input.h"
 #include "..\GUI\Output.h"
-class Copy :public Action
+class CopyAction :public Action
 {
 
 	CFigure *CopiedF;
 public:
-    Copy(ApplicationManager *pApp);
+    CopyAction(ApplicationManager *pApp);
 
 	//ReadsEllipse parameters
 	virtual void ReadActionParameters();
