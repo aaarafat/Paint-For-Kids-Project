@@ -44,6 +44,7 @@ void Paste::Execute()
 		Point Center;
 		pOut->PrintMessage("Paste : Click on the new figure's place");
 		pIn->GetPointClicked(Center.x,Center.y);
+		CheckPoint(Center, pOut, pIn);
 		pOut->ClearStatusBar();
 		CopiedF->SetCenter(Center);
 		CopiedF->SetSelected(false);
