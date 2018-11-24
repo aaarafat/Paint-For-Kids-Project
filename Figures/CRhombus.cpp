@@ -44,9 +44,20 @@ float CRhombus::area(int x1, int y1, int x2, int y2, int x3, int y3)
 } 
 
 
-void CRhombus::SetCenter(Point Center)
-{
-	this->Center = Center;
+void CRhombus::SetCenter(Point C)
+{   	if(C.y - 100 < UI.ToolBarHeight + 1)
+	{
+		C.y = UI.ToolBarHeight + 101;
+	}
+	if(C.x - 50 < UI.ToolBarHeight + 1)
+	{
+		C.x = UI.ToolBarHeight + 51;
+	}
+	if(C.y + 100 > UI.height - UI.StatusBarHeight - 1)
+	{
+		C.y = UI.height - UI.StatusBarHeight - 101;
+	}
+	this->Center = C;
 }
 void CRhombus::Save(ofstream &OutFile, string filename)
 {

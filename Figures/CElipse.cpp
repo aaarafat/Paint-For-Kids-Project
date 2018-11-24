@@ -30,7 +30,18 @@ bool CElipse::IsInside(int x, int y)
 }
 
 void CElipse::SetCenter(Point Center)
-{
+{   	if(Center.y - 50 < UI.ToolBarHeight + 1)
+	{
+		Center.y = UI.ToolBarHeight + 51;
+	}
+	if(Center.x - 100 < UI.ToolBarHeight + 1)
+	{
+		Center.x = UI.ToolBarHeight + 101;
+	}
+	if(Center.y + 50 > UI.height - UI.StatusBarHeight - 1)
+	{
+		Center.y = UI.height - UI.StatusBarHeight - 51;
+	}
 	this->Center = Center;
 }
 void CElipse::Save(ofstream &OutFile, string filename)
