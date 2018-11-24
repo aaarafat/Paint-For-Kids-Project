@@ -8,12 +8,12 @@
 #include "..\GUI\Output.h"
 
 
-class FillClr :
+class FillClrAction :
 	public Action
 {
 	bool flag; // flag to check if the user didn`t click on the color icons
 public:
-	FillClr(ApplicationManager *pApp);
+	FillClrAction(ApplicationManager *pApp);
 	virtual void ReadActionParameters();
 	virtual void Execute();
 };

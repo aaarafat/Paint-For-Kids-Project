@@ -7,11 +7,11 @@
 #include "..\GUI\input.h"
 #include "..\GUI\Output.h"
 
-class DrawClr :
+class DrawClrAction :
 	public Action
 {
 public:
-	DrawClr(ApplicationManager *pApp);
+	DrawClrAction(ApplicationManager *pApp);
 	virtual void ReadActionParameters();
 	virtual void Execute();
 };

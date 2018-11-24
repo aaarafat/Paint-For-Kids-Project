@@ -1,11 +1,11 @@
 #pragma once
 #include "Action.h"
-class Select :
+class SelectAction :
 	public Action
 {
 	Point P;
 public:
-	Select(ApplicationManager *pApp);
+	SelectAction(ApplicationManager *pApp);
 	virtual void ReadActionParameters();
 	virtual void Execute();
 };

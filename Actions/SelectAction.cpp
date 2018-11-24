@@ -1,4 +1,4 @@
-#include "Select.h"
+#include "SelectAction.h"
 #include "..\Figures\CFigure.h"
 
 #include "..\ApplicationManager.h"
@@ -6,11 +6,11 @@
 #include "..\GUI\input.h"
 #include "..\GUI\Output.h"
 
-Select::Select(ApplicationManager *pApp) : Action(pApp)
+SelectAction::SelectAction(ApplicationManager *pApp) : Action(pApp)
 {
 
 }
-void Select::ReadActionParameters()
+void SelectAction::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
@@ -18,7 +18,7 @@ void Select::ReadActionParameters()
 	pIn->GetPointClicked(P.x, P.y);
 	pOut->ClearStatusBar();
 }
-void Select::Execute()
+void SelectAction::Execute()
 {
 	ReadActionParameters();
 	CFigure* f = pManager->GetFigure(P.x, P.y);

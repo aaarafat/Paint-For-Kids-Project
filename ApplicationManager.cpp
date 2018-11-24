@@ -4,14 +4,14 @@
 #include "Actions\AddTriAction.h"
 #include "Actions\ToDrawMode.h"
 #include "Actions\ToPlayMode.h"
-#include "Actions\Select.h"
+#include "Actions\SelectAction.h"
 #include "Actions\AddLineAction.h"
 #include "Actions\AddRhombAction.h"
 #include "Actions\DeleteAction.h"
-#include "Actions\FillClr.h"
-#include "Actions\DrawClr.h"
+#include "Actions\FillClrAction.h"
+#include "Actions\DrawClrAction.h"
 #include "Actions\CopyAction.h"
-#include "Actions\Paste.h"
+#include "Actions\PasteAction.h"
 #include "Actions\CutAction.h"
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
@@ -69,13 +69,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 
 		case CHNG_FILL_CLR:
-			pAct = new FillClr(this);
+			pAct = new FillClrAction(this);
 			break;
 		case CHNG_DRAW_CLR:
-			pAct = new DrawClr(this);
+			pAct = new DrawClrAction(this);
 			break;
 		case SELECT:
-			pAct = new Select(this);
+			pAct = new SelectAction(this);
 			break;
 		case TO_PLAY:
 			pAct = new ToPlayMode(this);
@@ -90,7 +90,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new CutAction(this);
 			break;
 		case PASTE:
-			pAct = new Paste(this);
+			pAct = new PasteAction(this);
 			break;
 		case EXIT:
 			///create Exit Action here

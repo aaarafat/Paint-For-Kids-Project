@@ -11,12 +11,12 @@
 #include "..\GUI\input.h"
 #include "..\GUI\Output.h"
 
-class Paste :
+class PasteAction :
 	public Action
 {
 	CFigure* CopiedF;
 public:
-	Paste(ApplicationManager *pApp);
+	PasteAction(ApplicationManager *pApp);
 	
 	virtual void ReadActionParameters();
 

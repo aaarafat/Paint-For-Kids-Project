@@ -1,11 +1,11 @@
-#include "Paste.h"
+#include "PasteAction.h"
 
 
-Paste::Paste(ApplicationManager *pApp):Action(pApp)
+PasteAction::PasteAction(ApplicationManager *pApp):Action(pApp)
 {
 }
 
-void Paste::ReadActionParameters()
+void PasteAction::ReadActionParameters()
 {
 	CopiedF = pManager->getClipboard();
 	if(CopiedF)
@@ -33,7 +33,7 @@ void Paste::ReadActionParameters()
 	}
 }
 
-void Paste::Execute()
+void PasteAction::Execute()
 {
 	Output * pOut = pManager->GetOutput();
 	Input * pIn = pManager->GetInput();

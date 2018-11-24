@@ -1,12 +1,12 @@
-#include "FillClr.h"
+#include "FillClrAction.h"
 
 
-FillClr::FillClr(ApplicationManager *pApp): Action(pApp)
+FillClrAction::FillClrAction(ApplicationManager *pApp): Action(pApp)
 {
 }
 
 
-void FillClr::ReadActionParameters()
+void FillClrAction::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateColorBar();
@@ -49,7 +49,7 @@ void FillClr::ReadActionParameters()
 
 }
 
-void FillClr::Execute()
+void FillClrAction::Execute()
 {
 	ReadActionParameters();
 	CFigure* F = pManager->GetSelected();

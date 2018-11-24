@@ -1,10 +1,10 @@
-#include "DrawClr.h"
+#include "DrawClrAction.h"
 
-DrawClr::DrawClr(ApplicationManager *pApp): Action(pApp)
+DrawClrAction::DrawClrAction(ApplicationManager *pApp): Action(pApp)
 {
 }
 
-void DrawClr::ReadActionParameters()
+void DrawClrAction::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateColorBar();
@@ -44,7 +44,7 @@ void DrawClr::ReadActionParameters()
 
 }
 
-void DrawClr::Execute()
+void DrawClrAction::Execute()
 {
 	ReadActionParameters();
 	CFigure* F = pManager->GetSelected();
