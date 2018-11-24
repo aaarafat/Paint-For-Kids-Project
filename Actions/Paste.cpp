@@ -46,7 +46,7 @@ void Paste::Execute()
 		pIn->GetPointClicked(Center.x,Center.y);
 		CheckPoint(Center, pOut, pIn);
 		pOut->ClearStatusBar();
-		CopiedF->SetCenter(Center);
+		CopiedF->SetCenter(Center.x, Center.y);
 		CopiedF->SetSelected(false);
 		if(pManager->GetSelected())
 		{

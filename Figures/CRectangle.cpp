@@ -39,15 +39,46 @@ bool CRectangle::IsInside(int x, int y)
 	return (x <= x1 && x >= x2 && y <= y1 && y >= y2);
 }
 
-void CRectangle::SetCenter(Point Center)
+void CRectangle::SetCenter(int& x, int& y)
 {
 	Point C;
 	C.x = (Corner1.x + Corner2.x)/2;
 	C.y = (Corner1.y + Corner2.y)/2;
-	Corner1.x += Center.x - C.x;
-	Corner2.x += Center.x - C.x;
-	Corner1.y += Center.y - C.y;
-	Corner2.y += Center.y - C.y;
+	Corner1.x += x - C.x;
+	Corner2.x += x - C.x;
+	Corner1.y += y - C.y;
+	Corner2.y += y - C.y;
+	if(Corner1.y < UI.ToolBarHeight + 1)
+	{
+		y = y + (UI.ToolBarHeight + 1 - Corner1.y);
+		SetCenter(x, y);
+	}
+	if(Corner2.y < UI.ToolBarHeight + 1)
+	{
+		y = y + (UI.ToolBarHeight + 1 - Corner2.y);
+		SetCenter(x, y);
+	}
+	if(Corner1.x < UI.ToolBarHeight + 1)
+	{
+		x = x + (UI.ToolBarHeight + 1 - Corner1.x);
+		SetCenter(x, y);
+	}
+	if(Corner2.x < UI.ToolBarHeight + 1)
+	{
+		x = x + (UI.ToolBarHeight + 1 - Corner2.x);
+		SetCenter(x, y);
+	}
+	if(Corner1.y > UI.height - UI.StatusBarHeight - 1)
+	{
+		y = y - (Corner1.y - UI.height + UI.StatusBarHeight + 1);
+		SetCenter(x, y);
+	}
+	if(Corner2.y > UI.height - UI.StatusBarHeight - 1)
+	{
+		y = y - (Corner2.y - UI.height + UI.StatusBarHeight + 1);
+		SetCenter(x, y);
+	}
+
 }
 
 void CRectangle::Save(ofstream &OutFile, string filename)

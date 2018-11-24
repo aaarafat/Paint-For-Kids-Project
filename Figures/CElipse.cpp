@@ -3,18 +3,7 @@
 
 CElipse::CElipse(Point P1, GfxInfo FigureGfxInfo): CFigure(FigureGfxInfo)
 {
-	if(P1.y - 50 < UI.ToolBarHeight + 1)
-	{
-		P1.y = UI.ToolBarHeight + 51;
-	}
-	if(P1.x - 100 < UI.ToolBarHeight + 1)
-	{
-		P1.x = UI.ToolBarHeight + 101;
-	}
-	if(P1.y + 50 > UI.height - UI.StatusBarHeight - 1)
-	{
-		P1.y = UI.height - UI.StatusBarHeight - 51;
-	}
+	ShiftPoints(P1);
 	Center = P1;
 }
 
@@ -29,19 +18,28 @@ bool CElipse::IsInside(int x, int y)
 		(y - Center.y) * (y - Center.y) / ((50.0) * (50)) <= 1;
 }
 
-void CElipse::SetCenter(Point Center)
-{   	if(Center.y - 50 < UI.ToolBarHeight + 1)
+void CElipse::ShiftPoints(Point& C)
+{
+	if(C.y - 50 < UI.ToolBarHeight + 1)
 	{
-		Center.y = UI.ToolBarHeight + 51;
+		C.y = UI.ToolBarHeight + 51;
 	}
-	if(Center.x - 100 < UI.ToolBarHeight + 1)
+	if(C.x - 100 < UI.ToolBarHeight + 1)
 	{
-		Center.x = UI.ToolBarHeight + 101;
+		C.x = UI.ToolBarHeight + 101;
 	}
-	if(Center.y + 50 > UI.height - UI.StatusBarHeight - 1)
+	if(C.y + 50 > UI.height - UI.StatusBarHeight - 1)
 	{
-		Center.y = UI.height - UI.StatusBarHeight - 51;
+		C.y = UI.height - UI.StatusBarHeight - 51;
 	}
+}
+
+void CElipse::SetCenter(int& x, int& y)
+{   	
+	Point Center;
+	Center.x = x;
+	Center.y = y;
+	ShiftPoints(Center);
 	this->Center = Center;
 }
 void CElipse::Save(ofstream &OutFile, string filename)
