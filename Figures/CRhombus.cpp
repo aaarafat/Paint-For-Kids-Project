@@ -65,5 +65,8 @@ void CRhombus::Save(ofstream &OutFile, string filename)
 	// 0 means NO_FILL
 }
 void CRhombus::PrintInfo(Output* pOut){
-	pOut->PrintMessage(strDrawClr()+" "+strFillClr());
+	if(FigGfxInfo.isFilled == true)
+		pOut->PrintMessage(strDrawClr()+" "+strFillClr());
+	else
+        pOut->PrintMessage(strDrawClr()+" No-Fill");
 }

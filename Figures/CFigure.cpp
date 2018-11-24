@@ -4,7 +4,7 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 {
 	FigGfxInfo = FigureGfxInfo;	//Default status is non-filled.
 	setDrawClr();
-	if(FigGfxInfo.isFilled = true) setFillClr();
+	if(FigGfxInfo.isFilled == true) setFillClr();
 	Selected = false;
 	static int i =1 ;
 	ID = i;

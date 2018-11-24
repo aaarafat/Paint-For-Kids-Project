@@ -120,10 +120,12 @@ void ApplicationManager::AddFigure(CFigure* pFig)
 {
 	if(FigCount < MaxFigCount )
 		FigList[FigCount++] = pFig;	
+	
 }
 void ApplicationManager::AddSelected(CFigure* S)
 {
 	SelectedFig = S;
+	if(SelectedFig!=NULL) SelectedFig->PrintInfo(pOut);
 }
 
 
@@ -196,6 +198,7 @@ Output *ApplicationManager::GetOutput() const
 CFigure* ApplicationManager::GetSelected()
 {
 	return SelectedFig;
+
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Destructor

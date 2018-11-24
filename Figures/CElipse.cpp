@@ -51,6 +51,9 @@ void CElipse::Save(ofstream &OutFile, string filename)
 }
 void CElipse::PrintInfo(Output* pOut)
 {
-pOut->PrintMessage(strDrawClr()+" "+strFillClr());
+	if(FigGfxInfo.isFilled == true)
+		pOut->PrintMessage(strDrawClr()+" "+strFillClr());
+	else
+        pOut->PrintMessage(strDrawClr()+" No-Fill");
 }
 
