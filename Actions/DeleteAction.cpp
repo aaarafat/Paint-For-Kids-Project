@@ -12,7 +12,6 @@ void DeleteAction::ReadActionParameters()
 {}
 
 
-
 void DeleteAction::Execute()
 {
 	Output * pOut = pManager->GetOutput();

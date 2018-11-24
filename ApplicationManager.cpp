@@ -12,6 +12,7 @@
 #include "Actions\DrawClr.h"
 #include "Actions\Copy.h"
 #include "Actions\Paste.h"
+#include "Actions\CutAction.h"
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
 #include "GUI\Input.h"
@@ -84,6 +85,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case COPY:
 			pAct = new Copy(this);
+			break;
+		case CUT:
+			pAct = new CutAction(this);
 			break;
 		case PASTE:
 			pAct = new Paste(this);
