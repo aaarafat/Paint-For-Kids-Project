@@ -23,6 +23,7 @@ ApplicationManager::ApplicationManager()
 	pOut = new Output;
 	pIn = pOut->CreateInput();
 	SelectedFig = NULL;
+	Clipboard = NULL;
 	FigCount = 0;
 	
 	//Create an array of figure pointers and set them to NULL		
@@ -123,6 +124,10 @@ void ApplicationManager::AddSelected(CFigure* S)
 
 
 void ApplicationManager::setClipboard(CFigure *C){
+	if(Clipboard)
+	{
+		delete Clipboard;
+	}
 	Clipboard = C;
 }
 
@@ -195,7 +200,10 @@ ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<FigCount; i++)
 		delete FigList[i];
-	delete Clipboard;
+	if(Clipboard)
+	{
+		delete Clipboard;
+	}
 	delete pIn;
 	delete pOut;
 	

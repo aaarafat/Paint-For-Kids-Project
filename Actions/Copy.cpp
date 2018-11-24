@@ -3,10 +3,9 @@
 
 
 Copy::Copy(ApplicationManager *pApp) : Action(pApp){}
-void Copy::ReadActionParameters(){
+void Copy::ReadActionParameters()
+{
 	CopiedF = pManager->GetSelected();
-	
-		
 }
 
 void Copy::Execute()
