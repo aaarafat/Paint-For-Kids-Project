@@ -25,6 +25,7 @@ void CopyAction::Execute()
 			pManager->GetpCut()->ChngToNonFill();
 			CopiedF->ChngToNonFill();
 		}
+		pOut->ClearDrawArea();
 	}
 	if(CopiedF!=NULL){
 		if(dynamic_cast<CLine*>(CopiedF))
