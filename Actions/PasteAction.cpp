@@ -57,6 +57,10 @@ void PasteAction::Execute()
 				pManager->AddSelected(NULL);
 			}
 			CopiedF->ChngDrawClr(pManager->getLastDrwClr());
+			if(pManager->GetCFill())
+				CopiedF->ChngFillClr(pManager->getLastFillClr());
+			else
+				CopiedF->ChngToNonFill();
 			pManager->AddFigure(CopiedF);
 			if (pManager->GetpCut())
 			{

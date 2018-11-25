@@ -84,3 +84,18 @@ color CFigure::GetDrawClr() const
 {
 	return FigGfxInfo.DrawClr;
 }
+
+color CFigure::GetFillClr() const
+{
+	return FigGfxInfo.FillClr;
+}
+
+bool CFigure::IsFill() const
+{
+	return FigGfxInfo.isFilled;
+}
+
+void CFigure::ChngToNonFill()
+{
+	FigGfxInfo.isFilled = false;
+}

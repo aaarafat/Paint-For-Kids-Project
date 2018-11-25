@@ -27,6 +27,7 @@ ApplicationManager::ApplicationManager()
 	Clipboard = NULL;
 	pCut = NULL;
 	FigCount = 0;
+	CutFill = false;
 	IsCut = false; //default is copy
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
@@ -242,7 +243,22 @@ color ApplicationManager::getLastDrwClr()
 {
 	return this->LastDrwClr;
 }
-
+void ApplicationManager::setLastFillClr(color LastFillClr)
+{
+	this->LastFillClr = LastFillClr;
+}
+color ApplicationManager::getLastFillClr()
+{
+	return this->LastFillClr;
+}
+void ApplicationManager::SetCFill(bool F)
+{
+	this->CutFill = F;
+}
+bool ApplicationManager::GetCFill() const
+{
+	return this->CutFill;
+}
 ////////////////////////////////////////////////////////////////////////////////////
 //Destructor
 ApplicationManager::~ApplicationManager()
