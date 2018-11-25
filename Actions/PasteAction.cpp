@@ -45,6 +45,7 @@ void PasteAction::Execute()
 		if (pManager->IsCutted())
 		{
 			Point Center;
+			pManager->ChngCutMode(false);
 			pOut->PrintMessage("Paste : Click on the new figure's place");
 			pIn->GetPointClicked(Center.x,Center.y);
 			CheckPoint(Center, pOut, pIn);
