@@ -12,7 +12,10 @@ void CopyAction::Execute()
 {
 	Output * pOut = pManager->GetOutput();
 	ReadActionParameters();
-
+	if (pManager->IsCutted())
+	{
+		pManager->ChngCutMode(false);
+	}
 
 	if(CopiedF!=NULL){
 		if(dynamic_cast<CLine*>(CopiedF))

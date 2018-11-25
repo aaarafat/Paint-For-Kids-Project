@@ -10,46 +10,47 @@ CutAction::CutAction(ApplicationManager* pMan):Action(pMan)
 
 void CutAction::ReadActionParameters()
 {
+	Output* pOut = pManager->GetOutput();
+	CopiedF = pManager->GetSelected();
+	
 }
 
 void CutAction::Execute()
 {
-
 	Output* pOut = pManager->GetOutput();
-
-	
-
-	if(ptr1==NULL)
-		pOut->PrintMessage("please selsect a figure first");
-	else
-	{
-		ptr1=pManager->GetSelected();
-		if(dynamic_cast<CLine*>(ptr1))
+	//ReadActionParameters();
+	if(CopiedF != NULL){
+		ReadActionParameters();
+		pManager->SetpCut(CopiedF);
+		if(dynamic_cast<CLine*>(CopiedF))
 		{
-			ptr1 = new CLine(*dynamic_cast<CLine*>(ptr1));
+			CopiedF = new CLine(*dynamic_cast<CLine*>(CopiedF));
 		}
-		else if(dynamic_cast<CRhombus*>(ptr1))
+		else if(dynamic_cast<CRhombus*>(CopiedF))
 		{
-			ptr1 = new CRhombus(*dynamic_cast<CRhombus*>(ptr1));
+			CopiedF = new CRhombus(*dynamic_cast<CRhombus*>(CopiedF));
 		}
-		else if(dynamic_cast<CTriangle*>(ptr1))
+		else if(dynamic_cast<CTriangle*>(CopiedF))
 		{
-			ptr1 = new CTriangle(*dynamic_cast<CTriangle*>(ptr1));
+			CopiedF = new CTriangle(*dynamic_cast<CTriangle*>(CopiedF));
 		}
-		else if (dynamic_cast<CRectangle*>(ptr1))
+		else if (dynamic_cast<CRectangle*>(CopiedF))
 		{
-			ptr1 = new CRectangle(*dynamic_cast<CRectangle*>(ptr1));
+			CopiedF = new CRectangle(*dynamic_cast<CRectangle*>(CopiedF));
 		}
 		else
 		{
-			ptr1 = new CElipse(*dynamic_cast<CElipse*>(ptr1));
-		}	
-	pManager->setClipboard(ptr1);
-	pOut->PrintMessage("The figure is Cut");
-	
-
-		pManager->DeleteSelectedFigure();
-		pManager->UpdateInterface();
-
+			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
+		}
+		pManager->setClipboard(CopiedF);
+		color LastDrwClr = CopiedF->GetDrawClr();
+		pManager->setLastDrwClr(LastDrwClr);
+		CopiedF->ChngDrawClr(GREY);
+		pManager->ChngCutMode(true);
+		pOut->PrintMessage("The figure is Cut");
 	}
+	else
+		pOut->PrintMessage("please selsect a figure first");
+	
+	//pManager->DeleteSelectedFigure();
 }

@@ -31,6 +31,7 @@ void PasteAction::ReadActionParameters()
 			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
 		}
 	}
+	
 }
 
 void PasteAction::Execute()
@@ -41,19 +42,44 @@ void PasteAction::Execute()
 
 	if (CopiedF)
 	{
-		Point Center;
-		pOut->PrintMessage("Paste : Click on the new figure's place");
-		pIn->GetPointClicked(Center.x,Center.y);
-		CheckPoint(Center, pOut, pIn);
-		pOut->ClearStatusBar();
-		CopiedF->SetCenter(Center.x, Center.y);
-		CopiedF->SetSelected(false);
-		if(pManager->GetSelected())
+		if (pManager->IsCutted())
 		{
-			pManager->GetSelected()->SetSelected(false);
-			pManager->AddSelected(NULL);
+			Point Center;
+			pOut->PrintMessage("Paste : Click on the new figure's place");
+			pIn->GetPointClicked(Center.x,Center.y);
+			CheckPoint(Center, pOut, pIn);
+			pOut->ClearStatusBar();
+			CopiedF->SetCenter(Center.x, Center.y);
+			CopiedF->SetSelected(false);
+			if(pManager->GetSelected())
+			{
+				pManager->GetSelected()->SetSelected(false);
+				pManager->AddSelected(NULL);
+			}
+			CopiedF->ChngDrawClr(pManager->getLastDrwClr());
+			pManager->AddFigure(CopiedF);
+			if (pManager->GetpCut())
+			{
+				pManager->DeleteFigure(pManager->GetpCut());
+				pManager->SetpCut(NULL);
+			}
 		}
-		pManager->AddFigure(CopiedF);
+		else
+		{
+			Point Center;
+			pOut->PrintMessage("Paste : Click on the new figure's place");
+			pIn->GetPointClicked(Center.x,Center.y);
+			CheckPoint(Center, pOut, pIn);
+			pOut->ClearStatusBar();
+			CopiedF->SetCenter(Center.x, Center.y);
+			CopiedF->SetSelected(false);
+			if(pManager->GetSelected())
+			{
+				pManager->GetSelected()->SetSelected(false);
+				pManager->AddSelected(NULL);
+			}
+			pManager->AddFigure(CopiedF);
+		}
+		
 	}
-
 }

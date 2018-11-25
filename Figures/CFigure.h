@@ -26,6 +26,7 @@ public:
 	virtual void Draw(Output* pOut) const  = 0 ;		//Draw the figure
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
+	color GetDrawClr() const;       //gets the figure's drawing color
 	virtual void SetCenter(int& x, int& y)= 0;   //change the figure's center
 	void setDrawClr() ; // sets an integer for each Draw Color
 	void setFillClr() ; // sets an integer for each Fill Color

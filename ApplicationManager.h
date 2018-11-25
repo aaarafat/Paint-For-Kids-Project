@@ -14,10 +14,12 @@ class ApplicationManager
 private:
 	int FigCount;		//Actual number of figures
 	CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
-
+	color LastDrwClr;               //Last Draw Color for the cutted figure
 	CFigure* SelectedFig; //Pointer to the selected figure
 	CFigure* Clipboard;   //Pointer to the copied/cut figure
+	CFigure* pCut;        //Pointer to the cut figure
 	bool filled;
+	bool IsCut; //checks if the figure is cut
 	//Pointers to Input and Output classes
 	Input *pIn;
 	Output *pOut;
@@ -37,14 +39,18 @@ public:
 	CFigure *GetFigure(int x, int y) const; //Search for a figure given a point inside the figure
 	void setClipboard(CFigure *);
 	CFigure * getClipboard() const;
-	void DeleteSelectedFigure();			//Removes a figure from the list and updates it
-	
+	bool IsCutted() const;                  //Checks if the figure is cut/copy
+   	void ChngCutMode(bool);						//Change IsCut to true 
+	void DeleteFigure(CFigure* F);          //Delete figure
 	// -- Interface Management Functions
 	Input *GetInput() const; //Return pointer to the input
 	Output *GetOutput() const; //Return pointer to the output
 	CFigure* GetSelected();
 	void UpdateInterface() const;	//Redraws all the drawing window	
-
+	void setLastDrwClr(color LastDrwClr);  //sets the last draw color for the cutted figure
+	color getLastDrwClr();				//gets the last draw color for the cutted figure
+	void SetpCut(CFigure*);             //sets the cut pointer
+	CFigure* GetpCut();                 //sets the cut pointer
 };
 
 #endif

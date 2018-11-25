@@ -25,8 +25,10 @@ ApplicationManager::ApplicationManager()
 	pIn = pOut->CreateInput();
 	SelectedFig = NULL;
 	Clipboard = NULL;
+	pCut = NULL;
 	FigCount = 0;
 	filled = false;
+	IsCut = false; //default is copy
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
 		FigList[i] = NULL;	
@@ -136,27 +138,35 @@ void ApplicationManager::setClipboard(CFigure *C){
 	}
 	Clipboard = C;
 }
-
+void ApplicationManager::SetpCut(CFigure* F)
+{
+	pCut = F;
+}
+CFigure* ApplicationManager::GetpCut(){return pCut;}
 CFigure *ApplicationManager::getClipboard() const { return Clipboard; }
 
 //need to be put in DeleteAction class
-void ApplicationManager::DeleteSelectedFigure(){
+void ApplicationManager::DeleteFigure(CFigure* F)
+{
 	int selectedfigureindex;
-		for (int i = 0; i<FigCount; i++)
+	for (int i = 0; i<FigCount; i++)
+	{
+		if(F==FigList[i])
 		{
-			if(SelectedFig==FigList[i])
-			{
-				FigList[i]=NULL;
-				selectedfigureindex=i;
-			}
+			selectedfigureindex=i;
 		}
-		for(int i=selectedfigureindex;i<FigCount-1;i++)
-		{
-			FigList[i]=FigList[i+1];
-		}
-		SelectedFig=NULL;
-		pOut->ClearDrawArea();
-		FigCount--;
+	}
+	CFigure* temp;
+	for(int i=selectedfigureindex;i<FigCount-1;i++)
+	{
+		temp = FigList[i];
+		FigList[i]=FigList[i+1];
+		FigList[i+1] = temp;
+		
+	}
+	delete FigList[FigCount-1];
+	FigCount--;
+	pOut->ClearDrawArea();
 }
 ////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
@@ -200,6 +210,23 @@ CFigure* ApplicationManager::GetSelected()
 	return SelectedFig;
 
 }
+bool ApplicationManager::IsCutted() const
+{
+	return IsCut;
+}
+void ApplicationManager::ChngCutMode(bool cutMode)
+{
+	IsCut = cutMode;
+}
+void ApplicationManager::setLastDrwClr(color LastDrwClr)
+{
+	this->LastDrwClr = LastDrwClr;
+}
+color ApplicationManager::getLastDrwClr()
+{
+	return this->LastDrwClr;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////
 //Destructor
 ApplicationManager::~ApplicationManager()

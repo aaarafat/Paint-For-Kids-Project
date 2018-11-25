@@ -70,3 +70,7 @@ void CFigure::ChngFillClr(color Fclr)
 	setFillClr();
 }
 
+color CFigure::GetDrawClr() const
+{
+	return FigGfxInfo.DrawClr;
+}
