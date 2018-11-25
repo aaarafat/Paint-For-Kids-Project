@@ -22,6 +22,19 @@ void CutAction::Execute()
 	if(CopiedF != NULL){
 		ReadActionParameters();
 		pManager->SetpCut(CopiedF);
+		color LastDrwClr = CopiedF->GetDrawClr();
+
+		if(CopiedF->IsFill()){
+			color LastFillClr = CopiedF->GetFillClr();
+			pManager->setLastFillClr(LastFillClr);
+			pManager->SetCFill(true);
+		}
+		else
+			pManager->SetCFill(false);
+		pManager->setLastDrwClr(LastDrwClr);
+		CopiedF->ChngDrawClr(GREY);
+		CopiedF->ChngFillClr(GREY);
+
 		if(dynamic_cast<CLine*>(CopiedF))
 		{
 			CopiedF = new CLine(*dynamic_cast<CLine*>(CopiedF));
@@ -43,9 +56,6 @@ void CutAction::Execute()
 			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
 		}
 		pManager->setClipboard(CopiedF);
-		color LastDrwClr = CopiedF->GetDrawClr();
-		pManager->setLastDrwClr(LastDrwClr);
-		CopiedF->ChngDrawClr(GREY);
 		pManager->ChngCutMode(true);
 		pOut->PrintMessage("The figure is Cut");
 	}

@@ -15,10 +15,12 @@ private:
 	int FigCount;		//Actual number of figures
 	CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
 	color LastDrwClr;               //Last Draw Color for the cutted figure
+	color LastFillClr;              //Last Fill Color for the cutted figure
 	CFigure* SelectedFig; //Pointer to the selected figure
 	CFigure* Clipboard;   //Pointer to the copied/cut figure
 	CFigure* pCut;        //Pointer to the cut figure
 	bool filled;
+	bool CutFill;      //bool to check the cut figure fill statue
 	bool IsCut; //checks if the figure is cut
 	//Pointers to Input and Output classes
 	Input *pIn;
@@ -52,8 +54,12 @@ public:
 	void UpdateInterface() const;	//Redraws all the drawing window	
 	void setLastDrwClr(color LastDrwClr);  //sets the last draw color for the cutted figure
 	color getLastDrwClr();				//gets the last draw color for the cutted figure
+	void setLastFillClr(color LastFillClr);  //sets the last draw color for the cutted figure
+	color getLastFillClr();				//gets the last draw color for the cutted figure
 	void SetpCut(CFigure*);             //sets the cut pointer
 	CFigure* GetpCut();                 //sets the cut pointer
+	void SetCFill(bool);                //sets the cutfill
+	bool GetCFill() const;              //gets the cutfill
 };
 
 #endif
