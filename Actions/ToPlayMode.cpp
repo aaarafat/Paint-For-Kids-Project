@@ -14,7 +14,7 @@ void ToPlayMode::Execute()
 	Output* pOut = pManager->GetOutput();
 	pOut->ClearDrawArea();
 	pOut->CreatePlayToolBar();
-
+	pOut->ClearStatusBar();
 
 }
 

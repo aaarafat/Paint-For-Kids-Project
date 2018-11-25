@@ -38,7 +38,7 @@ public:
 	void setClipboard(CFigure *);
 	CFigure * getClipboard() const;
 	void DeleteSelectedFigure();			//Removes a figure from the list and updates it
-	
+	void SaveAll();
 	// -- Interface Management Functions
 	Input *GetInput() const; //Return pointer to the input
 	Output *GetOutput() const; //Return pointer to the output

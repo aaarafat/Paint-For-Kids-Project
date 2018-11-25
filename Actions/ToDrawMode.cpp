@@ -11,8 +11,7 @@ void ToDrawMode::ReadActionParameters()
 void ToDrawMode::Execute()
 {
 	Output* pOut = pManager->GetOutput();
-
 	pOut->CreateDrawToolBar();
-
+	
 }
 

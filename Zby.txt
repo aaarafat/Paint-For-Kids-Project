@@ -1,0 +1,4 @@
+Blue    Green
+2
+RHOMBUS    1    285    151    Blue    NO_FILL
+RHOMBUS    201    120    283    Blue    NO_FILL

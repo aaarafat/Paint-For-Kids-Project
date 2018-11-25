@@ -1,4 +1,15 @@
 #include "CFigure.h"
+CFigure::CFigure(CFigure& F)
+{
+	static int i = 200;
+	ID = i;
+	Selected = F.Selected;
+	FigGfxInfo = F.FigGfxInfo;
+	DCLR = F.DCLR;
+	FCLR = F.FCLR;
+	Type = F.Type;
+	i++;
+}
 
 CFigure::CFigure(GfxInfo FigureGfxInfo)
 {
@@ -9,7 +20,7 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 	static int i =1 ;
 	ID = i;
 	i++;
-	
+	atoi()
 }
 
 void CFigure::setDrawClr(){

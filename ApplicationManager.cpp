@@ -92,6 +92,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case PASTE:
 			pAct = new PasteAction(this);
 			break;
+		case SAVE:
+			SaveAll();
+			break;
 		case EXIT:
 			///create Exit Action here
 			
@@ -158,6 +161,20 @@ void ApplicationManager::DeleteSelectedFigure(){
 		pOut->ClearDrawArea();
 		FigCount--;
 }
+void ApplicationManager::SaveAll()
+{
+	ofstream OutFile;
+	string filename = pIn->GetSrting(pOut);
+	OutFile.open(filename);
+	OutFile<<pOut->strDrawClr()<<"    "<<pOut->strFillClr()<<endl;
+	OutFile<<FigCount<<endl;
+	for(int i = 0; i < FigCount; i++)
+	{
+		FigList[i]->Save(OutFile);
+	}
+
+}
+
 ////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
 {

@@ -30,21 +30,24 @@ string Input::GetSrting(Output *pO) const
 {
 	string Label;
 	char Key;
+	pO->ClearStatusBar();
+	pO->PrintMessage("Enter The File Name : ");
 	while(1)
 	{
 		pWind->WaitKeyPress(Key);
 		if(Key == 27 )	//ESCAPE key is pressed
 			return "";	//returns nothing as user has cancelled label
 		if(Key == 13 )	//ENTER key is pressed
-			return Label;
+		{
+				pO->ClearStatusBar();
+				return Label;
+		}
 		if((Key == 8) && (Label.size() >= 1))	//BackSpace is pressed
 			Label.resize(Label.size() -1 );			
 		else
 			Label += Key;
 		if (pO)
-			pO->PrintMessage(Label);
-
-
+			pO->PrintMessage("Enter The File Name : "+Label);
 	}
 }
 
