@@ -18,7 +18,6 @@ private:
 	CFigure* SelectedFig; //Pointer to the selected figure
 	CFigure* Clipboard;   //Pointer to the copied/cut figure
 	CFigure* pCut;        //Pointer to the cut figure
-	bool filled;
 	bool IsCut; //checks if the figure is cut
 	//Pointers to Input and Output classes
 	Input *pIn;
