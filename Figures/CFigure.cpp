@@ -20,7 +20,6 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 	static int i =1 ;
 	ID = i;
 	i++;
-	atoi()
 }
 
 void CFigure::setDrawClr(){
