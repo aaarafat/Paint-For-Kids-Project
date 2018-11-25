@@ -43,19 +43,17 @@ void CElipse::SetCenter(int& x, int& y)
 	ShiftPoints(Center);
 	this->Center = Center;
 }
-void CElipse::Save(ofstream &OutFile, string filename)
+void CElipse::Save(ofstream &OutFile)
 {
-	//OutFile.open(filename);
-	//if(FigGfxInfo.
-	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
+	OutFile<<"ELLIPSE    "<<ID<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 	// 0 means NO_FILL
 }
 void CElipse::PrintInfo(Output* pOut)
 {
 	if(FigGfxInfo.isFilled == true)
-		pOut->PrintMessage(strType()+" "+strDrawClr()+" "+strFillClr());
+		pOut->PrintMessage("Figure: "+strType()+"    Draw Color: "+strDrawClr()+"    Fill Color: "+strFillClr());
 	else
-        pOut->PrintMessage(strType()+" "+strDrawClr()+" No-Fill");
+        pOut->PrintMessage("Figure: "+strType()+"    Draw Color: "+strDrawClr()+"    No-Fill");
 }
 
 void CElipse::setType(){

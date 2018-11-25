@@ -57,18 +57,15 @@ void CRhombus::SetCenter(int& x, int& y)
 	ShiftPoints(C);
 	this->Center = C;
 }
-void CRhombus::Save(ofstream &OutFile, string filename)
+void CRhombus::Save(ofstream &OutFile)
 {
-	//OutFile.open(filename);
-	//if(FigGfxInfo.
-	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
-	// 0 means NO_FILL
+	OutFile<<"RHOMBUS    "<<ID<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 }
 void CRhombus::PrintInfo(Output* pOut){
 	if(FigGfxInfo.isFilled == true)
-		pOut->PrintMessage(strType()+" "+strDrawClr()+" "+strFillClr());
+		pOut->PrintMessage("Figure: "+strType()+"    Draw Color: "+strDrawClr()+"    Fill Color: "+strFillClr());
 	else
-        pOut->PrintMessage(strType()+" "+strDrawClr()+" No-Fill");
+        pOut->PrintMessage("Figure: "+strType()+"    Draw Color: "+strDrawClr()+"    No-Fill");
 }
 void CRhombus::setType(){
 Type = 4;

@@ -33,12 +33,9 @@ float CLine::area(int x1, int y1, int x2, int y2, int x3, int y3)
 { 
 	return abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0); 
 } 
-void CLine::Save(ofstream &OutFile, string filename)
+void CLine::Save(ofstream &OutFile)
 {
-	//OutFile.open(filename);
-	//if(FigGfxInfo.
-	//OutFile<<"ELLIPSE\t"<<counter<<"\t"<<Center.x<<"\t"<<Center.y<<FigGfxInfo.DrawClr<<"\t"<<((FigGfxInfo.isFilled) ? FigGfxInfo.FillClr : 0)<<endl; 
-	// 0 means NO_FILL
+	OutFile<<"LINE    "<<ID<<"    "<<Point1.x<<"    "<<Point1.y<<"    "<<"    "<<Point2.x<<"    "<<Point2.y<<"    "<<strDrawClr()<<"    "<<"NO_FILL"<<endl; 
 }
 void CLine::SetCenter(int& x, int& y)
 {
@@ -81,7 +78,7 @@ void CLine::SetCenter(int& x, int& y)
 	}
 }
 void CLine::PrintInfo(Output* pOut){
-pOut->PrintMessage(strType()+" "+strDrawClr());
+pOut->PrintMessage("Figure: "+strType()+"    Draw Color: "+strDrawClr());
 
 }
 void CLine::setType(){
