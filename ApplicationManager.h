@@ -39,14 +39,12 @@ public:
 	CFigure *GetFigure(int x, int y) const; //Search for a figure given a point inside the figure
 	void setClipboard(CFigure *);
 	CFigure * getClipboard() const;
-<<<<<<< HEAD
 	bool IsCutted() const;                  //Checks if the figure is cut/copy
    	void ChngCutMode(bool);						//Change IsCut to true 
 	void DeleteFigure(CFigure* F);          //Delete figure
-=======
 	void DeleteSelectedFigure();			//Removes a figure from the list and updates it
 	void SaveAll();
->>>>>>> 7e119c01c198ac67df0af6389573f1e465c88bb1
+
 	// -- Interface Management Functions
 	Input *GetInput() const; //Return pointer to the input
 	Output *GetOutput() const; //Return pointer to the output
