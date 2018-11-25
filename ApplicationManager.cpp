@@ -27,7 +27,6 @@ ApplicationManager::ApplicationManager()
 	Clipboard = NULL;
 	pCut = NULL;
 	FigCount = 0;
-	filled = false;
 	CutFill = false;
 	IsCut = false; //default is copy
 	//Create an array of figure pointers and set them to NULL		
