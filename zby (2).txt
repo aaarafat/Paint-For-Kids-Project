@@ -1,6 +1,0 @@
-Blue    Red
-4
-TRIANGLE    2    567    123        688    227    700    135    Blue    NO_FILL
-ELLIPSE    3    570    309    Blue    NO_FILL
-LINE    201    774    180        1021    344    Blue    NO_FILL
-LINE    203    639    364        886    528    Blue    Red
