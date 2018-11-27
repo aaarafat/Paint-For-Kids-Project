@@ -12,8 +12,21 @@ void CopyAction::Execute()
 {
 	Output * pOut = pManager->GetOutput();
 	ReadActionParameters();
-
-
+	if (pManager->IsCutted())
+	{
+		pManager->ChngCutMode(false);
+		pManager->GetpCut()->ChngDrawClr(pManager->getLastDrwClr());
+		CopiedF->ChngDrawClr(pManager->getLastDrwClr());
+		if(pManager->GetCFill()){
+			pManager->GetpCut()->ChngFillClr(pManager->getLastFillClr());
+			CopiedF->ChngFillClr(pManager->getLastFillClr());
+		}
+		else{
+			pManager->GetpCut()->ChngToNonFill();
+			CopiedF->ChngToNonFill();
+		}
+		pOut->ClearDrawArea();
+	}
 	if(CopiedF!=NULL){
 		if(dynamic_cast<CLine*>(CopiedF))
 		{

@@ -5,7 +5,7 @@ class CutAction :
 {
 private:
 	Point P1;
-	class CFigure *ptr1;
+	class CFigure *CopiedF; // pointer to the selected fig
 public:
 	CutAction(ApplicationManager*);
 

@@ -8,6 +8,7 @@
 #include "..\Figures\CElipse.h"
 #include "..\Figures\CRectangle.h"
 #include "..\Figures\CRectangle.h"
+#include "..\Actions\DeleteAction.h"
 #include "..\GUI\input.h"
 #include "..\GUI\Output.h"
 

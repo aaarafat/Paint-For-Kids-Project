@@ -9,17 +9,26 @@
 DeleteAction::DeleteAction(ApplicationManager *pApp):Action(pApp){}
 
 void DeleteAction::ReadActionParameters()
-{}
-
+{
+	SelectedF = pManager->GetSelected();
+}
+void DeleteAction::DeleteFigure(CFigure* F)
+{
+	pManager->DeleteFigure(F);
+}
 
 void DeleteAction::Execute()
 {
-	Output * pOut = pManager->GetOutput();
+	ReadActionParameters();
+	Output* pOut = pManager->GetOutput();
 
-	if(pManager->GetSelected())
+	if(SelectedF != NULL)
 	{
+		SelectedF->SetSelected(false);
+		DeleteFigure(SelectedF);
 		pOut->PrintMessage("The figure is deleted");
-		pManager->DeleteSelectedFigure();
+		pManager->AddSelected(NULL);
+		pOut->ClearStatusBar();
 	}
 	else
 		pOut->PrintMessage("Please select a figure first");

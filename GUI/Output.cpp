@@ -346,7 +346,22 @@ void Output::DrawEli(Point P1, GfxInfo EliGfxInfo, bool selected) const
 		style = FRAME;
 	pWind->DrawEllipse(P1.x + 100, P1.y + 50, P1.x - 100, P1.y - 50, style);
 }
+//////////////////////////////////////////////////////////////////////////////////////////
+string Output::strDrawClr(){
+if(UI.DrawColor==BLACK) return "Black";
+if(UI.DrawColor==WHITE) return "White";
+if(UI.DrawColor==RED) return "Red";
+if(UI.DrawColor==GREEN) return "Green";
+if(UI.DrawColor==BLUE) return "Blue";
+}
 
+string Output::strFillClr(){
+if(UI.FillColor==BLACK) return "Black";
+if(UI.FillColor==WHITE) return "White";
+if(UI.FillColor==RED) return "Red";
+if(UI.FillColor==GREEN) return "Green";
+if(UI.FillColor==BLUE) return "Blue";
+}
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

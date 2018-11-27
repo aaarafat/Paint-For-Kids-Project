@@ -1,4 +1,15 @@
 #include "CFigure.h"
+CFigure::CFigure(CFigure& F)
+{
+	static int i = 200;
+	ID = i;
+	Selected = F.Selected;
+	FigGfxInfo = F.FigGfxInfo;
+	DCLR = F.DCLR;
+	FCLR = F.FCLR;
+	Type = F.Type;
+	i++;
+}
 
 CFigure::CFigure(GfxInfo FigureGfxInfo)
 {
@@ -9,7 +20,6 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 	static int i =1 ;
 	ID = i;
 	i++;
-	
 }
 
 void CFigure::setDrawClr(){
@@ -70,3 +80,22 @@ void CFigure::ChngFillClr(color Fclr)
 	setFillClr();
 }
 
+color CFigure::GetDrawClr() const
+{
+	return FigGfxInfo.DrawClr;
+}
+
+color CFigure::GetFillClr() const
+{
+	return FigGfxInfo.FillClr;
+}
+
+bool CFigure::IsFill() const
+{
+	return FigGfxInfo.isFilled;
+}
+
+void CFigure::ChngToNonFill()
+{
+	FigGfxInfo.isFilled = false;
+}

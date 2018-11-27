@@ -13,7 +13,7 @@ public:
 	virtual void Draw(Output* pOut) const;
 	virtual bool IsInside(int x, int y);
 	virtual void SetCenter(int& x, int& y);   //change the figure's center
-	virtual void Save(ofstream &OutFile, string filename);
+	virtual void Save(ofstream &OutFile);
 	virtual void PrintInfo(Output* pOut);
 	virtual void setType();
 
