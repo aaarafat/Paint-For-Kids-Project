@@ -14,6 +14,7 @@ public:
 	virtual bool IsInside(int x, int y);
 	virtual void SetCenter(int& x, int& y);   //change the figure's center
 	virtual void Save(ofstream &OutFile);
+	void Load(ifstream &Infile);
 	virtual void PrintInfo(Output* pOut);
 	virtual void setType();
 

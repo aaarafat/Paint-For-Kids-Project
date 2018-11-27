@@ -1,0 +1,8 @@
+Red    Blue
+6
+RECTANGLE    1    175    150        370    289    Blue    Black
+RHOMBUS    2    540    151    White    White
+ELLIPSE    3    577    464    Red    Green
+LINE    4    825    109        1013    212    Blue    NO_FILL
+TRIANGLE    5    794    244        698    298    652    151    Black    Red
+RECTANGLE    6    289    313        327    317    Green    Blue

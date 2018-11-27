@@ -13,6 +13,7 @@
 #include "Actions\CopyAction.h"
 #include "Actions\PasteAction.h"
 #include "Actions\CutAction.h"
+#include "Actions\SaveAction.h"
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
 #include "GUI\Input.h"
@@ -95,7 +96,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new PasteAction(this);
 			break;
 		case SAVE:
-			SaveAll();
+			pAct = new SaveAction(this);
 			break;
 		case EXIT:
 			///create Exit Action here
@@ -171,11 +172,9 @@ void ApplicationManager::DeleteFigure(CFigure* F)
 	FigCount--;
 	pOut->ClearDrawArea();
 }
-void ApplicationManager::SaveAll()
+void ApplicationManager::SaveAll(ofstream &OutFile)
 {
-	ofstream OutFile;
-	string filename = pIn->GetSrting(pOut);
-	OutFile.open(filename);
+
 	OutFile<<pOut->strDrawClr()<<"    "<<pOut->strFillClr()<<endl;
 	OutFile<<FigCount<<endl;
 	for(int i = 0; i < FigCount; i++)

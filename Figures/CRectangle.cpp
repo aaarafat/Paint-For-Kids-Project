@@ -83,8 +83,9 @@ void CRectangle::SetCenter(int& x, int& y)
 
 void CRectangle::Save(ofstream &OutFile)
 {
-	OutFile<<"LINE    "<<ID<<"    "<<Corner1.x<<"    "<<Corner1.y<<"    "<<"    "<<Corner2.x<<"    "<<Corner2.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
+	OutFile<<"RECTANGLE    "<<ID<<"    "<<Corner1.x<<"    "<<Corner1.y<<"    "<<"    "<<Corner2.x<<"    "<<Corner2.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 }
+void CRectangle::Load(ifstream &Infile){}
 void CRectangle::PrintInfo(Output* pOut){
 	if(FigGfxInfo.isFilled == true)
 		pOut->PrintMessage("Figure: "+strType()+"    Draw Color: "+strDrawClr()+"    Fill Color: "+strFillClr());

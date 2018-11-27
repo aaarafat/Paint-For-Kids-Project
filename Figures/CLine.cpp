@@ -37,6 +37,7 @@ void CLine::Save(ofstream &OutFile)
 {
 	OutFile<<"LINE    "<<ID<<"    "<<Point1.x<<"    "<<Point1.y<<"    "<<"    "<<Point2.x<<"    "<<Point2.y<<"    "<<strDrawClr()<<"    "<<"NO_FILL"<<endl; 
 }
+void CLine::Load(ifstream &Infile){}
 void CLine::SetCenter(int& x, int& y)
 {
 	Point C;
