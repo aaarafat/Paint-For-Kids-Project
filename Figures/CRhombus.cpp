@@ -61,6 +61,7 @@ void CRhombus::Save(ofstream &OutFile)
 {
 	OutFile<<"RHOMBUS    "<<ID<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 }
+void CRhombus::Load(ifstream &Infile){}
 void CRhombus::PrintInfo(Output* pOut){
 	if(FigGfxInfo.isFilled == true)
 		pOut->PrintMessage("Figure: "+strType()+"    Draw Color: "+strDrawClr()+"    Fill Color: "+strFillClr());

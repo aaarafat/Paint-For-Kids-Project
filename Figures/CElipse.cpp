@@ -48,6 +48,7 @@ void CElipse::Save(ofstream &OutFile)
 	OutFile<<"ELLIPSE    "<<ID<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 	// 0 means NO_FILL
 }
+void CElipse::Load(ifstream &Infile){}
 void CElipse::PrintInfo(Output* pOut)
 {
 	if(FigGfxInfo.isFilled == true)

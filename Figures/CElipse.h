@@ -12,6 +12,7 @@ public:
 	virtual void SetCenter(int& x, int& y);   //change the figure's center
 	virtual void ShiftPoints(Point& c);
 	virtual void Save(ofstream &OutFile);
+	void Load(ifstream &Infile);
 	virtual void PrintInfo(Output* pOut);
 	virtual void setType();
 };

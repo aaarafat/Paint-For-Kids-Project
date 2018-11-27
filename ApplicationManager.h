@@ -45,7 +45,7 @@ public:
    	void ChngCutMode(bool);						//Change IsCut to true 
 	void DeleteFigure(CFigure* F);          //Delete figure
 	void DeleteSelectedFigure();			//Removes a figure from the list and updates it
-	void SaveAll();
+	void SaveAll(ofstream &OutFile);
 
 	// -- Interface Management Functions
 	Input *GetInput() const; //Return pointer to the input
