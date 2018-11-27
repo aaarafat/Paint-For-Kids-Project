@@ -18,9 +18,8 @@ void CutAction::ReadActionParameters()
 void CutAction::Execute()
 {
 	Output* pOut = pManager->GetOutput();
-	//ReadActionParameters();
-	if(CopiedF != NULL){
-		ReadActionParameters();
+	ReadActionParameters();
+	if(CopiedF){
 		pManager->SetpCut(CopiedF);
 		color LastDrwClr = CopiedF->GetDrawClr();
 
@@ -56,6 +55,7 @@ void CutAction::Execute()
 			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
 		}
 		pManager->setClipboard(CopiedF);
+		pManager->AddSelected(NULL);
 		pManager->ChngCutMode(true);
 		pOut->PrintMessage("The figure is Cut");
 	}
