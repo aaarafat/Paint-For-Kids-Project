@@ -15,6 +15,10 @@ protected:
 	int DCLR;
 	int FCLR;
 	int Type;
+	bool IsCut;   //Bool to check if the figure is cut
+	color LastFClr; //fill color before cut
+	color LastDClr; //draw color before cut
+	bool wasFilled; //fill statue before cut
 	/// Add more parameters if needed.
 
 public:
@@ -29,7 +33,7 @@ public:
 	void ChngToNonFill();           //changes the figure's filling statue to false
 	color GetDrawClr() const;       //gets the figure's drawing color
 	color GetFillClr() const;       //gets the figure's filling color
-	bool CFigure::IsFill() const;   //checks if the figure is filled
+	bool CFigure::isFill() const;   //checks if the cut figure was filled
 	virtual void SetCenter(int& x, int& y)= 0;   //change the figure's center
 	void setDrawClr() ; // sets an integer for each Draw Color
 	void setFillClr() ; // sets an integer for each Fill Color
@@ -37,6 +41,8 @@ public:
 	string strDrawClr() ;  // returns Draw Color as a string 
 	string strFillClr() ;  // returns Fill Color as a string 
 	string strType();      // returns Type as a string
+	void Cut(bool c);      // Sets the figure to cut mode
+	bool isCut() const;         // Check if the figure is cut
 	///The following functions should be supported by the figure class
 	///It should be overridden by each inherited figure
 

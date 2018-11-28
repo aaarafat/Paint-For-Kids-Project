@@ -26,10 +26,8 @@ ApplicationManager::ApplicationManager()
 	pIn = pOut->CreateInput();
 	SelectedFig = NULL;
 	Clipboard = NULL;
-	pCut = NULL;
 	FigCount = 0;
-	CutFill = false;
-	IsCut = false; //default is copy
+	isCut = false;
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
 		FigList[i] = NULL;	
@@ -142,11 +140,25 @@ void ApplicationManager::setClipboard(CFigure *C){
 	}
 	Clipboard = C;
 }
-void ApplicationManager::SetpCut(CFigure* F)
+void ApplicationManager::Cut(bool c)
 {
-	pCut = F;
+	isCut = c;
 }
-CFigure* ApplicationManager::GetpCut(){return pCut;}
+bool ApplicationManager::IsCut() const
+{
+	return isCut;
+}
+CFigure* ApplicationManager::CutFig() const
+{
+	for (int i = 0; i < FigCount; i++)
+	{
+		if (FigList[i]->isCut())
+		{
+			return FigList[i];
+		}
+	}
+	return NULL;
+}
 CFigure *ApplicationManager::getClipboard() const { return Clipboard; }
 
 //need to be put in DeleteAction class
@@ -225,38 +237,6 @@ CFigure* ApplicationManager::GetSelected()
 {
 	return SelectedFig;
 
-}
-bool ApplicationManager::IsCutted() const
-{
-	return IsCut;
-}
-void ApplicationManager::ChngCutMode(bool cutMode)
-{
-	IsCut = cutMode;
-}
-void ApplicationManager::setLastDrwClr(color LastDrwClr)
-{
-	this->LastDrwClr = LastDrwClr;
-}
-color ApplicationManager::getLastDrwClr()
-{
-	return this->LastDrwClr;
-}
-void ApplicationManager::setLastFillClr(color LastFillClr)
-{
-	this->LastFillClr = LastFillClr;
-}
-color ApplicationManager::getLastFillClr()
-{
-	return this->LastFillClr;
-}
-void ApplicationManager::SetCFill(bool F)
-{
-	this->CutFill = F;
-}
-bool ApplicationManager::GetCFill() const
-{
-	return this->CutFill;
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Destructor

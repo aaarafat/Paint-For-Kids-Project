@@ -42,32 +42,27 @@ void PasteAction::Execute()
 
 	if (CopiedF)
 	{
-		if (pManager->IsCutted())
+		if (CopiedF->isCut())
 		{
 			Point Center;
-			pManager->ChngCutMode(false);
 			pOut->PrintMessage("Paste : Click on the new figure's place");
 			pIn->GetPointClicked(Center.x,Center.y);
 			CheckPoint(Center, pOut, pIn);
 			pOut->ClearStatusBar();
+			CopiedF->Cut(false);
 			CopiedF->SetCenter(Center.x, Center.y);
-			CopiedF->SetSelected(false);
-			if(pManager->GetSelected())
+			if(pManager->GetSelected()) // if any fig selected -> unselect it
 			{
 				pManager->GetSelected()->SetSelected(false);
 				pManager->AddSelected(NULL);
 			}
-			CopiedF->ChngDrawClr(pManager->getLastDrwClr());
-			if(pManager->GetCFill())
-				CopiedF->ChngFillClr(pManager->getLastFillClr());
-			else
-				CopiedF->ChngToNonFill();
-			pManager->AddFigure(CopiedF);
-			if (pManager->GetpCut())
+			if (pManager->IsCut())
 			{
-				pManager->DeleteFigure(pManager->GetpCut());
-				pManager->SetpCut(NULL);
+				pManager->DeleteFigure(pManager->CutFig());
+				pManager->Cut(false);
 			}
+			pManager->AddFigure(CopiedF);
+			pManager->setClipboard(NULL);
 		}
 		else
 		{
@@ -87,4 +82,6 @@ void PasteAction::Execute()
 		}
 		
 	}
+	else
+		pOut->PrintMessage("please copy/cut a figure first");
 }

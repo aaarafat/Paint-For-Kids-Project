@@ -12,7 +12,6 @@ void CutAction::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	CopiedF = pManager->GetSelected();
-	
 }
 
 void CutAction::Execute()
@@ -20,20 +19,13 @@ void CutAction::Execute()
 	Output* pOut = pManager->GetOutput();
 	ReadActionParameters();
 	if(CopiedF){
-		pManager->SetpCut(CopiedF);
-		color LastDrwClr = CopiedF->GetDrawClr();
-
-		if(CopiedF->IsFill()){
-			color LastFillClr = CopiedF->GetFillClr();
-			pManager->setLastFillClr(LastFillClr);
-			pManager->SetCFill(true);
+		CopiedF->SetSelected(false);
+		if (CopiedF->isCut())
+		{
+			pOut->PrintMessage("The figure is Cut");
+			return;
 		}
-		else
-			pManager->SetCFill(false);
-		pManager->setLastDrwClr(LastDrwClr);
-		CopiedF->ChngDrawClr(GREY);
-		CopiedF->ChngFillClr(GREY);
-
+		CopiedF->Cut(true);
 		if(dynamic_cast<CLine*>(CopiedF))
 		{
 			CopiedF = new CLine(*dynamic_cast<CLine*>(CopiedF));
@@ -55,12 +47,13 @@ void CutAction::Execute()
 			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
 		}
 		pManager->setClipboard(CopiedF);
+		
+		if (pManager->IsCut()) 
+			pManager->CutFig()->Cut(false);
 		pManager->AddSelected(NULL);
-		pManager->ChngCutMode(true);
+		pManager->Cut(true);
 		pOut->PrintMessage("The figure is Cut");
 	}
 	else
-		pOut->PrintMessage("please selsect a figure first");
-	
-	//pManager->DeleteSelectedFigure();
+		pOut->PrintMessage("please select a figure first");	
 }

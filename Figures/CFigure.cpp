@@ -9,6 +9,10 @@ CFigure::CFigure(CFigure& F)
 	FCLR = F.FCLR;
 	Type = F.Type;
 	i++;
+	wasFilled = F.wasFilled;
+	LastDClr = F.LastDClr;
+	LastFClr = F.LastFClr;
+	IsCut = F.IsCut;
 }
 
 CFigure::CFigure(GfxInfo FigureGfxInfo)
@@ -20,6 +24,8 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 	static int i =1 ;
 	ID = i;
 	i++;
+	IsCut = false;
+	wasFilled = FigGfxInfo.isFilled;
 }
 
 void CFigure::setDrawClr(){
@@ -28,6 +34,11 @@ void CFigure::setDrawClr(){
 	if(FigGfxInfo.DrawClr==RED){DCLR=3;}
 	if(FigGfxInfo.DrawClr==GREEN){DCLR=4;}
 	if(FigGfxInfo.DrawClr==BLUE){DCLR=5;}
+	if(LastDClr==BLACK){DCLR=1;}
+	if(LastDClr==WHITE){DCLR=2;}
+	if(LastDClr==RED){DCLR=3;}
+	if(LastDClr==GREEN){DCLR=4;}
+	if(LastDClr==BLUE){DCLR=5;}
 }
 
 void CFigure::setFillClr(){
@@ -36,6 +47,11 @@ void CFigure::setFillClr(){
 	if(FigGfxInfo.FillClr==RED){FCLR=3;}
 	if(FigGfxInfo.FillClr==GREEN){FCLR=4;}
 	if(FigGfxInfo.FillClr==BLUE){FCLR=5;}
+	if(LastDClr==BLACK){FCLR=1;}
+	if(LastDClr==WHITE){FCLR=2;}
+	if(LastDClr==RED){FCLR=3;}
+	if(LastDClr==GREEN){FCLR=4;}
+	if(LastDClr==BLUE){FCLR=5;}
 }
 
 string CFigure::strDrawClr(){
@@ -90,7 +106,7 @@ color CFigure::GetFillClr() const
 	return FigGfxInfo.FillClr;
 }
 
-bool CFigure::IsFill() const
+bool CFigure::isFill() const
 {
 	return FigGfxInfo.isFilled;
 }
@@ -98,4 +114,29 @@ bool CFigure::IsFill() const
 void CFigure::ChngToNonFill()
 {
 	FigGfxInfo.isFilled = false;
+}
+
+void CFigure::Cut(bool c)
+{
+	IsCut = c;
+	if (c)
+	{
+		wasFilled = FigGfxInfo.isFilled;
+		LastDClr = FigGfxInfo.DrawClr;
+		LastFClr = FigGfxInfo.FillClr;
+		ChngFillClr(GREY);
+		ChngDrawClr(GREY);
+	}
+	else
+	{
+		ChngDrawClr(LastDClr);
+		FigGfxInfo.FillClr = LastFClr;
+		FigGfxInfo.isFilled = wasFilled;
+		setFillClr();
+	}
+}
+
+bool CFigure::isCut() const
+{
+	return IsCut;
 }

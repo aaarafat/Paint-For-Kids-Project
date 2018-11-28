@@ -5,6 +5,11 @@
 CopyAction::CopyAction(ApplicationManager *pApp) : Action(pApp){}
 void CopyAction::ReadActionParameters()
 {
+	CFigure* F = pManager->CutFig();
+	if (F) 
+	{
+		F->Cut(false);
+	}
 	CopiedF = pManager->GetSelected();
 }
 
@@ -12,21 +17,7 @@ void CopyAction::Execute()
 {
 	Output * pOut = pManager->GetOutput();
 	ReadActionParameters();
-	if (pManager->IsCutted())
-	{
-		pManager->ChngCutMode(false);
-		pManager->GetpCut()->ChngDrawClr(pManager->getLastDrwClr());
-		CopiedF->ChngDrawClr(pManager->getLastDrwClr());
-		if(pManager->GetCFill()){
-			pManager->GetpCut()->ChngFillClr(pManager->getLastFillClr());
-			CopiedF->ChngFillClr(pManager->getLastFillClr());
-		}
-		else{
-			pManager->GetpCut()->ChngToNonFill();
-			CopiedF->ChngToNonFill();
-		}
-		pOut->ClearDrawArea();
-	}
+	pOut->ClearDrawArea();
 	if(CopiedF!=NULL){
 		if(dynamic_cast<CLine*>(CopiedF))
 		{
@@ -48,7 +39,10 @@ void CopyAction::Execute()
 		{
 			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
 		}	
-	pManager->setClipboard(CopiedF);
-	pOut->PrintMessage("The figure is Copied");
+		CopiedF->SetSelected(false);
+		pManager->setClipboard(CopiedF);
+		pOut->PrintMessage("The figure is Copied");
 	}
+	else
+		pOut->PrintMessage("please select a figure first");
 }
