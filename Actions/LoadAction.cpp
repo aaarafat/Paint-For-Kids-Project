@@ -16,9 +16,14 @@ void LoadAction::ReadActionParameters(){
 	InFile.open(FileName);
 }
 void LoadAction::Execute(){
+	Output* pOut = pManager->GetOutput();
 	//This action needs to read some parameters first
 	ReadActionParameters();
 	//Calls LoadAll() from Application Manager
+	if (InFile.is_open())
+	{
 	pManager->LoadAll(InFile);
 	InFile.close();
+	}
+	else pOut->PrintMessage("File Not Found!");
 }

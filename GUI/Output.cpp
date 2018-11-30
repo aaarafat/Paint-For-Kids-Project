@@ -140,7 +140,6 @@ void Output::CreatePlayToolBar() const
 	UI.InterfaceMode = MODE_PLAY;
 	ClearToolBar();   //Clears the toolbar before drawing
 	Clear2ndToolBar(); 
-	ClearDrawArea();
 	//You can draw the tool bar icons in any way you want.
 	//Below is one possible way
 	

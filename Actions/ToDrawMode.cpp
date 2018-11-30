@@ -12,6 +12,9 @@ void ToDrawMode::Execute()
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateDrawToolBar();
+	InFile.open("SWITCH");
+	pManager->LoadAll(InFile);
+	InFile.close();
 	
 }
 
