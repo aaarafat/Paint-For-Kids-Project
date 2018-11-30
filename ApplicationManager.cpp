@@ -214,7 +214,6 @@ void ApplicationManager::LoadAll(ifstream &InFile)
 		CFigure* F;
 		string type;
 		InFile>>type;
-		t=type;
 		if(type=="RECTANGLE") F=new CRectangle;
 		else if(type=="LINE")F=new CLine;
 		else if(type=="TRIANGLE")F=new CTriangle;
