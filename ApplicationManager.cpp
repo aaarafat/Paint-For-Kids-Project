@@ -222,6 +222,7 @@ void ApplicationManager::LoadAll(ifstream &InFile)
 		else if(type=="TRIANGLE")F=new CTriangle;
 		else if(type=="RHOMBUS")F=new CRhombus;
 		else if(type=="ELLIPSE")F=new CElipse;
+		F->setType();
 		F->Load(InFile);
 		AddFigure(F);
 	}

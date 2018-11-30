@@ -2,7 +2,7 @@
 CFigure::CFigure()
 {
 	Selected = false;
-	FigGfxInfo.isFilled = true;
+	FigGfxInfo.isFilled = false;
 }
 
 CFigure::CFigure(CFigure& F)
@@ -89,6 +89,17 @@ void CFigure::SetSelected(bool s)
 
 bool CFigure::IsSelected() const
 {	return Selected; }
+
+color CFigure::lClr(string dc)
+{
+if(dc=="Black") return BLACK;
+if(dc=="White") return WHITE;
+if(dc=="Red") return RED;
+if(dc=="Green") return GREEN;
+if(dc=="Blue") return BLUE;
+}
+
+
 
 void CFigure::ChngDrawClr(color Dclr)
 {	FigGfxInfo.DrawClr = Dclr; 

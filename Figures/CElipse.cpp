@@ -65,13 +65,11 @@ void CElipse::Load(ifstream &Infile)
     ID =id;
 	Center.x=x;
     Center.y=y;
-	FigGfxInfo.DrawClr = BLACK;
-	LastDClr = BLACK;
-	FigGfxInfo.FillClr = GREEN;
-	LastFClr = GREEN;
-	setDrawClr();
-	setFillClr();
-	setType();
+	ChngDrawClr(lClr(dc));
+	if(fc!="NO_FILL") ChngFillClr(lClr(fc));
+	LastDClr = lClr(dc);
+	LastFClr = lClr(fc);
+    
 	cout<<id<<"\t"<<x<<"\t"<<y<<endl;
 }
 void CElipse::PrintInfo(Output* pOut)
