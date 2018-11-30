@@ -69,8 +69,6 @@ void CElipse::Load(ifstream &Infile)
 	if(fc!="NO_FILL") ChngFillClr(lClr(fc));
 	LastDClr = lClr(dc);
 	LastFClr = lClr(fc);
-    
-	cout<<id<<"\t"<<x<<"\t"<<y<<endl;
 }
 void CElipse::PrintInfo(Output* pOut)
 {

@@ -1,6 +1,10 @@
 Blue    Green
-4
+8
 ELLIPSE    1    590    101    Black    NO_FILL
 ELLIPSE    2    359    101    Black    NO_FILL
 ELLIPSE    3    151    328    Black    NO_FILL
-ELLIPSE    4    151    177    Black    NO_FILL
+ELLIPSE    201    502    294    Blue    Green
+ELLIPSE    203    762    274    Blue    Green
+ELLIPSE    205    543    549    Blue    Green
+ELLIPSE    206    737    453    Blue    Green
+ELLIPSE    207    341    415    Blue    Green
