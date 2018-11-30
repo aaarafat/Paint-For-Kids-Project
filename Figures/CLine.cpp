@@ -41,7 +41,23 @@ void CLine::Save(ofstream &OutFile)
 {
 	OutFile<<"LINE    "<<ID<<"    "<<Point1.x<<"    "<<Point1.y<<"    "<<"    "<<Point2.x<<"    "<<Point2.y<<"    "<<strDrawClr()<<"    "<<"NO_FILL"<<endl; 
 }
-void CLine::Load(ifstream &Infile){}
+void CLine::Load(ifstream &Infile)
+{
+	string dc,fc;
+	int id;
+	int x1, y1;
+	int x2, y2;
+	
+	Infile>>id>>x1>>y1>>x2>>y2>>dc>>fc;
+    ID =id;
+	Point1.x = x1;
+    Point1.y = y1;
+	Point2.x = x2;
+	Point2.y = y2;
+	ChngDrawClr(lClr(dc));
+	LastDClr = lClr(dc);
+	LastFClr = lClr(fc);
+}
 void CLine::SetCenter(int& x, int& y)
 {
 	Point C;

@@ -118,7 +118,26 @@ void CTriangle::Save(ofstream &OutFile)
 {
 	OutFile<<"TRIANGLE    "<<ID<<"    "<<Corner1.x<<"    "<<Corner1.y<<"    "<<"    "<<Corner2.x<<"    "<<Corner2.y<<"    "<<Corner3.x<<"    "<<Corner3.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 }
-void CTriangle::Load(ifstream &Infile){}
+void CTriangle::Load(ifstream &Infile)
+{
+	string dc, fc;
+	int id;
+	int x1, y1;
+	int x2, y2;
+	int x3, y3;
+	Infile>>id>>x1>>y1>>x2>>y2>>x3>>y3>>dc>>fc;
+    ID =id;
+	Corner1.x = x1;
+    Corner1.y = y1;
+	Corner2.x = x2;
+	Corner2.y = y2;
+	Corner3.x = x3;
+	Corner3.y = y3;
+	ChngDrawClr(lClr(dc));
+	if(fc!="NO_FILL") ChngFillClr(lClr(fc));
+	LastDClr = lClr(dc);
+	LastFClr = lClr(fc);
+}
 void CTriangle::PrintInfo(Output* pOut){
 	if(FigGfxInfo.isFilled == true)
 		pOut->PrintMessage("Figure: "+strType()+"    Draw Color: "+strDrawClr()+"    Fill Color: "+strFillClr());

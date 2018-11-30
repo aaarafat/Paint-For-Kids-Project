@@ -205,7 +205,6 @@ void ApplicationManager::LoadAll(ifstream &InFile)
 	int s;
 	InFile>>dc>>fc;
 	InFile>>s;
-	cout<<s<<endl;
 	pOut->ClearDrawArea();
 	DelFigList();
 	FigCount = 0;
@@ -216,7 +215,6 @@ void ApplicationManager::LoadAll(ifstream &InFile)
 		string type;
 		InFile>>type;
 		t=type;
-		cout<<type<<endl;
 		if(type=="RECTANGLE") F=new CRectangle;
 		else if(type=="LINE")F=new CLine;
 		else if(type=="TRIANGLE")F=new CTriangle;

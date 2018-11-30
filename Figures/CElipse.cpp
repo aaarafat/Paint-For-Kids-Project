@@ -1,6 +1,4 @@
 #include "CElipse.h"
-#include <iostream>
-using namespace std;
 CElipse::CElipse()
 {
 
@@ -56,21 +54,18 @@ void CElipse::Save(ofstream &OutFile)
 }
 void CElipse::Load(ifstream &Infile)
 {
-	string type,dc,fc;
+	string dc,fc;
 	int id;
-	int x;
-	int y;
+	int x, y;
 	
 	Infile>>id>>x>>y>>dc>>fc;
     ID =id;
-	Center.x=x;
-    Center.y=y;
+	Center.x = x;
+    Center.y = y;
 	ChngDrawClr(lClr(dc));
 	if(fc!="NO_FILL") ChngFillClr(lClr(fc));
 	LastDClr = lClr(dc);
 	LastFClr = lClr(fc);
-    
-	cout<<id<<"\t"<<x<<"\t"<<y<<endl;
 }
 void CElipse::PrintInfo(Output* pOut)
 {

@@ -1,9 +1,3 @@
-Black    Blue
-7
-ELLIPSE    2    264    123    White    Blue
-ELLIPSE    3    151    257    Green    White
-ELLIPSE    4    517    113    Blue    Green
-ELLIPSE    5    641    250    Blue    Blue
-ELLIPSE    6    272    402    Blue    Black
-ELLIPSE    7    554    395    Blue    White
-ELLIPSE    8    391    249    Black    Red
+Blue    Red
+1
+LINE    1    201    147        1071    520    Blue    NO_FILL
