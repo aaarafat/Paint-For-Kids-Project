@@ -3,6 +3,7 @@ CFigure::CFigure()
 {
 	Selected = false;
 	FigGfxInfo.isFilled = false;
+	IsCut= false;
 }
 
 CFigure::CFigure(CFigure& F)
