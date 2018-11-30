@@ -1,13 +1,12 @@
 #pragma once
-#include "action.h"
-class SaveAction :
-	public Action
-{
-	string FileName;
-	ofstream OutFile;
-public:
-	SaveAction(ApplicationManager *pApp);
+#include "Action.h"
 
+class LoadAction :
+	public Action
+{  string FileName;
+   ifstream InFile;
+public:
+	LoadAction(ApplicationManager* pApp);
 	//Reads action parameters
 	virtual void ReadActionParameters();
 	

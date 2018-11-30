@@ -1,4 +1,10 @@
 #include "CFigure.h"
+CFigure::CFigure()
+{
+	Selected = false;
+	FigGfxInfo.isFilled = true;
+}
+
 CFigure::CFigure(CFigure& F)
 {
 	static int i = 200;

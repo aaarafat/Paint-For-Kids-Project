@@ -6,6 +6,7 @@ private:
 	Point Center;	
 	
 public:
+	CElipse();
 	CElipse(Point , GfxInfo FigureGfxInfo );
 	virtual void Draw(Output* pOut) const;
 	bool IsInside(int x, int y);

@@ -1,4 +1,8 @@
 #include "CRectangle.h"
+CRectangle::CRectangle()
+{
+
+}
 
 CRectangle::CRectangle(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {   setType();
@@ -83,7 +87,7 @@ void CRectangle::SetCenter(int& x, int& y)
 
 void CRectangle::Save(ofstream &OutFile)
 {
-	OutFile<<"RECTANGLE    "<<ID<<"    "<<Corner1.x<<"    "<<Corner1.y<<"    "<<"    "<<Corner2.x<<"    "<<Corner2.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
+	OutFile<<"RECTANGLE    "<<ID<<"    "<<Corner1.x<<"    "<<Corner1.y<<"    "<<Corner2.x<<"    "<<Corner2.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 }
 void CRectangle::Load(ifstream &Infile){}
 void CRectangle::PrintInfo(Output* pOut){

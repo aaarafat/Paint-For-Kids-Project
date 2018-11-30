@@ -1,4 +1,8 @@
 #include "CLine.h"
+CLine::CLine()
+{
+
+}
 
 
 CLine::CLine(Point P1, Point P2, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)

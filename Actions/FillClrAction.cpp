@@ -76,5 +76,4 @@ void FillClrAction::Execute()
 		F->SetSelected(false);
 		pManager->AddSelected(NULL);
 	}
-
 }
