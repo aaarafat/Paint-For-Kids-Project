@@ -36,28 +36,28 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 
 void CFigure::setDrawClr(){
 	if(FigGfxInfo.DrawClr==BLACK){DCLR=1;}
-	if(FigGfxInfo.DrawClr==WHITE){DCLR=2;}
-	if(FigGfxInfo.DrawClr==RED){DCLR=3;}
-	if(FigGfxInfo.DrawClr==GREEN){DCLR=4;}
-	if(FigGfxInfo.DrawClr==BLUE){DCLR=5;}
-	if(LastDClr==BLACK){DCLR=1;}
-	if(LastDClr==WHITE){DCLR=2;}
-	if(LastDClr==RED){DCLR=3;}
-	if(LastDClr==GREEN){DCLR=4;}
-	if(LastDClr==BLUE){DCLR=5;}
+	else if(FigGfxInfo.DrawClr==WHITE){DCLR=2;}
+	else if(FigGfxInfo.DrawClr==RED){DCLR=3;}
+	else if(FigGfxInfo.DrawClr==GREEN){DCLR=4;}
+	else if(FigGfxInfo.DrawClr==BLUE){DCLR=5;}
+	else if(LastDClr==BLACK){DCLR=1;}
+	else if(LastDClr==WHITE){DCLR=2;}
+	else if(LastDClr==RED){DCLR=3;}
+	else if(LastDClr==GREEN){DCLR=4;}
+	else if(LastDClr==BLUE){DCLR=5;}
 }
 
 void CFigure::setFillClr(){
 	if(FigGfxInfo.FillClr==BLACK){FCLR=1;}
-	if(FigGfxInfo.FillClr==WHITE){FCLR=2;}
-	if(FigGfxInfo.FillClr==RED){FCLR=3;}
-	if(FigGfxInfo.FillClr==GREEN){FCLR=4;}
-	if(FigGfxInfo.FillClr==BLUE){FCLR=5;}
-	if(LastDClr==BLACK){FCLR=1;}
-	if(LastDClr==WHITE){FCLR=2;}
-	if(LastDClr==RED){FCLR=3;}
-	if(LastDClr==GREEN){FCLR=4;}
-	if(LastDClr==BLUE){FCLR=5;}
+	else if(FigGfxInfo.FillClr==WHITE){FCLR=2;}
+	else if(FigGfxInfo.FillClr==RED){FCLR=3;}
+	else if(FigGfxInfo.FillClr==GREEN){FCLR=4;}
+	else if(FigGfxInfo.FillClr==BLUE){FCLR=5;}
+	else if(LastFClr==BLACK){FCLR=1;}
+	else if(LastFClr==WHITE){FCLR=2;}
+	else if(LastFClr==RED){FCLR=3;}
+	else if(LastFClr==GREEN){FCLR=4;}
+	else if(LastFClr==BLUE){FCLR=5;}
 }
 
 string CFigure::strDrawClr(){
