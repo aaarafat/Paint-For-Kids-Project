@@ -14,6 +14,7 @@
 #include "Actions\PasteAction.h"
 #include "Actions\CutAction.h"
 #include "Actions\SaveAction.h"
+#include "Actions\LoadAction.h"
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
 #include "GUI\Input.h"
@@ -95,6 +96,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SAVE:
 			pAct = new SaveAction(this);
+			break;
+        case LOAD:
+			pAct = new LoadAction(this);
 			break;
 		case EXIT:
 			///create Exit Action here
@@ -195,6 +199,33 @@ void ApplicationManager::SaveAll(ofstream &OutFile)
 	}
 
 }
+void ApplicationManager::LoadAll(ifstream &InFile)
+{
+	string fc,dc;
+	int s;
+	InFile>>dc>>fc;
+	InFile>>s;
+	cout<<s<<endl;
+	pOut->ClearDrawArea();
+	DelFigList();
+	FigCount = 0;
+	string t;
+	for(int i = 0; i < s; i++)
+	{
+		CFigure* F;
+		string type;
+		InFile>>type;
+		t=type;
+		cout<<type<<endl;
+		if(type=="RECTANGLE") F=new CRectangle;
+		else if(type=="LINE")F=new CLine;
+		else if(type=="TRIANGLE")F=new CTriangle;
+		else if(type=="RHOMBUS")F=new CRhombus;
+		else if(type=="ELLIPSE")F=new CElipse;
+		F->Load(InFile);
+		AddFigure(F);
+	}
+}
 
 ////////////////////////////////////////////////////////////////////////////////////
 CFigure *ApplicationManager::GetFigure(int x, int y) const
@@ -238,12 +269,19 @@ CFigure* ApplicationManager::GetSelected()
 	return SelectedFig;
 
 }
+
+void ApplicationManager::DelFigList()
+{	
+	for(int i=0; i<FigCount; i++)
+	{
+		delete FigList[i];
+	}
+}
 ////////////////////////////////////////////////////////////////////////////////////
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
-	for(int i=0; i<FigCount; i++)
-		delete FigList[i];
+	DelFigList();
 	if(Clipboard)
 	{
 		delete Clipboard;

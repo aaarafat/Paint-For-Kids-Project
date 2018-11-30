@@ -5,7 +5,8 @@
 #include "Figures\CFigure.h"
 #include "GUI\input.h"
 #include "GUI\output.h"
-
+#include <iostream>
+using namespace std;
 //Main class that manages everything in the application.
 class ApplicationManager
 {
@@ -40,8 +41,10 @@ public:
 	void DeleteFigure(CFigure* F);          //Delete figure
 	void DeleteSelectedFigure();			//Removes a figure from the list and updates it
 	void SaveAll(ofstream &OutFile);
+	void LoadAll(ifstream &InFile);
 	void Cut(bool c);
 	bool IsCut() const;
+	void DelFigList();
 	CFigure* CutFig() const;                //Returns a cut fig
 
 	// -- Interface Management Functions

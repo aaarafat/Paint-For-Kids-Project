@@ -1,4 +1,10 @@
 #include "CElipse.h"
+#include <iostream>
+using namespace std;
+CElipse::CElipse()
+{
+
+}
 
 
 CElipse::CElipse(Point P1, GfxInfo FigureGfxInfo): CFigure(FigureGfxInfo)
@@ -48,7 +54,26 @@ void CElipse::Save(ofstream &OutFile)
 	OutFile<<"ELLIPSE    "<<ID<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 	// 0 means NO_FILL
 }
-void CElipse::Load(ifstream &Infile){}
+void CElipse::Load(ifstream &Infile)
+{
+	string type,dc,fc;
+	int id;
+	int x;
+	int y;
+	
+	Infile>>id>>x>>y>>dc>>fc;
+    ID =id;
+	Center.x=x;
+    Center.y=y;
+	FigGfxInfo.DrawClr = BLACK;
+	LastDClr = BLACK;
+	FigGfxInfo.FillClr = GREEN;
+	LastFClr = GREEN;
+	setDrawClr();
+	setFillClr();
+	setType();
+	cout<<id<<"\t"<<x<<"\t"<<y<<endl;
+}
 void CElipse::PrintInfo(Output* pOut)
 {
 	if(FigGfxInfo.isFilled == true)

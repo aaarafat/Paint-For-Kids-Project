@@ -22,6 +22,7 @@ protected:
 	/// Add more parameters if needed.
 
 public:
+	CFigure();
 	CFigure(GfxInfo FigureGfxInfo);
 	CFigure(CFigure&);
 	void SetSelected(bool s);	//select/unselect the figure

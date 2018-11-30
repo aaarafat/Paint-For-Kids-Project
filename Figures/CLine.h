@@ -11,6 +11,7 @@ private:
 	Point Point2;
 	float area(int x1, int y1, int x2, int y2, int x3, int y3);
 public:
+	CLine();
 	CLine(Point, Point, GfxInfo FigureGfxInfo); //constructor for line 
 	virtual void Draw(Output* pOut) const; //draw function for line
 	virtual bool IsInside(int x, int y);

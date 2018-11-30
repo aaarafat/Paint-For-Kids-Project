@@ -1,5 +1,9 @@
 #include "CRhombus.h"
 
+CRhombus::CRhombus()
+{
+
+}
 
 CRhombus::CRhombus(Point C, GfxInfo RhomGfxInfo) : CFigure(RhomGfxInfo)
 {   setType();
