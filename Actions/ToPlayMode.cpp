@@ -4,10 +4,12 @@
 #include"..\ApplicationManager.h"
 
 ToPlayMode::ToPlayMode(ApplicationManager *pApp):Action(pApp)
-{}
+{
+}
 
 void ToPlayMode::ReadActionParameters()
-{}
+{
+}
 
 void ToPlayMode::Execute()
 {
@@ -20,6 +22,7 @@ void ToPlayMode::Execute()
     SetFileAttributes("SWITCH", FILE_ATTRIBUTE_HIDDEN);
 	pOut->CreatePlayToolBar();
 	pOut->ClearStatusBar();
+	pOut->PrintMessage("Choose to pick by type or by color");
 
 }
 

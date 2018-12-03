@@ -15,6 +15,7 @@
 #include "Actions\CutAction.h"
 #include "Actions\SaveAction.h"
 #include "Actions\LoadAction.h"
+#include "Actions\ByTypeAction.h"
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
 #include "GUI\Input.h"
@@ -99,6 +100,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
         case LOAD:
 			pAct = new LoadAction(this);
+			break;
+		case CHOOSE_BYTYPE:
+			pAct = new ByTypeAction(this);
 			break;
 		case EXIT:
 			///create Exit Action here
