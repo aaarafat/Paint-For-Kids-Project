@@ -6,7 +6,8 @@ CElipse::CElipse()
 
 
 CElipse::CElipse(Point P1, GfxInfo FigureGfxInfo): CFigure(FigureGfxInfo)
-{   setType();
+{   
+	setType();
 	ShiftPoints(P1);
 	Center = P1;
 	
@@ -47,8 +48,10 @@ void CElipse::SetCenter(int& x, int& y)
 	ShiftPoints(Center);
 	this->Center = Center;
 }
-void CElipse::Save(ofstream &OutFile)
+void CElipse::Save(ofstream &OutFile, ofstream& colors, ofstream& figures)
 {
+	figures<<"ELLIPSE"<<endl;
+	colors<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl;
 	OutFile<<"ELLIPSE    "<<ID<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 	// 0 means NO_FILL
 }

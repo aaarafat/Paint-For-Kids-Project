@@ -45,5 +45,3 @@ void SelectAction::Execute()
 	}
 
 }
-
-

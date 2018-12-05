@@ -38,7 +38,7 @@ public:
 	CFigure * getClipboard() const;
 	void DeleteFigure(CFigure* F);          //Delete figure
 	void DeleteSelectedFigure();			//Removes a figure from the list and updates it
-	void SaveAll(ofstream &OutFile);
+	void SaveAll(ofstream &OutFile, ofstream& colors, ofstream& figures);
 	void LoadAll(ifstream &InFile);
 	void Cut(bool c);
 	bool IsCut() const;

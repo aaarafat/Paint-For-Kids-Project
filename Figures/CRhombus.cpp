@@ -61,8 +61,10 @@ void CRhombus::SetCenter(int& x, int& y)
 	ShiftPoints(C);
 	this->Center = C;
 }
-void CRhombus::Save(ofstream &OutFile)
+void CRhombus::Save(ofstream &OutFile, ofstream& colors, ofstream& figures)
 {
+	figures<<"RHOMBUS"<<endl;
+	colors<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl;
 	OutFile<<"RHOMBUS    "<<ID<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 }
 void CRhombus::Load(ifstream &Infile)

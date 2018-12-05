@@ -114,8 +114,10 @@ void CTriangle::SetCenter(int& x, int& y)
 }
 
 
-void CTriangle::Save(ofstream &OutFile)
+void CTriangle::Save(ofstream &OutFile, ofstream& colors, ofstream& figures)
 {
+	figures<<"TRIANGLE"<<endl;
+	colors<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl;
 	OutFile<<"TRIANGLE    "<<ID<<"    "<<Corner1.x<<"    "<<Corner1.y<<"    "<<"    "<<Corner2.x<<"    "<<Corner2.y<<"    "<<Corner3.x<<"    "<<Corner3.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 }
 void CTriangle::Load(ifstream &Infile)

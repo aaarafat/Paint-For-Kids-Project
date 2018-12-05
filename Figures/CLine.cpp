@@ -37,8 +37,10 @@ float CLine::area(int x1, int y1, int x2, int y2, int x3, int y3)
 { 
 	return abs((x1*(y2-y3) + x2*(y3-y1)+ x3*(y1-y2))/2.0); 
 } 
-void CLine::Save(ofstream &OutFile)
+void CLine::Save(ofstream &OutFile, ofstream& colors, ofstream& figures)
 {
+	figures<<"LINE"<<endl;
+	colors<<"NO_FILL"<<endl;
 	OutFile<<"LINE    "<<ID<<"    "<<Point1.x<<"    "<<Point1.y<<"    "<<"    "<<Point2.x<<"    "<<Point2.y<<"    "<<strDrawClr()<<"    "<<"NO_FILL"<<endl; 
 }
 void CLine::Load(ifstream &Infile)
