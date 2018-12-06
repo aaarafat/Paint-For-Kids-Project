@@ -9,7 +9,10 @@ ByTypeAction::ByTypeAction(ApplicationManager* pApp) : Action(pApp)
 {
 	UI.PickMode = MODE_BTYPE;
 	FigC = 0;
-
+	InFile.open("SWITCH");
+	pManager->LoadAll(InFile);
+	InFile.close();
+	pManager->UpdateInterface();
 }
 
 void ByTypeAction::ReadActionParameters()
@@ -80,20 +83,34 @@ void ByTypeAction::ReadActionParameters()
 		}
 	}
 	cout << FigC<<endl;
+	InFile.close();
 }
 void ByTypeAction::Execute()
 {
 	ReadActionParameters();	
+
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
+
 	pOut->PrintMessage("Pick "+rFigure);
 	while(FigC != 0)
 	{
 		pIn->GetPointClicked(P.x,P.y);
+		if(pIn->InsidePlayArea(P.x,P.y))
+		{
 		 F = pManager->GetFigure(P.x,P.y);
 		if(F != NULL){
 			pManager->DeleteFigure(F);
 			FigC--;
 		}
+		pManager->UpdateInterface();
+		}
+		else
+		{
+			pOut->ClearStatusBar();
+			break;
+		}
 	}
+
+
 }

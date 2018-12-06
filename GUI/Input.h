@@ -21,6 +21,7 @@ public:
 	ActionType GetUserAction() const; //Read the user click and map to an action
 
 	bool GetFilled();
+	bool InsidePlayArea(int,int);
 	void SetFilled();
 
 	~Input();

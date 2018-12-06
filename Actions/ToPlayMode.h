@@ -1,5 +1,5 @@
 #pragma once
-#include <windows.h>
+
 #include "action.h"
 class ToPlayMode :
 	public Action
