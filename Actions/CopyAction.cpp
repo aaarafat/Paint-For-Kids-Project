@@ -5,10 +5,10 @@
 CopyAction::CopyAction(ApplicationManager *pApp) : Action(pApp){}
 void CopyAction::ReadActionParameters()
 {
-	CFigure* F = pManager->CutFig();
-	if (F) 
+	if (pManager->IsCut()) 
 	{
-		F->Cut(false);
+		pManager->getClipboard()->Cut(false);
+		pManager->setClipboard(NULL);
 	}
 	CopiedF = pManager->GetSelected();
 }

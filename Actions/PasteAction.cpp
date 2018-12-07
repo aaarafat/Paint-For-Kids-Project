@@ -1,5 +1,5 @@
 #include "PasteAction.h"
-
+#include <iostream>
 
 PasteAction::PasteAction(ApplicationManager *pApp):Action(pApp)
 {
@@ -8,30 +8,32 @@ PasteAction::PasteAction(ApplicationManager *pApp):Action(pApp)
 void PasteAction::ReadActionParameters()
 {
 	CopiedF = pManager->getClipboard();
-	if(CopiedF)
-	{
-		if(dynamic_cast<CLine*>(CopiedF))
+	if(!pManager->IsCut())
+	{	
+		if(CopiedF)
 		{
-			CopiedF = new CLine(*dynamic_cast<CLine*>(CopiedF));
-		}
-		else if(dynamic_cast<CRhombus*>(CopiedF))
-		{
-			CopiedF = new CRhombus(*dynamic_cast<CRhombus*>(CopiedF));
-		}
-		else if(dynamic_cast<CTriangle*>(CopiedF))
-		{
-			CopiedF = new CTriangle(*dynamic_cast<CTriangle*>(CopiedF));
-		}
-		else if (dynamic_cast<CRectangle*>(CopiedF))
-		{
-			CopiedF = new CRectangle(*dynamic_cast<CRectangle*>(CopiedF));
-		}
-		else
-		{
-			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
+			if(dynamic_cast<CLine*>(CopiedF))
+			{
+				CopiedF = new CLine(*dynamic_cast<CLine*>(CopiedF));
+			}
+			else if(dynamic_cast<CRhombus*>(CopiedF))
+			{
+				CopiedF = new CRhombus(*dynamic_cast<CRhombus*>(CopiedF));
+			}
+			else if(dynamic_cast<CTriangle*>(CopiedF))
+			{
+				CopiedF = new CTriangle(*dynamic_cast<CTriangle*>(CopiedF));
+			}
+			else if (dynamic_cast<CRectangle*>(CopiedF))
+			{
+				CopiedF = new CRectangle(*dynamic_cast<CRectangle*>(CopiedF));
+			}
+			else
+			{
+				CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
+			}
 		}
 	}
-	
 }
 
 void PasteAction::Execute()
@@ -58,11 +60,9 @@ void PasteAction::Execute()
 			}
 			if (pManager->IsCut())
 			{
-				pManager->DeleteFigure(pManager->CutFig());
+				pManager->setClipboard(NULL);
 				pManager->Cut(false);
 			}
-			pManager->AddFigure(CopiedF);
-			pManager->setClipboard(NULL);
 		}
 		else
 		{

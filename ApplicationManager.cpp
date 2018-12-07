@@ -19,6 +19,7 @@
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
 #include "GUI\Input.h"
+#include <iostream>
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -142,7 +143,7 @@ void ApplicationManager::AddSelected(CFigure* S)
 
 
 void ApplicationManager::setClipboard(CFigure *C){
-	if(Clipboard)
+	if(Clipboard && !isCut)
 	{
 		delete Clipboard;
 	}
@@ -255,6 +256,7 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 //Draw all figures on the user interface
 void ApplicationManager::UpdateInterface() const
 {	
+	pOut->ClearDrawArea();
 	for(int i=0; i<FigCount; i++)
 		FigList[i]->Draw(pOut);		//Call Draw function (virtual member fn)
 }

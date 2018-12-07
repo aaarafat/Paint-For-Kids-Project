@@ -25,31 +25,11 @@ void CutAction::Execute()
 			pOut->PrintMessage("The figure is Cut");
 			return;
 		}
+		if (pManager->IsCut())
+			pManager->getClipboard()->Cut(false);
+
 		CopiedF->Cut(true);
-		if(dynamic_cast<CLine*>(CopiedF))
-		{
-			CopiedF = new CLine(*dynamic_cast<CLine*>(CopiedF));
-		}
-		else if(dynamic_cast<CRhombus*>(CopiedF))
-		{
-			CopiedF = new CRhombus(*dynamic_cast<CRhombus*>(CopiedF));
-		}
-		else if(dynamic_cast<CTriangle*>(CopiedF))
-		{
-			CopiedF = new CTriangle(*dynamic_cast<CTriangle*>(CopiedF));
-		}
-		else if (dynamic_cast<CRectangle*>(CopiedF))
-		{
-			CopiedF = new CRectangle(*dynamic_cast<CRectangle*>(CopiedF));
-		}
-		else
-		{
-			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
-		}
 		pManager->setClipboard(CopiedF);
-		
-		if (pManager->IsCut()) 
-			pManager->CutFig()->Cut(false);
 		pManager->AddSelected(NULL);
 		pManager->Cut(true);
 		pOut->PrintMessage("The figure is Cut");
