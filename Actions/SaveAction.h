@@ -5,6 +5,8 @@ class SaveAction :
 {
 	string FileName;
 	ofstream OutFile;
+	ofstream figures;
+	ofstream colors;
 public:
 	SaveAction(ApplicationManager *pApp);
 

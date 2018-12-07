@@ -85,8 +85,10 @@ void CRectangle::SetCenter(int& x, int& y)
 
 }
 
-void CRectangle::Save(ofstream &OutFile)
+void CRectangle::Save(ofstream &OutFile, ofstream& colors, ofstream& figures)
 {
+	figures<<"RECTANGLE"<<endl;
+	colors<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl;
 	OutFile<<"RECTANGLE    "<<ID<<"    "<<Corner1.x<<"    "<<Corner1.y<<"    "<<Corner2.x<<"    "<<Corner2.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 }
 void CRectangle::Load(ifstream &Infile)

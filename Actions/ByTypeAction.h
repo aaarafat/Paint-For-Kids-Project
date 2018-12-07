@@ -3,6 +3,11 @@
 class ByTypeAction :
 	public Action
 {
+	ifstream InFile;
+	int FigC;
+	string rFigure;
+	Point P;
+	CFigure* F;
 public:
 	ByTypeAction(ApplicationManager *pApp);
 

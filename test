@@ -2,7 +2,7 @@ Black    Green
 6
 RECTANGLE    1    123    195    266    125    Black    Blue
 LINE    2    440    183        589    308    Black    NO_FILL
-TRIANGLE    3    194    344        277    230    329    393    Red    Green
+TRIANGLE    3    194    344	277    230    329    393    Red    Green
 RHOMBUS    4    478    330    Red    Red
 ELLIPSE    5    601    160    Blue    Black
 TRIANGLE    1    204    340        369    138    398    385    Black    NO_FILL

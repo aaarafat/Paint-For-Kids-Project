@@ -17,7 +17,9 @@ void ToPlayMode::Execute()
 	Output* pOut = pManager->GetOutput();
 	SetFileAttributes("SWITCH", FILE_ATTRIBUTE_NORMAL);
 	OutFile.open("SWITCH");
-	pManager->SaveAll(OutFile);
+	colors.open("C.KKK");
+	figures.open("F.KKK");
+	pManager->SaveAll(OutFile, colors, figures);
 	OutFile.close();
     SetFileAttributes("SWITCH", FILE_ATTRIBUTE_HIDDEN);
 	pOut->CreatePlayToolBar();

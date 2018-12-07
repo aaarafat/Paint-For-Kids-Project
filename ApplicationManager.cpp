@@ -193,14 +193,14 @@ void ApplicationManager::DeleteFigure(CFigure* F)
 	FigCount--;
 	pOut->ClearDrawArea();
 }
-void ApplicationManager::SaveAll(ofstream &OutFile)
+void ApplicationManager::SaveAll(ofstream &OutFile, ofstream& colors, ofstream& figures)
 {
 
 	OutFile<<pOut->strDrawClr()<<"    "<<pOut->strFillClr()<<endl;
 	OutFile<<FigCount<<endl;
 	for(int i = 0; i < FigCount; i++)
 	{
-		FigList[i]->Save(OutFile);
+		FigList[i]->Save(OutFile, colors, figures);
 	}
 
 }

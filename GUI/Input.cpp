@@ -180,7 +180,14 @@ void Input::SetFilled()
 {
 	filled = true;
 }
-	
+
+bool Input::InsidePlayArea(int x,int y)
+{
+	if ( y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight && x >= UI.ToolBarHeight)
+		return true;
+	else return false;
+		
+}
 Input::~Input()
 {
 }
