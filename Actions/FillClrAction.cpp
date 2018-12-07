@@ -65,6 +65,11 @@ void FillClrAction::Execute()
 	{
 		if (F)
 		{
+			if(F->isCut()) 
+			{
+				pManager->setClipboard(NULL);
+				F->Cut(false);
+			}
 			F->ChngFillClr(UI.FillColor);
 			F->SetSelected(false);
 			pManager->AddSelected(NULL);

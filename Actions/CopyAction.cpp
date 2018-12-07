@@ -5,9 +5,8 @@
 CopyAction::CopyAction(ApplicationManager *pApp) : Action(pApp){}
 void CopyAction::ReadActionParameters()
 {
-	if (pManager->IsCut()) 
+	if (pManager->getClipboard() && pManager->getClipboard()->isCut()) 
 	{
-		pManager->getClipboard()->Cut(false);
 		pManager->setClipboard(NULL);
 	}
 	CopiedF = pManager->GetSelected();
@@ -40,6 +39,7 @@ void CopyAction::Execute()
 			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
 		}	
 		CopiedF->SetSelected(false);
+		CopiedF->Cut(false);
 		pManager->setClipboard(CopiedF);
 		pOut->PrintMessage("The figure is Copied");
 	}

@@ -30,7 +30,6 @@ ApplicationManager::ApplicationManager()
 	SelectedFig = NULL;
 	Clipboard = NULL;
 	FigCount = 0;
-	isCut = false;
 	//Create an array of figure pointers and set them to NULL		
 	for(int i=0; i<MaxFigCount; i++)
 		FigList[i] = NULL;	
@@ -143,19 +142,15 @@ void ApplicationManager::AddSelected(CFigure* S)
 
 
 void ApplicationManager::setClipboard(CFigure *C){
-	if(Clipboard && !isCut)
+	if(Clipboard && !(Clipboard->isCut()))
 	{
 		delete Clipboard;
 	}
+	else if (Clipboard && Clipboard->isCut())
+	{
+		Clipboard->Cut(false);
+	}
 	Clipboard = C;
-}
-void ApplicationManager::Cut(bool c)
-{
-	isCut = c;
-}
-bool ApplicationManager::IsCut() const
-{
-	return isCut;
 }
 CFigure* ApplicationManager::CutFig() const
 {

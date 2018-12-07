@@ -16,7 +16,6 @@ private:
 	CFigure* SelectedFig; //Pointer to the selected figure
 	CFigure* Clipboard;   //Pointer to the copied/cut figure
 	bool filled;
-	bool isCut;
 	//Pointers to Input and Output classes
 	Input *pIn;
 	Output *pOut;
@@ -40,8 +39,6 @@ public:
 	void DeleteSelectedFigure();			//Removes a figure from the list and updates it
 	void SaveAll(ofstream &OutFile, ofstream& colors, ofstream& figures);
 	void LoadAll(ifstream &InFile);
-	void Cut(bool c);
-	bool IsCut() const;
 	void DelFigList();
 	CFigure* CutFig() const;                //Returns a cut fig
 

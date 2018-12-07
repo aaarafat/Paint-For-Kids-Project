@@ -33,6 +33,8 @@ CFigure::CFigure(GfxInfo FigureGfxInfo)
 	i++;
 	IsCut = false;
 	wasFilled = FigGfxInfo.isFilled;
+	LastDClr = FigGfxInfo.DrawClr;
+	LastFClr = FigGfxInfo.FillClr;
 }
 
 void CFigure::setDrawClr(){
@@ -86,7 +88,9 @@ if(Type==5) return "Ellipse";
 }
 
 void CFigure::SetSelected(bool s)
-{	Selected = s; }
+{	
+	Selected = s;
+}
 
 bool CFigure::IsSelected() const
 {	return Selected; }
@@ -103,7 +107,8 @@ if(dc=="Blue") return BLUE;
 
 
 void CFigure::ChngDrawClr(color Dclr)
-{	FigGfxInfo.DrawClr = Dclr; 
+{
+	FigGfxInfo.DrawClr = Dclr; 
     setDrawClr();
 }
 

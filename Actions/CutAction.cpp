@@ -25,13 +25,11 @@ void CutAction::Execute()
 			pOut->PrintMessage("The figure is Cut");
 			return;
 		}
-		if (pManager->IsCut())
+		if (pManager->getClipboard() && pManager->getClipboard()->isCut())
 			pManager->getClipboard()->Cut(false);
-
 		CopiedF->Cut(true);
 		pManager->setClipboard(CopiedF);
 		pManager->AddSelected(NULL);
-		pManager->Cut(true);
 		pOut->PrintMessage("The figure is Cut");
 	}
 	else
