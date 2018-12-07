@@ -6,15 +6,18 @@ ToDrawMode::ToDrawMode(ApplicationManager *pApp):Action(pApp)
 {}
 
 void ToDrawMode::ReadActionParameters()
-{}
-
-void ToDrawMode::Execute()
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateDrawToolBar();
+	pOut->ClearStatusBar();
+}
+
+void ToDrawMode::Execute()
+{
+	ReadActionParameters();
 	InFile.open("SWITCH");
 	pManager->LoadAll(InFile);
 	InFile.close();
-	
+
 }
 

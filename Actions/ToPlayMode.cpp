@@ -9,12 +9,6 @@ ToPlayMode::ToPlayMode(ApplicationManager *pApp):Action(pApp)
 
 void ToPlayMode::ReadActionParameters()
 {
-}
-
-void ToPlayMode::Execute()
-{
-
-	Output* pOut = pManager->GetOutput();
 	SetFileAttributes("SWITCH", FILE_ATTRIBUTE_NORMAL);
 	OutFile.open("SWITCH");
 	colors.open("C.KKK");
@@ -22,6 +16,13 @@ void ToPlayMode::Execute()
 	pManager->SaveAll(OutFile, colors, figures);
 	OutFile.close();
     SetFileAttributes("SWITCH", FILE_ATTRIBUTE_HIDDEN);
+}
+
+void ToPlayMode::Execute()
+{
+
+	Output* pOut = pManager->GetOutput();
+	ReadActionParameters();
 	pOut->CreatePlayToolBar();
 	pOut->ClearStatusBar();
 	pOut->PrintMessage("Choose to pick by type or by color");
