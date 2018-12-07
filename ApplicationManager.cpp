@@ -152,17 +152,6 @@ void ApplicationManager::setClipboard(CFigure *C){
 	}
 	Clipboard = C;
 }
-CFigure* ApplicationManager::CutFig() const
-{
-	for (int i = 0; i < FigCount; i++)
-	{
-		if (FigList[i]->isCut())
-		{
-			return FigList[i];
-		}
-	}
-	return NULL;
-}
 CFigure *ApplicationManager::getClipboard() const { return Clipboard; }
 
 //need to be put in DeleteAction class

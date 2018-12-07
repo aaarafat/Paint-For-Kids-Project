@@ -40,7 +40,6 @@ public:
 	void SaveAll(ofstream &OutFile, ofstream& colors, ofstream& figures);
 	void LoadAll(ifstream &InFile);
 	void DelFigList();
-	CFigure* CutFig() const;                //Returns a cut fig
 
 	// -- Interface Management Functions
 	Input *GetInput() const; //Return pointer to the input
