@@ -1,2 +1,11 @@
-Blue    Green
-0
+White    White
+9
+LINE    1    220    164        545    269    Red    NO_FILL
+LINE    201    89    219        414    324    Blue    NO_FILL
+LINE    202    51    270        376    375    Green    NO_FILL
+LINE    203    284    131        609    236    Black    NO_FILL
+LINE    204    391    99        716    204    White    NO_FILL
+RHOMBUS    2    959    360    White    White
+RHOMBUS    3    605    354    White    Green
+RHOMBUS    4    794    183    White    White
+RHOMBUS    5    383    456    White    Red

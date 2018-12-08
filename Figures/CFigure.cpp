@@ -78,6 +78,7 @@ if(FCLR==2) return "White";
 if(FCLR==3) return "Red";
 if(FCLR==4) return "Green";
 if(FCLR==5) return "Blue";
+if(Type == 2) return strDrawClr();
 return "NO_FILL";
 }
 
