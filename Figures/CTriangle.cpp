@@ -150,4 +150,8 @@ void CTriangle::setType(){
 Type = 3;
 }
 
+int CTriangle::getType(){
+return Type;
+}
+
 
