@@ -39,7 +39,8 @@ void CopyAction::Execute()
 			CopiedF = new CElipse(*dynamic_cast<CElipse*>(CopiedF));
 		}	
 		CopiedF->SetSelected(false);
-		CopiedF->Cut(false);
+		if(CopiedF->isCut())
+			CopiedF->Cut(false);
 		pManager->setClipboard(CopiedF);
 		pOut->PrintMessage("The figure is Copied");
 	}
