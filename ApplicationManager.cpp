@@ -218,7 +218,7 @@ void ApplicationManager::LoadAll(ifstream &InFile)
 	}
 }
 
-void ApplicationManager::SaveAFig(int type,ofstream& OutFile, ofstream& colors, ofstream& figures){
+void ApplicationManager::SaveType(int type,ofstream& OutFile, ofstream& colors, ofstream& figures){
 	int count=0;
 	OutFile<<pOut->strDrawClr()<<"    "<<pOut->strFillClr()<<endl;
 	for(int i=0;i<FigCount;i++){

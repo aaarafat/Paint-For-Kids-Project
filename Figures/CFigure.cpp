@@ -80,11 +80,11 @@ if(FCLR==5) return "Blue";
 }
 
 string CFigure::strType(){
-if(Type==1) return "Rectangle";
-if(Type==2) return "Line";
-if(Type==3) return "Triangle";
-if(Type==4) return "Rhombus";
-if(Type==5) return "Ellipse";
+if(Type==1) return "RECTANGLE";
+if(Type==2) return "LINE";
+if(Type==3) return "TRIANGLE";
+if(Type==4) return "RHOMBUS";
+if(Type==5) return "ELLIPSE";
 }
 
 void CFigure::SetSelected(bool s)

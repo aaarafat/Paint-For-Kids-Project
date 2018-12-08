@@ -4,7 +4,7 @@ class ByTypeAction :
 	public Action
 {
 	ifstream InFile;
-	int FigC;
+	int FigC,tN;
 	string rFigure;
 	Point P;
 	CFigure* F;

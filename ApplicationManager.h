@@ -39,7 +39,7 @@ public:
 	void DeleteSelectedFigure();			//Removes a figure from the list and updates it
 	void SaveAll(ofstream &OutFile, ofstream& colors, ofstream& figures);
 	void LoadAll(ifstream &InFile);
-	void SaveAFig(int type,ofstream& OutFile, ofstream& colors, ofstream& figures);
+	void SaveType(int type,ofstream& OutFile, ofstream& colors, ofstream& figures);
 	void DelFigList();
 
 	// -- Interface Management Functions

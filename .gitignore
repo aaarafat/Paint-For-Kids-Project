@@ -11,7 +11,7 @@ PT-Project.sdf
 *.sln
 *.vcxproj
 *.vcxproj.filters
-
+*.KKK
 # Precompiled Headers
 *.gch
 *.pch

@@ -21,10 +21,12 @@ void ByTypeAction::ReadActionParameters()
 	Output* pOut = pManager->GetOutput();
 	
 	InFile>>rFigure>>rFigure;
-	int n, r;
-	InFile>>n;
+	int  r;
+	InFile>>tN;
+	if(tN!=0)
+	{
 	srand(time(NULL));
-	r = rand()%n;
+	r = rand()%tN;
 	for(int i = 0; i < r; i++)
 	{
 		char c;
@@ -33,48 +35,10 @@ void ByTypeAction::ReadActionParameters()
 	InFile>>rFigure;
 	cout<<rFigure<<endl;
 	string t;
-	/*if (tmp == "RECTANGLE")
-	{
-		
-		for (int i = 0; i < 6; i++)
-		{
-			InFile>>t;
-		}
-		InFile>>t;
-	}
-	else if (tmp == "TRIANGLE")
-	{
-		for (int i = 0; i < 8; i++)
-		{
-			InFile>>t;
-		}
-		InFile>>t;
-	}
-	else if (tmp == "RHOMBUS")
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			InFile>>t;
-		}
-		InFile>>t;
-	}
-	else if (tmp == "ELLIPSE")
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			InFile>>t;
-		}
-		InFile>>t;
-	}
-	else
-	{
-		t = "NO_FILL";
-	}
-	cout << t << endl;
-	*/
+
 	InFile.close();
 	InFile.open("F.KKK");
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < tN; i++)
 	{
 		InFile>>t;
 		if (t == rFigure)
@@ -83,34 +47,48 @@ void ByTypeAction::ReadActionParameters()
 		}
 	}
 	cout << FigC<<endl;
+	}
 	InFile.close();
 }
+
 void ByTypeAction::Execute()
 {
 	ReadActionParameters();	
 
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
-
-	pOut->PrintMessage("Pick "+rFigure);
-	while(FigC != 0)
+	if(tN!=0)
 	{
-		pIn->GetPointClicked(P.x,P.y);
-		if(pIn->InsidePlayArea(P.x,P.y))
-		{
-		 F = pManager->GetFigure(P.x,P.y);
-		if(F != NULL){
-			pManager->DeleteFigure(F);
-			FigC--;
-		}
-		pManager->UpdateInterface();
-		}
-		else
-		{
-			pOut->ClearStatusBar();
-			break;
-		}
+	    pOut->PrintMessage("Pick "+rFigure);
+	    while(FigC != 0)
+	{
+		
+		    pIn->GetPointClicked(P.x,P.y);
+		    if(pIn->InsidePlayArea(P.x,P.y))
+			{
+				F = pManager->GetFigure(P.x,P.y);
+				if(F != NULL)
+				{
+					if(F->strType()==rFigure)
+					{
+						pOut->PrintMessage("Pick "+rFigure);
+						pManager->DeleteFigure(F);
+						FigC--;
+					}
+					else 
+						pOut->PrintMessage("Not "+rFigure);
+				}
+				pManager->UpdateInterface();
+			}
+			else
+			{
+				pOut->ClearStatusBar();
+				break;
+			}
 	}
+	if(FigC==0) pOut->PrintMessage("No More "+rFigure+" Play Again");
+	}
+	else pOut->PrintMessage("No Figures To Pick From");
 
-
+	
 }
