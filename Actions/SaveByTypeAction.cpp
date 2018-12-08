@@ -18,7 +18,7 @@ SaveByTypeAction::SaveByTypeAction(ApplicationManager *pApp):Action(pApp)
 void SaveByTypeAction::ReadActionParameters(){
 	
 	pOut = pManager->GetOutput();
-	pOut->PrintMessage("choose the type of the figure you want to save");
+	pOut->PrintMessage("Choose the type of the figure you want to save");
 	pIn = pManager->GetInput();
 	ActionType a;
 	do{
