@@ -157,4 +157,99 @@ return Type;
 
 void CTriangle::Resize(float frac, bool& flag)
 {
+	Point Center; //the center of the triangle
+	Center.x = (Corner1.x+Corner2.x+Corner3.x)/3;
+	Center.y = (Corner1.y+Corner2.y+Corner3.y)/3;
+	// old corners to back to the normal size
+	Point Ocorner1,Ocorner2,Ocorner3;
+	Ocorner1 = Corner1;
+	Ocorner2 = Corner2;
+	Ocorner3 = Corner3;
+	// assume origin is in the center of the triangle
+	Corner1.x -= Center.x;
+	Corner2.x -= Center.x;
+	Corner3.x -= Center.x;
+	Corner1.y -= Center.y;
+	Corner2.y -= Center.y;
+	Corner3.y -= Center.y;
+	// all corners are cordinates with the center as origin
+	// multiply all cords by frac to resize 
+	Corner1.x *= frac;
+	Corner2.x *= frac;
+	Corner3.x *= frac;
+	Corner1.y *= frac;
+	Corner2.y *= frac;
+	Corner3.y *= frac;
+	// return to the normal x and y
+	Corner1.x += Center.x;
+	Corner2.x += Center.x;
+	Corner3.x += Center.x;
+	Corner1.y += Center.y;
+	Corner2.y += Center.y;
+	Corner3.y += Center.y;
+	// check
+	if(Corner1.y < UI.ToolBarHeight + 1)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+	if(Corner2.y < UI.ToolBarHeight + 1)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+	if(Corner3.y < UI.ToolBarHeight + 1)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+	if(Corner1.x < UI.ToolBarHeight + 1)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+	if(Corner2.x < UI.ToolBarHeight + 1)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+	if(Corner3.x < UI.ToolBarHeight + 1)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+	if(Corner1.y > UI.height - UI.StatusBarHeight - 1)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+	if(Corner2.y > UI.height - UI.StatusBarHeight - 1)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+	if(Corner3.y > UI.height - UI.StatusBarHeight - 1)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+
 }
