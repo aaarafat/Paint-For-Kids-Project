@@ -12,6 +12,7 @@ CFigure::CFigure(CFigure& F)
 	ID = i;
 	Selected = F.Selected;
 	FigGfxInfo = F.FigGfxInfo;
+	FigGfxInfo.isFilled = F.FigGfxInfo.isFilled;
 	DCLR = F.DCLR;
 	FCLR = F.FCLR;
 	Type = F.Type;
@@ -77,6 +78,7 @@ if(FCLR==2) return "White";
 if(FCLR==3) return "Red";
 if(FCLR==4) return "Green";
 if(FCLR==5) return "Blue";
+return "NO_FILL";
 }
 
 string CFigure::strType(){

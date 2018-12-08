@@ -1,13 +1,10 @@
 Blue    Green
-11
-ELLIPSE    1    153    116    Black    Black
-ELLIPSE    2    447    114    Black    Black
-ELLIPSE    3    151    257    Black    Black
-ELLIPSE    4    430    252    Black    Black
-ELLIPSE    5    673    103    Black    Black
-ELLIPSE    6    695    251    Black    NO_FILL
-RHOMBUS    1    297    213    Blue    NO_FILL
-RHOMBUS    2    555    199    Blue    NO_FILL
-RHOMBUS    3    193    428    Blue    NO_FILL
-RHOMBUS    4    793    151    Blue    NO_FILL
-RHOMBUS    5    699    298    Blue    NO_FILL
+8
+RECTANGLE    1    123    195    266    125    Black    Blue
+LINE    2    440    183        589    308    Black    NO_FILL
+TRIANGLE    3    194    344        277    230    329    393    Red    Green
+RHOMBUS    4    478    330    Red    Red
+ELLIPSE    5    601    160    Blue    Black
+TRIANGLE    1    204    340        369    138    398    385    Black    NO_FILL
+ELLIPSE    1    760    493    Blue    NO_FILL
+RECTANGLE    2    173    454    173    454    Blue    NO_FILL

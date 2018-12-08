@@ -1,17 +1,17 @@
 #pragma once
 #include "Action.h"
-class ByTypeAction :
+class ByColorAction :
 	public Action
 {
 	ifstream InFile;
 	int FigC,tN;
-	string rFigure;
+	string rColor;
 	Point P;
 	CFigure* F;
 	int correct;
 	int incorrect;
 public:
-	ByTypeAction(ApplicationManager *pApp);
+	ByColorAction(ApplicationManager *pApp);
 
 	virtual void ReadActionParameters();
 

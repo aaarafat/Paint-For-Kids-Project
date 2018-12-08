@@ -1,11 +1,11 @@
-#include "ByTypeAction.h"
+#include "ByColorAction.h"
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
 using namespace std;
 
-ByTypeAction::ByTypeAction(ApplicationManager* pApp) : Action(pApp)
+ByColorAction::ByColorAction(ApplicationManager* pApp) : Action(pApp)
 {
 	UI.PickMode = MODE_BTYPE;
 	FigC = 0;
@@ -17,43 +17,44 @@ ByTypeAction::ByTypeAction(ApplicationManager* pApp) : Action(pApp)
 	pManager->UpdateInterface();
 }
 
-void ByTypeAction::ReadActionParameters()
+void ByColorAction::ReadActionParameters()
 {
 	InFile.open("SWITCH");
 	Output* pOut = pManager->GetOutput();
 	
-	InFile>>rFigure>>rFigure;
+	InFile>>rColor>>rColor;
 	int  r;
 	InFile>>tN;
 	if(tN!=0)
 	{
-	srand(time(NULL));
-	r = rand()%tN;
-	for(int i = 0; i < r; i++)
-	{
-		char c;
-		while (InFile.get(c)){if(c == '\n') break;}
-	}
-	InFile>>rFigure;
-	cout<<rFigure<<endl;
-	string t;
-
-	InFile.close();
-	InFile.open("F.KKK");
-	for (int i = 0; i < tN; i++)
-	{
-		InFile>>t;
-		if (t == rFigure)
+		InFile.close();
+		InFile.open("C.KKK");
+		srand(time(NULL));
+		r = rand()%tN;
+		for(int i = 0; i < r; i++)
 		{
-			FigC++;
+			InFile>>rColor;
 		}
-	}
-	cout << FigC<<endl;
+		InFile>>rColor;
+		cout<<rColor<<endl;
+		string t;
+
+		InFile.close();
+		InFile.open("C.KKK");
+		for (int i = 0; i < tN; i++)
+		{
+			InFile>>t;
+			if (t == rColor)
+			{
+				FigC++;
+			}
+		}
+		cout << FigC<<endl;
 	}
 	InFile.close();
 }
 
-void ByTypeAction::Execute()
+void ByColorAction::Execute()
 {
 	ReadActionParameters();	
 
@@ -61,7 +62,7 @@ void ByTypeAction::Execute()
 	Input* pIn = pManager->GetInput();
 	if(tN!=0)
 	{
-	    pOut->PrintMessage("Pick "+rFigure);
+	    pOut->PrintMessage((rColor == "NO_FILL") ? "Pick Non Filled Figures" : "Pick "+rColor);
 	    while(FigC != 0)
 	{
 		
@@ -71,7 +72,7 @@ void ByTypeAction::Execute()
 				F = pManager->GetFigure(P.x,P.y);
 				if(F != NULL)
 				{
-					if(F->strType()==rFigure)
+					if(F->strFillClr()==rColor)
 					{
 						pManager->DeleteFigure(F);
 						FigC--;

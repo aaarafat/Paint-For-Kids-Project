@@ -17,6 +17,7 @@
 #include "Actions\SaveByTypeAction.h"
 #include "Actions\LoadAction.h"
 #include "Actions\ByTypeAction.h"
+#include "Actions\ByColorAction.h"
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
 #include "GUI\Input.h"
@@ -107,6 +108,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case CHOOSE_BYTYPE:
 			pAct = new ByTypeAction(this);
+			break;
+		case CHOOSE_BYCOLOR:
+			pAct = new ByColorAction(this);
 			break;
 		case EXIT:
 			///create Exit Action here
