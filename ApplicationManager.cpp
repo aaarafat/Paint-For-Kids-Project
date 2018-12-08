@@ -18,6 +18,8 @@
 #include "Actions\LoadAction.h"
 #include "Actions\ByTypeAction.h"
 #include "Actions\ByColorAction.h"
+#include "Actions\ToFrontAction.h"
+#include "Actions\ToBackAction.h"
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
 #include "GUI\Input.h"
@@ -25,6 +27,7 @@
 //Constructor
 ApplicationManager::ApplicationManager()
 {
+	S = -1;
 	//Create Input and output
 	pOut = new Output;
 	pIn = pOut->CreateInput();
@@ -111,6 +114,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case CHOOSE_BYCOLOR:
 			pAct = new ByColorAction(this);
 			break;
+		case TO_FRONT:
+			pAct = new ToFrontAction(this);
+			break;
+		case TO_BACK:
+			pAct = new ToBackAction(this);
 		case EXIT:
 			///create Exit Action here
 			
@@ -236,7 +244,7 @@ void ApplicationManager::SaveType(int type,ofstream& OutFile, ofstream& colors, 
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
-CFigure *ApplicationManager::GetFigure(int x, int y) const
+CFigure *ApplicationManager::GetFigure(int x, int y)
 {
 	//If a figure is found return a pointer to it.
 	//if this point (x,y) does not belong to any figure return NULL
@@ -245,6 +253,7 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
 	{
 		if(FigList[i]->IsInside(x, y))
 		{
+			S = i;
 			return FigList[i];
 		}
 
@@ -265,6 +274,31 @@ void ApplicationManager::UpdateInterface() const
 	for(int i=0; i<FigCount; i++)
 		FigList[i]->Draw(pOut);		//Call Draw function (virtual member fn)
 }
+void ApplicationManager::ReOrderList(bool front)
+{
+	if(front)
+	{
+		for(int i = S; i < FigCount - 1; i++)
+		{
+			CFigure* tmp = FigList[i];
+			FigList[i] = FigList[i + 1];
+			FigList[i + 1] = tmp;
+		}
+		S = FigCount - 1;
+	}
+	else
+	{
+		for(int i = S; i > 0; i--)
+		{
+			CFigure* tmp = FigList[i];
+			FigList[i] = FigList[i - 1];
+			FigList[i - 1] = tmp;
+		}
+		S = 0;
+	}
+
+}
+
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the input
 Input *ApplicationManager::GetInput() const

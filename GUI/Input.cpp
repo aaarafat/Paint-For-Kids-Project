@@ -79,6 +79,8 @@ ActionType Input::GetUserAction() const
 			case ITM_SAVE: return SAVE;
 			case ITM_SAVETYPE: return SAVE_BY_TYPE;
 			case ITM_LOAD: return LOAD;
+			case ITM_TOFRONT: return TO_FRONT;
+			case ITM_TOBACK: return TO_BACK;
 							
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar

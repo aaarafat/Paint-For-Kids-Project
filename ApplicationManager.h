@@ -14,6 +14,7 @@ private:
 	int FigCount;		//Actual number of figures
 	CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
 	CFigure* SelectedFig; //Pointer to the selected figure
+	int S;	//Selected index in figlist
 	CFigure* Clipboard;   //Pointer to the copied/cut figure
 	bool filled;
 	//Pointers to Input and Output classes
@@ -32,7 +33,7 @@ public:
 	// -- Figures Management Functions
 	void AddFigure(CFigure* pFig);          //Adds a new figure to the FigList
 	void AddSelected(CFigure* S);
-	CFigure *GetFigure(int x, int y) const; //Search for a figure given a point inside the figure
+	CFigure *GetFigure(int x, int y); //Search for a figure given a point inside the figure
 	void setClipboard(CFigure *);
 	CFigure * getClipboard() const;
 	void DeleteFigure(CFigure* F);          //Delete figure
@@ -40,6 +41,7 @@ public:
 	void SaveAll(ofstream &OutFile, ofstream& colors, ofstream& figures);
 	void LoadAll(ifstream &InFile);
 	void SaveType(int type,ofstream& OutFile, ofstream& colors, ofstream& figures);
+	void ReOrderList(bool front);
 	void DelFigList();
 
 	// -- Interface Management Functions

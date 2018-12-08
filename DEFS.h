@@ -33,7 +33,8 @@ enum ActionType //The actions supported (you can add more if needed)
 	CLR_RED_C,
 	CLR_GREEN_C,
 	CLR_BLUE_C,
-	
+	TO_FRONT,
+	TO_BACK,
 
 	TO_DRAW,		//Switch interface to Draw mode
 	TO_PLAY			//Switch interface to Play mode

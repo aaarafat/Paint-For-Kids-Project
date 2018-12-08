@@ -76,7 +76,7 @@ void Output::Create2ndToolBar() const{
 	UI.InterfaceMode = MODE_DRAW;
 	UI.ToolBarMode = MODE_TOOL;
 	Clear2ndToolBar();
-	string ToolsItemImages[DRAW_ITM_COUNT];
+	string ToolsItemImages[TOOLS_ITM_COUNT];
 	ToolsItemImages[ITM_SELECT] = "images\\MenuItems\\SELECT.jpg";
 	ToolsItemImages[ITM_COPY] = "images\\MenuItems\\Copy.jpg";
 	ToolsItemImages[ITM_CUT] = "images\\MenuItems\\Cut.jpg";
@@ -85,6 +85,8 @@ void Output::Create2ndToolBar() const{
 	ToolsItemImages[ITM_SAVE] = "images\\MenuItems\\Save.jpg";
 	ToolsItemImages[ITM_SAVETYPE] = "images\\MenuItems\\SaveType.jpg";
 	ToolsItemImages[ITM_LOAD] = "images\\MenuItems\\Load.jpg";
+	ToolsItemImages[ITM_TOFRONT] = "images\\MenuItems\\ToFront.jpg";
+	ToolsItemImages[ITM_TOBACK] =  "images\\MenuItems\\ToBack.jpg";
 
 	for(int i=0; i<TOOLS_ITM_COUNT; i++)
 		pWind->DrawImage(ToolsItemImages[i], 0, i*UI.ToolBarHeight+UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight);
