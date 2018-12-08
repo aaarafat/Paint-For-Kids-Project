@@ -136,6 +136,7 @@ ActionType Input::GetUserAction() const
 			case ITM_CHNG_FILL: return CHNG_FILL_CLR;
 			case ITM_RESIZE: return RESIZE;
 			case ITM_SWITCH: return TO_PLAY;			
+			case ITM_VOICE : return VOICE;
 			case ITM_EXIT: return EXIT;	
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar

@@ -5,6 +5,7 @@
 #include "..\GUI\UI_Info.h"
 #include "..\GUI\Output.h"
 #include "..\ApplicationManager.h"
+#pragma comment(lib, "Winmm.lib")
 class ApplicationManager; //forward class declaration
 
 

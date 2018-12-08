@@ -40,6 +40,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	RESIZE_FRAC_HLF,   //A click on 1/2 icon in the resize bar
 	RESIZE_FRAC_TWO,   //A click on 2 icon in the resize bar
 	RESIZE_FRAC_FOUR,  //A click on 4 icon in the resize bar
+	VOICE,
 	TO_DRAW,		//Switch interface to Draw mode
 	TO_PLAY			//Switch interface to Play mode
 
