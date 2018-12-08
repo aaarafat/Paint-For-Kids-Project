@@ -27,7 +27,7 @@ public:
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected=false) const;  //Draw a rectangle
 	void DrawTri(Point P1, Point P2, Point P3,  GfxInfo TriGfxInfo, bool selected=false) const;
 	void DrawL(Point P1, Point P2, GfxInfo LiGfxInfo, bool selected = false) const;
-	void DrawEli(Point P1, GfxInfo EliGfxInfo, bool selected = false) const;
+	void DrawEli(Point P1, GfxInfo EliGfxInfo, int r, bool selected = false) const;
 	void DrawRhom(Point P1, GfxInfo RhomGfxInfo, bool selected = false) const;
 
 

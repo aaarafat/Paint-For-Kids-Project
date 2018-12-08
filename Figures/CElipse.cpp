@@ -10,31 +10,31 @@ CElipse::CElipse(Point P1, GfxInfo FigureGfxInfo): CFigure(FigureGfxInfo)
 	setType();
 	ShiftPoints(P1);
 	Center = P1;
-	
+	r = 100;
 }
 
 void CElipse::Draw(Output* pOut) const{
 
-	pOut->DrawEli(Center, FigGfxInfo, Selected);
+	pOut->DrawEli(Center, FigGfxInfo, r,Selected);
 }
 bool CElipse::IsInside(int x, int y)
 {
 	//if the point in, it will return true
-	return (x - Center.x) * (x - Center.x) / ((100.0) * (100)) +
-		(y - Center.y) * (y - Center.y) / ((50.0) * (50)) <= 1;
+	return (x - Center.x) * (x - Center.x) / ((r * 1.0) * (r)) +
+		(y - Center.y) * (y - Center.y) / ((r/2 * 1.0) * (r/2)) <= 1;
 }
 
 void CElipse::ShiftPoints(Point& C)
 {
-	if(C.y - 50 < UI.ToolBarHeight + 1)
+	if(C.y - r/2 < UI.ToolBarHeight + 1)
 	{
 		C.y = UI.ToolBarHeight + 51;
 	}
-	if(C.x - 100 < UI.ToolBarHeight + 1)
+	if(C.x - r < UI.ToolBarHeight + 1)
 	{
 		C.x = UI.ToolBarHeight + 101;
 	}
-	if(C.y + 50 > UI.height - UI.StatusBarHeight - 1)
+	if(C.y + r/2 > UI.height - UI.StatusBarHeight - 1)
 	{
 		C.y = UI.height - UI.StatusBarHeight - 51;
 	}
@@ -88,4 +88,20 @@ return Type;
 
 void CElipse::Resize(float frac, bool& flag)
 {
+	r *= frac;
+	if(Center.y - r/2 < UI.ToolBarHeight + 1)
+	{
+		r /= frac;
+		flag = false;
+	}
+	else if(Center.x - r < UI.ToolBarHeight + 1)
+	{
+		r /= frac;
+		flag = false;
+	}
+	else if(Center.y + r/2 > UI.height - UI.StatusBarHeight - 1)
+	{
+		r /= frac;
+		flag = false;
+	}
 }

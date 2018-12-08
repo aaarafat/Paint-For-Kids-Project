@@ -4,7 +4,7 @@ class CElipse : public CFigure
 {
 private:
 	Point Center;	
-	
+	int r;
 public:
 	CElipse();
 	CElipse(Point , GfxInfo FigureGfxInfo );

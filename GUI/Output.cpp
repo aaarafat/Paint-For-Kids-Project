@@ -351,7 +351,7 @@ void Output::DrawRhom(Point P1, GfxInfo RhomGfxInfo, bool selected) const
 	pWind->DrawPolygon(x, y, 4, style);
 }
 
-void Output::DrawEli(Point P1, GfxInfo EliGfxInfo, bool selected) const
+void Output::DrawEli(Point P1, GfxInfo EliGfxInfo, int r, bool selected) const
 {
 	color DrawingClr;
 	if(selected)	
@@ -368,7 +368,7 @@ void Output::DrawEli(Point P1, GfxInfo EliGfxInfo, bool selected) const
 	}
 	else	
 		style = FRAME;
-	pWind->DrawEllipse(P1.x + 100, P1.y + 50, P1.x - 100, P1.y - 50, style);
+	pWind->DrawEllipse(P1.x + r, P1.y + r/2, P1.x - r, P1.y - r/2, style);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 string Output::strDrawClr(){
