@@ -9,7 +9,7 @@ void ResizeAction::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateReszieBar();
-	pOut->PrintMessage("Choose a fraction, Click at the empty area to cancel");
+	pOut->PrintMessage("Resize : Choose a fraction, Click at the empty area to cancel");
 	flag = true;
 	ActionType act = pManager->GetUserAction();
 	switch (act)
