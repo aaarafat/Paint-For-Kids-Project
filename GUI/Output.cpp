@@ -328,7 +328,7 @@ void Output::DrawL(Point P1, Point P2, GfxInfo LiGfxInfo, bool selected) const
 	
 	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
 }
-void Output::DrawRhom(Point P1, GfxInfo RhomGfxInfo, bool selected) const
+void Output::DrawRhom(Point P1, GfxInfo RhomGfxInfo, int r, bool selected) const
 {
 	color DrawingClr;
 	if(selected)	
@@ -346,8 +346,8 @@ void Output::DrawRhom(Point P1, GfxInfo RhomGfxInfo, bool selected) const
 	else	
 		style = FRAME;
 
-	const int x[] = {P1.x + 50, P1.x, P1.x - 50, P1.x};
-	const int y[] = {P1.y, P1.y - 100, P1.y, P1.y + 100}; 
+	const int x[] = {P1.x + r/2, P1.x, P1.x - r/2, P1.x};
+	const int y[] = {P1.y, P1.y - r, P1.y, P1.y + r}; 
 	pWind->DrawPolygon(x, y, 4, style);
 }
 
