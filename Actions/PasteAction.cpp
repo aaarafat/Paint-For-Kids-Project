@@ -1,5 +1,4 @@
 #include "PasteAction.h"
-#include <iostream>
 
 PasteAction::PasteAction(ApplicationManager *pApp):Action(pApp)
 {

@@ -2,8 +2,6 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
-#include <iostream>
-using namespace std;
 
 ByTypeAction::ByTypeAction(ApplicationManager* pApp) : Action(pApp)
 {
@@ -35,7 +33,6 @@ void ByTypeAction::ReadActionParameters()
 		while (InFile.get(c)){if(c == '\n') break;}
 	}
 	InFile>>rFigure;
-	cout<<rFigure<<endl;
 	string t;
 
 	InFile.close();
@@ -48,7 +45,6 @@ void ByTypeAction::ReadActionParameters()
 			FigC++;
 		}
 	}
-	cout << FigC<<endl;
 	}
 	InFile.close();
 }

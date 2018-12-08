@@ -2,8 +2,6 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
-#include <iostream>
-using namespace std;
 
 ByColorAction::ByColorAction(ApplicationManager* pApp) : Action(pApp)
 {
@@ -36,7 +34,6 @@ void ByColorAction::ReadActionParameters()
 			InFile>>rColor;
 		}
 		InFile>>rColor;
-		cout<<rColor<<endl;
 		string t;
 
 		InFile.close();
@@ -49,7 +46,6 @@ void ByColorAction::ReadActionParameters()
 				FigC++;
 			}
 		}
-		cout << FigC<<endl;
 	}
 	InFile.close();
 }
