@@ -107,3 +107,7 @@ pOut->PrintMessage("Figure: "+strType()+"    Draw Color: "+strDrawClr());
 void CLine::setType(){
 Type = 2;
 }
+
+int CLine::getType(){
+return Type;
+}

@@ -119,3 +119,7 @@ void CRectangle::setType(){
 Type = 1;
 }
 
+int CRectangle::getType(){
+return Type;
+}
+

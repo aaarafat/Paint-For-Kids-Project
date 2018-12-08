@@ -40,6 +40,7 @@ public:
 	void setFillClr() ; // sets an integer for each Fill Color
 	color lClr(string); // return Color for the loaded Fig
 	virtual void setType() = 0;     // sets the type of the Figure
+	virtual int getType()=0;
 	string strDrawClr() ;  // returns Draw Color as a string 
 	string strFillClr() ;  // returns Fill Color as a string 
 	string strType();      // returns Type as a string

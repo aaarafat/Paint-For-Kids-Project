@@ -14,6 +14,7 @@
 #include "Actions\PasteAction.h"
 #include "Actions\CutAction.h"
 #include "Actions\SaveAction.h"
+#include "Actions\SaveByTypeAction.h"
 #include "Actions\LoadAction.h"
 #include "Actions\ByTypeAction.h"
 #include "GUI\UI_Info.h"
@@ -97,6 +98,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SAVE:
 			pAct = new SaveAction(this);
+			break;
+		case SAVE_BY_TYPE:
+			pAct = new SaveByTypeAction(this);
 			break;
         case LOAD:
 			pAct = new LoadAction(this);
@@ -211,6 +215,20 @@ void ApplicationManager::LoadAll(ifstream &InFile)
 		F->setType();
 		F->Load(InFile);
 		AddFigure(F);
+	}
+}
+
+void ApplicationManager::SaveAFig(int type,ofstream& OutFile, ofstream& colors, ofstream& figures){
+	int count=0;
+	OutFile<<pOut->strDrawClr()<<"    "<<pOut->strFillClr()<<endl;
+	for(int i=0;i<FigCount;i++){
+		if(FigList[i]->getType()==type)
+			count++;
+	}
+	OutFile<<count<<endl;
+	for(int i=0;i<FigCount;i++){
+		if(FigList[i]->getType()==type)
+			FigList[i]->Save(OutFile, colors, figures);
 	}
 }
 

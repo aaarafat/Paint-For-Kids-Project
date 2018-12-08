@@ -5,6 +5,8 @@ class SaveByTypeAction :
 {
 	string FileName;
 	ofstream OutFile;
+	ofstream colors;
+	ofstream figures;
 	Output *pOut;
 	Input *pIn;
 	int type;

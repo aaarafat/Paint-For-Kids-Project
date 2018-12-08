@@ -52,6 +52,6 @@ void SaveByTypeAction::ReadActionParameters(){
 void SaveByTypeAction::Execute(){
 	ReadActionParameters();
 	
-	pManager->SaveAFig(type,OutFile);
+	pManager->SaveAFig(type,OutFile,colors, figures);
 	OutFile.close();
 }

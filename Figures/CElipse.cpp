@@ -82,3 +82,6 @@ void CElipse::setType(){
 Type = 5;
 }
 
+int CElipse::getType(){
+return Type;
+}

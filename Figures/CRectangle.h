@@ -18,6 +18,7 @@ public:
 	void Load(ifstream &Infile);
 	virtual void PrintInfo(Output* pOut);
 	virtual void setType();
+	virtual int getType();
 };
 
 #endif

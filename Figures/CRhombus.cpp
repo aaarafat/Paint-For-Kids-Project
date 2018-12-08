@@ -92,3 +92,7 @@ void CRhombus::PrintInfo(Output* pOut)
 void CRhombus::setType(){
 Type = 4;
 }
+
+int CRhombus::getType(){
+return Type;
+}
