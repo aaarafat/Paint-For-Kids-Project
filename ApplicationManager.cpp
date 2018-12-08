@@ -21,7 +21,6 @@
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
 #include "GUI\Input.h"
-#include <iostream>
 
 //Constructor
 ApplicationManager::ApplicationManager()

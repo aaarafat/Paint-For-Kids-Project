@@ -111,6 +111,7 @@ if(dc=="Blue") return BLUE;
 void CFigure::ChngDrawClr(color Dclr)
 {
 	FigGfxInfo.DrawClr = Dclr; 
+	//LastDClr = Dclr;
     setDrawClr();
 }
 
@@ -118,6 +119,8 @@ void CFigure::ChngFillClr(color Fclr)
 {	
 	FigGfxInfo.isFilled = true;
 	FigGfxInfo.FillClr = Fclr;
+	//LastFClr = Fclr;
+	//wasFilled = true;
 	setFillClr();
 }
 
