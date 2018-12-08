@@ -19,6 +19,7 @@ public:
 	virtual void PrintInfo(Output* pOut);
 	virtual void setType();
 	virtual int getType();
+	virtual void Resize(float frac, bool& flag);
 };
 
 #endif

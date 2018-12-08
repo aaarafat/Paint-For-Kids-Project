@@ -155,3 +155,6 @@ return Type;
 }
 
 
+void CTriangle::Resize(float frac, bool& flag)
+{
+}

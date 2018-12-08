@@ -123,3 +123,6 @@ int CRectangle::getType(){
 return Type;
 }
 
+void CRectangle::Resize(float frac, bool& flag)
+{
+}

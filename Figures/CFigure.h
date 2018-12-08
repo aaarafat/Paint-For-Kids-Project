@@ -28,6 +28,7 @@ public:
 	void SetSelected(bool s);	//select/unselect the figure
 	bool IsSelected() const;	//check whether fig is selected
 	virtual bool IsInside(int x, int y) = 0;
+	virtual void Resize(float frac,bool& flag) = 0;
 	virtual void Draw(Output* pOut) const  = 0 ;		//Draw the figure
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
@@ -50,7 +51,6 @@ public:
 	///It should be overridden by each inherited figure
 
 	///Decide the parameters that you should pass to each function	
-
 
 	virtual void Save(ofstream &OutFile, ofstream& colors, ofstream& figures) = 0;	//Save the figure parameters to the file
 	virtual void Load(ifstream &Infile) = 0;	//Load the figure parameters to the file

@@ -85,3 +85,7 @@ Type = 5;
 int CElipse::getType(){
 return Type;
 }
+
+void CElipse::Resize(float frac, bool& flag)
+{
+}

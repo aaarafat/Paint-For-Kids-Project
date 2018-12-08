@@ -111,3 +111,36 @@ Type = 2;
 int CLine::getType(){
 return Type;
 }
+
+void CLine::Resize(float frac, bool& flag)
+{
+	Point Center;
+	Center.x = (Point1.x + Point2.x)/2;
+	Center.y = (Point1.y + Point2.y)/2;
+	Point DsFromCenter;
+	DsFromCenter.x = Center.x - Point1.x;
+	DsFromCenter.y = Center.y - Point1.y;
+	Point1.x = Center.x + (DsFromCenter.x * frac);
+	Point2.x = Center.x - (DsFromCenter.x * frac);
+	Point1.y = Center.y + (DsFromCenter.y * frac);
+	Point2.y = Center.y - (DsFromCenter.y * frac);
+	if (Point1.x < UI.ToolBarHeight + 1 || Point2.x < UI.ToolBarHeight + 1 ||
+		Point1.x > UI.width || Point2.x > UI.width)
+	{
+		Point1.x = Center.x + (DsFromCenter.x);
+		Point2.x = Center.x - (DsFromCenter.x);
+		Point1.y = Center.y + (DsFromCenter.y);
+		Point2.y = Center.y - (DsFromCenter.y);
+		flag = false;
+	}
+	if (Point1.y < UI.ToolBarHeight + 1 || Point2.y < UI.ToolBarHeight + 1 ||
+		Point1.y > UI.height - UI.StatusBarHeight - 1 ||
+		Point2.y > UI.height - UI.StatusBarHeight - 1)
+	{
+		Point1.x = Center.x + (DsFromCenter.x);
+		Point2.x = Center.x - (DsFromCenter.x);
+		Point1.y = Center.y + (DsFromCenter.y);
+		Point2.y = Center.y - (DsFromCenter.y);
+		flag = false;	
+	}
+}

@@ -15,6 +15,7 @@ class ResizeAction:
 		FOUR,
 	};
 	FRAC F;
+	CFigure* Fig;
 	bool flag; // flag to check if the user didn`t click on the resize icons
 public:
 	ResizeAction(ApplicationManager *pApp);

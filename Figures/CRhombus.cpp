@@ -96,3 +96,7 @@ Type = 4;
 int CRhombus::getType(){
 return Type;
 }
+
+void CRhombus::Resize(float frac, bool& flag)
+{
+}
