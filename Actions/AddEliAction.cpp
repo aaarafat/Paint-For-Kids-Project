@@ -7,7 +7,14 @@
 #include "..\GUI\Output.h"
 
 AddEliAction::AddEliAction(ApplicationManager * pApp): Action(pApp)
-{}
+{
+	if(UI.VoiceMode == MODE_VOICE)
+	{
+		mciSendString("open \"Voices\\5.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		mciSendString("play mp3 from 0 wait", NULL, 0, NULL);	
+		
+	}
+}
 
 void AddEliAction::ReadActionParameters()
 {	//Get a Pointer to the Input / Output Interfaces
@@ -15,6 +22,7 @@ void AddEliAction::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 
 	pOut->PrintMessage("New Elipse: Click at the center");
+	
 	
 	//Read the Center and store in point P1
 	pIn->GetPointClicked(P1.x, P1.y);
@@ -37,6 +45,7 @@ void AddEliAction::Execute()
 
 	//Add the Ellipse to the list of figures
 	pManager->AddFigure(E);
+	mciSendString("close mp3", NULL, 0, NULL);
 }
 
 

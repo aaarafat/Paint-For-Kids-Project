@@ -7,7 +7,14 @@
 #include "..\GUI\Output.h"
 
 AddLineAction::AddLineAction(ApplicationManager * pApp):Action(pApp)
-{}
+{
+	if(UI.VoiceMode == MODE_VOICE)
+	{
+		mciSendString("open \"Voices\\2.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
+		mciSendString("play mp3 from 0 wait", NULL, 0, NULL);
+		
+	}
+}
 
 void AddLineAction::ReadActionParameters() 
 {	
@@ -43,5 +50,6 @@ void AddLineAction::Execute()
 
 	//Add the line to the list of figures
 	pManager->AddFigure(L);
+	mciSendString("close mp3", NULL, 0, NULL);
 }
 
