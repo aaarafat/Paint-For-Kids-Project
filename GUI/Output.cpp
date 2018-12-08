@@ -6,6 +6,9 @@ Output::Output()
 	//Initialize user interface parameters
 	UI.InterfaceMode = MODE_DRAW;
 	UI.ToolBarMode = MODE_TOOL;
+	
+	UI.VoiceMode = MODE_MUTE;
+
 	UI.width = 1250;
 	UI.height = 650;
 	UI.wx = 5;
@@ -116,6 +119,10 @@ void Output::CreateDrawToolBar() const
 	MenuItemImages[ITM_CHNG_DRAW] = "images\\MenuItems\\Chng_Color_Draw.jpg";
 	MenuItemImages[ITM_CHNG_FILL] = "images\\MenuItems\\Chng_Color_Fill.jpg";
 	MenuItemImages[ITM_SWITCH] = "images\\MenuItems\\Menu_Switch.jpg";
+	if(UI.VoiceMode == MODE_MUTE)
+		MenuItemImages[ITM_VOICE] = "images\\MenuItems\\Voice.jpg";
+	else
+		MenuItemImages[ITM_VOICE] = "images\\MenuItems\\Mute.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
 

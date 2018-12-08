@@ -36,6 +36,7 @@ enum ActionType //The actions supported (you can add more if needed)
 	TO_FRONT,
 	TO_BACK,
 
+	VOICE,
 	TO_DRAW,		//Switch interface to Draw mode
 	TO_PLAY			//Switch interface to Play mode
 

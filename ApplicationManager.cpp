@@ -20,6 +20,7 @@
 #include "Actions\ByColorAction.h"
 #include "Actions\ToFrontAction.h"
 #include "Actions\ToBackAction.h"
+#include "Actions\VoiceAction.h"
 #include "GUI\UI_Info.h"
 #include "GUI\Output.h"
 #include "GUI\Input.h"
@@ -119,6 +120,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case TO_BACK:
 			pAct = new ToBackAction(this);
+			break;
+		case VOICE:
+			pAct = new VoiceAction(this);
+			break;
 		case EXIT:
 			///create Exit Action here
 			
