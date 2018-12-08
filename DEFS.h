@@ -35,7 +35,11 @@ enum ActionType //The actions supported (you can add more if needed)
 	CLR_BLUE_C,
 	TO_FRONT,
 	TO_BACK,
-
+	RESIZE,            //A click on resize icon
+	RESIZE_FRAC_QAURT, //A click on 1/4 icon in the resize bar
+	RESIZE_FRAC_HLF,   //A click on 1/2 icon in the resize bar
+	RESIZE_FRAC_TWO,   //A click on 2 icon in the resize bar
+	RESIZE_FRAC_FOUR,  //A click on 4 icon in the resize bar
 	TO_DRAW,		//Switch interface to Draw mode
 	TO_PLAY			//Switch interface to Play mode
 

@@ -17,6 +17,7 @@ enum GUI_MODE	//Graphical user interface mode
 enum CLR_MODE
 {
 	MODE_CLR,
+	MODE_RESIZE,
 	MODE_TOOL,
 };
 
@@ -38,6 +39,7 @@ enum DrawMenuItem //The items of the Draw menu (you should add more items)
 	ITM_ELIPSE,
 	ITM_CHNG_DRAW,
 	ITM_CHNG_FILL,
+	ITM_RESIZE,	
 	ITM_SWITCH,
 	ITM_EXIT,		//Exit item
 	
@@ -88,6 +90,17 @@ enum ColorBar //The items of the color bar
 	CLR_BLUE,
 
 	COLOR_ITM_COUNT
+};
+
+
+enum ResizeBar //The items of the resize bar
+{
+	FRAC_QUARTER,
+	FRAC_HALF,
+	FRAC_TWO,
+	FRAC_FOUR,
+
+	RESIZE_ITM_COUNT
 };
 
 

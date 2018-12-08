@@ -101,6 +101,20 @@ ActionType Input::GetUserAction() const
 			}
 
 		}
+		if(x <= UI.ToolBarHeight && y > UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight && UI.ToolBarMode == MODE_RESIZE)
+		{
+			int ClickedItemOrder = (y / UI.ToolsItemHeight);
+			switch (ClickedItemOrder - 1)
+			{
+			case FRAC_QUARTER: return RESIZE_FRAC_QAURT;
+			case FRAC_HALF: return RESIZE_FRAC_HLF;
+			case FRAC_TWO: return RESIZE_FRAC_TWO;
+			case FRAC_FOUR: return RESIZE_FRAC_FOUR;
+
+			default: return EMPTY;
+			}
+
+		}
 
 		//[1] If user clicks on the Toolbar
 		if (y >= 0 && y <= UI.ToolBarHeight)
@@ -120,6 +134,7 @@ ActionType Input::GetUserAction() const
 			case ITM_ELIPSE: return DRAW_ELLIPSE;
 			case ITM_CHNG_DRAW: return CHNG_DRAW_CLR;
 			case ITM_CHNG_FILL: return CHNG_FILL_CLR;
+			case ITM_RESIZE: return RESIZE;
 			case ITM_SWITCH: return TO_PLAY;			
 			case ITM_EXIT: return EXIT;	
 			

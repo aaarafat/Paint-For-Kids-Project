@@ -116,6 +116,7 @@ void Output::CreateDrawToolBar() const
 	MenuItemImages[ITM_CHNG_DRAW] = "images\\MenuItems\\Chng_Color_Draw.jpg";
 	MenuItemImages[ITM_CHNG_FILL] = "images\\MenuItems\\Chng_Color_Fill.jpg";
 	MenuItemImages[ITM_SWITCH] = "images\\MenuItems\\Menu_Switch.jpg";
+	MenuItemImages[ITM_RESIZE] = "images\\MenuItems\\Resize.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
 
 
@@ -187,6 +188,21 @@ void Output::CreateColorBar() const
 	pWind->DrawRectangle(0, UI.ToolBarHeight + 150, 50, UI.ToolBarHeight + 200, FILLED, 20, 20); 	
 	pWind->SetBrush(BLUE);
 	pWind->DrawRectangle(0, UI.ToolBarHeight  + 200, 50, UI.ToolBarHeight + 250, FILLED, 20, 20); 
+}
+//////////////////////////////////////////////////////////////////////////////////////////
+//creating resize bar
+void Output::CreateReszieBar() const
+{
+	UI.ToolBarMode = MODE_RESIZE;
+	Clear2ndToolBar();
+	string ResizeItemsImages[RESIZE_ITM_COUNT];
+	ResizeItemsImages[FRAC_QUARTER] = "images\\MenuItems\\Frac0.25.jpg";
+	ResizeItemsImages[FRAC_HALF] = "images\\MenuItems\\Frac0.5.jpg";
+	ResizeItemsImages[FRAC_TWO] = "images\\MenuItems\\Frac2.jpg";
+	ResizeItemsImages[FRAC_FOUR] = "images\\MenuItems\\Frac4.jpg";
+
+	for(int i=0; i<RESIZE_ITM_COUNT; i++)
+		pWind->DrawImage(ResizeItemsImages[i], 0, i*UI.ToolBarHeight+UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void Output::ClearToolBar() const

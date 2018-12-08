@@ -15,6 +15,7 @@ public:
 	void CreatePlayToolBar() const;	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
 	void CreateColorBar() const;  //create the color bar
+	void CreateReszieBar() const; //create the resize bar
 
 	Input* CreateInput() const; //creates a pointer to the Input object	
 	void ClearStatusBar() const;	//Clears the status bar
