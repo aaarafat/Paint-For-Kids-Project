@@ -23,7 +23,7 @@ Output::Output()
 	UI.DrawColor = BLUE;	//Drawing color
 	UI.FillColor = GREEN;	//Filling color
 	UI.MsgColor = DARKSLATEGREY;		//Messages color
-	UI.BkGrndColor = LIGHTGRAY;	//Background color
+	UI.BkGrndColor = GREY;	//Background color
 	UI.ToolBarColor = WHITE; //Toolbar Color
 	UI.HighlightColor = MAGENTA;	//This color should NOT be used to draw figures. use if for highlight only
 	UI.StatusBarColor = DARKGRAY;
