@@ -251,5 +251,26 @@ void CTriangle::Resize(float frac, bool& flag)
 		Corner3 = Ocorner3;
 		flag = false;
 	}
+	if (Corner1.x > UI.width)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+	if (Corner2.x > UI.width)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
+	if (Corner3.x > UI.width)
+	{
+		Corner1 = Ocorner1;
+		Corner2 = Ocorner2;
+		Corner3 = Ocorner3;
+		flag = false;
+	}
 
 }
