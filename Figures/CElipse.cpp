@@ -56,16 +56,17 @@ void CElipse::Save(ofstream &OutFile, ofstream& colors, ofstream& figures)
 {
 	figures<<"ELLIPSE"<<endl;
 	colors<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl;
-	OutFile<<"ELLIPSE    "<<ID<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
+	OutFile<<"ELLIPSE    "<<ID<<"    "<<r<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 	// 0 means NO_FILL
 }
 void CElipse::Load(ifstream &Infile)
 {
 	string dc,fc;
-	int id;
+	int id, r;
 	int x, y;
 	
-	Infile>>id>>x>>y>>dc>>fc;
+	Infile>>id>>r>>x>>y>>dc>>fc;
+	this->r = r;
     ID =id;
 	Center.x = x;
     Center.y = y;
