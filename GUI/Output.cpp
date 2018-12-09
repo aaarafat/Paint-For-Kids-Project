@@ -132,6 +132,7 @@ void Output::CreateDrawToolBar() const
 	for(int i=0; i<DRAW_ITM_COUNT; i++)
 		pWind->DrawImage(MenuItemImages[i], i*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
 
+	
 
 
 	//Draw a line under the toolbar
@@ -144,7 +145,19 @@ void Output::CreateDrawToolBar() const
 	pWind->DrawLine(UI.ToolBarHeight, UI.ToolBarHeight, UI.ToolBarHeight, UI.height - UI.StatusBarHeight);	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+//Update Voice
+void Output::CreateVoiceIcon() const
+{
+	string MenuItemVoice;
+	if(UI.VoiceMode == MODE_MUTE)
+		MenuItemVoice = "images\\MenuItems\\Voice.jpg";
+	else
+		MenuItemVoice = "images\\MenuItems\\Mute.jpg";
+pWind->DrawImage(MenuItemVoice, ITM_VOICE*UI.MenuItemWidth, 0, UI.MenuItemWidth, UI.ToolBarHeight);
+}
 
+
+/////////////////////////////////////////////////////////////////////////////////////////
 void Output::CreatePlayToolBar() const
 {
 	UI.InterfaceMode = MODE_PLAY;
@@ -271,7 +284,7 @@ void Output::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo, bool selected) co
 	else			
 		DrawingClr = RectGfxInfo.DrawClr;
 	
-	pWind->SetPen(DrawingClr,1);
+	pWind->SetPen(DrawingClr,UI.PenWidth);
 	drawstyle style;
 	if (RectGfxInfo.isFilled)	
 	{
@@ -294,7 +307,7 @@ void Output::DrawTri(Point P1, Point P2, Point P3,  GfxInfo TriGfxInfo, bool sel
 	else			
 		DrawingClr = TriGfxInfo.DrawClr;
 	
-	pWind->SetPen(DrawingClr,1);
+	pWind->SetPen(DrawingClr,UI.PenWidth);
 	drawstyle style;
 	if (TriGfxInfo.isFilled)	
 	{
@@ -315,7 +328,7 @@ void Output::DrawL(Point P1, Point P2, GfxInfo LiGfxInfo, bool selected) const
 	else			
 		DrawingClr = LiGfxInfo.DrawClr;
 	
-	pWind->SetPen(DrawingClr,1);
+	pWind->SetPen(DrawingClr,UI.PenWidth);
 	drawstyle style;
 	if (LiGfxInfo.isFilled)	
 	{
@@ -336,7 +349,7 @@ void Output::DrawRhom(Point P1, GfxInfo RhomGfxInfo, int r, bool selected) const
 	else			
 		DrawingClr = RhomGfxInfo.DrawClr;
 	
-	pWind->SetPen(DrawingClr,1);
+	pWind->SetPen(DrawingClr,UI.PenWidth);
 	drawstyle style;
 	if (RhomGfxInfo.isFilled)	
 	{
@@ -359,7 +372,7 @@ void Output::DrawEli(Point P1, GfxInfo EliGfxInfo, int r, bool selected) const
 	else			
 		DrawingClr = EliGfxInfo.DrawClr;
 	
-	pWind->SetPen(DrawingClr,1);
+	pWind->SetPen(DrawingClr,UI.PenWidth);
 	drawstyle style;
 	if (EliGfxInfo.isFilled)	
 	{

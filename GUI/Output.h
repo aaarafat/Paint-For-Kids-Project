@@ -12,6 +12,7 @@ public:
 	window* CreateWind(int, int, int , int) const; //creates the application window
 	void CreateDrawToolBar() const;	//creates Draw mode toolbar & menu
 	void Create2ndToolBar() const; //Creates the 2nd toolbar
+	void CreateVoiceIcon() const; //Updates Voice Icon only
 	void CreatePlayToolBar() const;	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
 	void CreateColorBar() const;  //create the color bar

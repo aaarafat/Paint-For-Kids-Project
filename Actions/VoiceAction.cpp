@@ -17,7 +17,7 @@ void VoiceAction::Execute(){
 	Output *pOut = pManager->GetOutput();
 	if(UI.VoiceMode == MODE_MUTE) pOut->PrintMessage("Voice : Mute");
 	else pOut->PrintMessage("Voice : ON");
-	pOut->CreateDrawToolBar();
+	pOut->CreateVoiceIcon();
 
 
 }
