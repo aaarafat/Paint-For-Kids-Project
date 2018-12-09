@@ -5,11 +5,13 @@ CRhombus::CRhombus()
 
 }
 
-CRhombus::CRhombus(Point C, GfxInfo RhomGfxInfo) : CFigure(RhomGfxInfo)
-{   setType();
+CRhombus::CRhombus(Point C, GfxInfo RhomGfxInfo,int r) : CFigure(RhomGfxInfo)
+{  
+	this->r = r;
+	setType();
 	ShiftPoints(C);
 	Center = C;
-	r = 100;
+	
 }
 
 
@@ -46,6 +48,10 @@ void CRhombus::ShiftPoints(Point& C)
 	if(C.x - r/2 < UI.ToolBarHeight + 1)
 	{
 		C.x = UI.ToolBarHeight + r/2 + 1;
+	}
+	if (C.x + r/2 > UI.width - 1)
+	{
+		C.x = UI.width - r/2 - 15;
 	}
 	if(C.y + r > UI.height - UI.StatusBarHeight - 1)
 	{
@@ -100,18 +106,24 @@ return Type;
 
 void CRhombus::Resize(float frac, bool& flag)
 {
+	frac = sqrt(frac);
 	r *= frac;
 	if(Center.y - r < UI.ToolBarHeight + 1)
 	{
 		r /= frac;
 		flag = false;
 	}
-	if(Center.x - r/2 < UI.ToolBarHeight + 1)
+	else if(Center.x - r/2 < UI.ToolBarHeight + 1)
 	{
 		r /= frac;
 		flag = false;
 	}
-	if(Center.y + r > UI.height - UI.StatusBarHeight - 1)
+	else if(Center.y + r > UI.height - UI.StatusBarHeight - 1)
+	{
+		r /= frac;
+		flag = false;
+	}
+	else if (Center.x + r/2 > UI.width - 1)
 	{
 		r /= frac;
 		flag = false;

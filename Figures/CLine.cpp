@@ -114,6 +114,7 @@ return Type;
 
 void CLine::Resize(float frac, bool& flag)
 {
+	frac = sqrt(frac);
 	Point Center;
 	Center.x = (Point1.x + Point2.x)/2;
 	Center.y = (Point1.y + Point2.y)/2;

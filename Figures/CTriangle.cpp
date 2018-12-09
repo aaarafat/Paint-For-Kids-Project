@@ -174,12 +174,12 @@ void CTriangle::Resize(float frac, bool& flag)
 	Corner3.y -= Center.y;
 	// all corners are cordinates with the center as origin
 	// multiply all cords by frac to resize 
-	Corner1.x *= frac;
-	Corner2.x *= frac;
-	Corner3.x *= frac;
-	Corner1.y *= frac;
-	Corner2.y *= frac;
-	Corner3.y *= frac;
+	Corner1.x *= sqrt(frac);
+	Corner2.x *= sqrt(frac);
+	Corner3.x *= sqrt(frac);
+	Corner1.y *= sqrt(frac);
+	Corner2.y *= sqrt(frac);
+	Corner3.y *= sqrt(frac);
 	// return to the normal x and y
 	Corner1.x += Center.x;
 	Corner2.x += Center.x;

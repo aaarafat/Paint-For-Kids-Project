@@ -125,6 +125,7 @@ return Type;
 
 void CRectangle::Resize(float frac, bool& flag)
 {
+	frac = sqrt(frac);
 	Point Center;
 	Center.x = (Corner1.x + Corner2.x)/2;
 	Center.y = (Corner1.y + Corner2.y)/2;
@@ -132,14 +133,14 @@ void CRectangle::Resize(float frac, bool& flag)
 	Point Corner3,Corner4;
 	DsFromCenter.x = Center.x - Corner1.x;
 	DsFromCenter.y = Center.y - Corner1.y;
-	Corner1.x = Center.x + (DsFromCenter.x * frac);
-	Corner2.x = Center.x - (DsFromCenter.x * frac);
-	Corner1.y = Center.y + (DsFromCenter.y * frac);
-	Corner2.y = Center.y - (DsFromCenter.y * frac);
-	Corner3.x = Center.x + (DsFromCenter.x * frac);
-	Corner4.x = Center.x + (DsFromCenter.x * frac);
-	Corner3.y = Center.y - (DsFromCenter.y * frac);
-	Corner4.y = Center.y - (DsFromCenter.y * frac);
+	Corner1.x = Center.x + (DsFromCenter.x * sqrt(frac));
+	Corner2.x = Center.x - (DsFromCenter.x * sqrt(frac));
+	Corner1.y = Center.y + (DsFromCenter.y * sqrt(frac));
+	Corner2.y = Center.y - (DsFromCenter.y * sqrt(frac));
+	Corner3.x = Center.x + (DsFromCenter.x * sqrt(frac));
+	Corner4.x = Center.x + (DsFromCenter.x * sqrt(frac));
+	Corner3.y = Center.y - (DsFromCenter.y * sqrt(frac));
+	Corner4.y = Center.y - (DsFromCenter.y * sqrt(frac));
 	if (Corner1.x < UI.ToolBarHeight + 1 || Corner2.x < UI.ToolBarHeight + 1 ||
 		Corner1.x > UI.width || Corner2.x > UI.width || 
 		Corner3.x < UI.ToolBarHeight + 1 || Corner4.x < UI.ToolBarHeight + 1 ||

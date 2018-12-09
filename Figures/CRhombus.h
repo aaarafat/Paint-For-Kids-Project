@@ -9,7 +9,7 @@ private:
 	int r;
 public:
 	CRhombus();
-	CRhombus(Point, GfxInfo FigureGfxInfo);
+	CRhombus(Point, GfxInfo FigureGfxInfo, int r = 100);
 	virtual void Draw(Output* pOut) const;
 	bool IsInside(int x, int y);
 	virtual void SetCenter(int& x, int& y);   //change the figure's center

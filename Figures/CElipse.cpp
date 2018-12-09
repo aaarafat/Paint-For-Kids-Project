@@ -5,12 +5,12 @@ CElipse::CElipse()
 }
 
 
-CElipse::CElipse(Point P1, GfxInfo FigureGfxInfo): CFigure(FigureGfxInfo)
+CElipse::CElipse(Point P1, GfxInfo FigureGfxInfo, int r): CFigure(FigureGfxInfo)
 {   
+	this->r = r;
 	setType();
 	ShiftPoints(P1);
 	Center = P1;
-	r = 100;
 }
 
 void CElipse::Draw(Output* pOut) const{
@@ -28,15 +28,19 @@ void CElipse::ShiftPoints(Point& C)
 {
 	if(C.y - r/2 < UI.ToolBarHeight + 1)
 	{
-		C.y = UI.ToolBarHeight + 51;
+		C.y = UI.ToolBarHeight + r/2 + 1;
 	}
 	if(C.x - r < UI.ToolBarHeight + 1)
 	{
-		C.x = UI.ToolBarHeight + 101;
+		C.x = UI.ToolBarHeight + r + 1;
+	}
+	if (C.x + r > UI.width - 1)
+	{
+		C.x = UI.width - r - 15;
 	}
 	if(C.y + r/2 > UI.height - UI.StatusBarHeight - 1)
 	{
-		C.y = UI.height - UI.StatusBarHeight - 51;
+		C.y = UI.height - UI.StatusBarHeight - r/2 + 1;
 	}
 }
 
@@ -88,6 +92,7 @@ return Type;
 
 void CElipse::Resize(float frac, bool& flag)
 {
+	frac = sqrt(frac);
 	r *= frac;
 	if(Center.y - r/2 < UI.ToolBarHeight + 1)
 	{
@@ -100,6 +105,11 @@ void CElipse::Resize(float frac, bool& flag)
 		flag = false;
 	}
 	else if(Center.y + r/2 > UI.height - UI.StatusBarHeight - 1)
+	{
+		r /= frac;
+		flag = false;
+	}
+	else if (Center.x + r > UI.width - 1)
 	{
 		r /= frac;
 		flag = false;
