@@ -66,49 +66,49 @@ void CTriangle::SetCenter(int& x, int& y)
 		Corner2.y -= C.y - y;
 		Corner3.y -= C.y - y;
 	}
-	if(Corner1.y < UI.ToolBarHeight + 1)
+	if(Corner1.y < UI.ToolBarHeight + UI.PenWidth)
 	{
-		y = y + (UI.ToolBarHeight + 1 - Corner1.y);
+		y = y + (UI.ToolBarHeight + UI.PenWidth - Corner1.y);
 		SetCenter(x, y);
 	}
-	if(Corner2.y < UI.ToolBarHeight + 1)
+	if(Corner2.y < UI.ToolBarHeight + UI.PenWidth)
 	{
-		y = y + (UI.ToolBarHeight + 1 - Corner2.y);
+		y = y + (UI.ToolBarHeight + UI.PenWidth - Corner2.y);
 		SetCenter(x, y);
 	}
-	if(Corner3.y < UI.ToolBarHeight + 1)
+	if(Corner3.y < UI.ToolBarHeight + UI.PenWidth)
 	{
-		y = y + (UI.ToolBarHeight + 1 - Corner3.y);
+		y = y + (UI.ToolBarHeight + UI.PenWidth - Corner3.y);
 		SetCenter(x, y);
 	}
-	if(Corner1.x < UI.ToolBarHeight + 1)
+	if(Corner1.x < UI.ToolBarHeight + UI.PenWidth)
 	{
-		x = x + (UI.ToolBarHeight + 1 - Corner1.x);
+		x = x + (UI.ToolBarHeight + UI.PenWidth - Corner1.x);
 		SetCenter(x, y);
 	}
-	if(Corner2.x < UI.ToolBarHeight + 1)
+	if(Corner2.x < UI.ToolBarHeight + UI.PenWidth)
 	{
-		x = x + (UI.ToolBarHeight + 1 - Corner2.x);
+		x = x + (UI.ToolBarHeight + UI.PenWidth - Corner2.x);
 		SetCenter(x, y);
 	}
-	if(Corner3.x < UI.ToolBarHeight + 1)
+	if(Corner3.x < UI.ToolBarHeight + UI.PenWidth)
 	{
-		x = x + (UI.ToolBarHeight + 1 - Corner3.x);
+		x = x + (UI.ToolBarHeight + UI.PenWidth - Corner3.x);
 		SetCenter(x, y);
 	}
-	if(Corner1.y > UI.height - UI.StatusBarHeight - 1)
+	if(Corner1.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
-		y = y - (Corner1.y - UI.height + UI.StatusBarHeight + 1);
+		y = y - (Corner1.y - UI.height + UI.StatusBarHeight + UI.PenWidth);
 		SetCenter(x, y);
 	}
-	if(Corner2.y > UI.height - UI.StatusBarHeight - 1)
+	if(Corner2.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
-		y = y - (Corner2.y - UI.height + UI.StatusBarHeight + 1);
+		y = y - (Corner2.y - UI.height + UI.StatusBarHeight + UI.PenWidth);
 		SetCenter(x, y);
 	}
-	if(Corner3.y > UI.height - UI.StatusBarHeight - 1)
+	if(Corner3.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
-		y = y - (Corner3.y - UI.height + UI.StatusBarHeight + 1);
+		y = y - (Corner3.y - UI.height + UI.StatusBarHeight + UI.PenWidth);
 		SetCenter(x, y);
 	}
 }
@@ -188,63 +188,63 @@ void CTriangle::Resize(float frac, bool& flag)
 	Corner2.y += Center.y;
 	Corner3.y += Center.y;
 	// check
-	if(Corner1.y < UI.ToolBarHeight + 1)
+	if(Corner1.y < UI.ToolBarHeight + UI.PenWidth)
 	{
 		Corner1 = Ocorner1;
 		Corner2 = Ocorner2;
 		Corner3 = Ocorner3;
 		flag = false;
 	}
-	if(Corner2.y < UI.ToolBarHeight + 1)
+	if(Corner2.y < UI.ToolBarHeight + UI.PenWidth)
 	{
 		Corner1 = Ocorner1;
 		Corner2 = Ocorner2;
 		Corner3 = Ocorner3;
 		flag = false;
 	}
-	if(Corner3.y < UI.ToolBarHeight + 1)
+	if(Corner3.y < UI.ToolBarHeight + UI.PenWidth)
 	{
 		Corner1 = Ocorner1;
 		Corner2 = Ocorner2;
 		Corner3 = Ocorner3;
 		flag = false;
 	}
-	if(Corner1.x < UI.ToolBarHeight + 1)
+	if(Corner1.x < UI.ToolBarHeight + UI.PenWidth)
 	{
 		Corner1 = Ocorner1;
 		Corner2 = Ocorner2;
 		Corner3 = Ocorner3;
 		flag = false;
 	}
-	if(Corner2.x < UI.ToolBarHeight + 1)
+	if(Corner2.x < UI.ToolBarHeight + UI.PenWidth)
 	{
 		Corner1 = Ocorner1;
 		Corner2 = Ocorner2;
 		Corner3 = Ocorner3;
 		flag = false;
 	}
-	if(Corner3.x < UI.ToolBarHeight + 1)
+	if(Corner3.x < UI.ToolBarHeight + UI.PenWidth)
 	{
 		Corner1 = Ocorner1;
 		Corner2 = Ocorner2;
 		Corner3 = Ocorner3;
 		flag = false;
 	}
-	if(Corner1.y > UI.height - UI.StatusBarHeight - 1)
+	if(Corner1.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
 		Corner1 = Ocorner1;
 		Corner2 = Ocorner2;
 		Corner3 = Ocorner3;
 		flag = false;
 	}
-	if(Corner2.y > UI.height - UI.StatusBarHeight - 1)
+	if(Corner2.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
 		Corner1 = Ocorner1;
 		Corner2 = Ocorner2;
 		Corner3 = Ocorner3;
 		flag = false;
 	}
-	if(Corner3.y > UI.height - UI.StatusBarHeight - 1)
+	if(Corner3.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
 		Corner1 = Ocorner1;
 		Corner2 = Ocorner2;

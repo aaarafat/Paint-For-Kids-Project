@@ -26,21 +26,21 @@ bool CElipse::IsInside(int x, int y)
 
 void CElipse::ShiftPoints(Point& C)
 {
-	if(C.y - r/2 < UI.ToolBarHeight + 1)
+	if(C.y - r/2 < UI.ToolBarHeight + UI.PenWidth)
 	{
-		C.y = UI.ToolBarHeight + r/2 + 1;
+		C.y = UI.ToolBarHeight + r/2 + UI.PenWidth;
 	}
-	if(C.x - r < UI.ToolBarHeight + 1)
+	if(C.x - r < UI.ToolBarHeight + UI.PenWidth)
 	{
-		C.x = UI.ToolBarHeight + r + 1;
+		C.x = UI.ToolBarHeight + r + UI.PenWidth;
 	}
 	if (C.x + r > UI.width - 1)
 	{
 		C.x = UI.width - r - 15;
 	}
-	if(C.y + r/2 > UI.height - UI.StatusBarHeight - 1)
+	if(C.y + r/2 > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
-		C.y = UI.height - UI.StatusBarHeight - r/2 + 1;
+		C.y = UI.height - UI.StatusBarHeight - r/2 - UI.PenWidth;
 	}
 }
 

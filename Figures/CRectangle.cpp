@@ -52,34 +52,34 @@ void CRectangle::SetCenter(int& x, int& y)
 	Corner2.x += x - C.x;
 	Corner1.y += y - C.y;
 	Corner2.y += y - C.y;
-	if(Corner1.y < UI.ToolBarHeight + 1)
+	if(Corner1.y < UI.ToolBarHeight + UI.PenWidth)
 	{
-		y = y + (UI.ToolBarHeight + 1 - Corner1.y);
+		y = y + (UI.ToolBarHeight + UI.PenWidth - Corner1.y);
 		SetCenter(x, y);
 	}
-	if(Corner2.y < UI.ToolBarHeight + 1)
+	if(Corner2.y < UI.ToolBarHeight + UI.PenWidth)
 	{
-		y = y + (UI.ToolBarHeight + 1 - Corner2.y);
+		y = y + (UI.ToolBarHeight + UI.PenWidth - Corner2.y);
 		SetCenter(x, y);
 	}
-	if(Corner1.x < UI.ToolBarHeight + 1)
+	if(Corner1.x < UI.ToolBarHeight + UI.PenWidth)
 	{
-		x = x + (UI.ToolBarHeight + 1 - Corner1.x);
+		x = x + (UI.ToolBarHeight + UI.PenWidth - Corner1.x);
 		SetCenter(x, y);
 	}
-	if(Corner2.x < UI.ToolBarHeight + 1)
+	if(Corner2.x < UI.ToolBarHeight + UI.PenWidth)
 	{
-		x = x + (UI.ToolBarHeight + 1 - Corner2.x);
+		x = x + (UI.ToolBarHeight + UI.PenWidth - Corner2.x);
 		SetCenter(x, y);
 	}
-	if(Corner1.y > UI.height - UI.StatusBarHeight - 1)
+	if(Corner1.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
-		y = y - (Corner1.y - UI.height + UI.StatusBarHeight + 1);
+		y = y - (Corner1.y - UI.height + UI.StatusBarHeight + UI.PenWidth);
 		SetCenter(x, y);
 	}
-	if(Corner2.y > UI.height - UI.StatusBarHeight - 1)
+	if(Corner2.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
-		y = y - (Corner2.y - UI.height + UI.StatusBarHeight + 1);
+		y = y - (Corner2.y - UI.height + UI.StatusBarHeight + UI.PenWidth);
 		SetCenter(x, y);
 	}
 

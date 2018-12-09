@@ -69,34 +69,34 @@ void CLine::SetCenter(int& x, int& y)
 	Point2.x += x - C.x;
 	Point1.y += y - C.y;
 	Point2.y += y - C.y;
-	if(Point1.y < UI.ToolBarHeight + 1)
+	if(Point1.y < UI.ToolBarHeight + UI.PenWidth)
 	{
-		y = y + (UI.ToolBarHeight + 1 - Point1.y);
+		y = y + (UI.ToolBarHeight + UI.PenWidth - Point1.y);
 		SetCenter(x, y);
 	}
-	if(Point2.y < UI.ToolBarHeight + 1)
+	if(Point2.y < UI.ToolBarHeight + UI.PenWidth)
 	{
-		y = y + (UI.ToolBarHeight + 1 - Point2.y);
+		y = y + (UI.ToolBarHeight + UI.PenWidth - Point2.y);
 		SetCenter(x, y);
 	}
-	if(Point1.x < UI.ToolBarHeight + 1)
+	if(Point1.x < UI.ToolBarHeight + UI.PenWidth)
 	{
-		x = x + (UI.ToolBarHeight + 1 - Point1.x);
+		x = x + (UI.ToolBarHeight + UI.PenWidth - Point1.x);
 		SetCenter(x, y);
 	}
-	if(Point2.x < UI.ToolBarHeight + 1)
+	if(Point2.x < UI.ToolBarHeight + UI.PenWidth)
 	{
-		x = x + (UI.ToolBarHeight + 1 - Point2.x);
+		x = x + (UI.ToolBarHeight + UI.PenWidth - Point2.x);
 		SetCenter(x, y);
 	}
-	if(Point1.y > UI.height - UI.StatusBarHeight - 1)
+	if(Point1.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
-		y = y - (Point1.y - UI.height + UI.StatusBarHeight + 1);
+		y = y - (Point1.y - UI.height + UI.StatusBarHeight + UI.PenWidth);
 		SetCenter(x, y);
 	}
-	if(Point2.y > UI.height - UI.StatusBarHeight - 1)
+	if(Point2.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
-		y = y - (Point2.y - UI.height + UI.StatusBarHeight + 1);
+		y = y - (Point2.y - UI.height + UI.StatusBarHeight + UI.PenWidth);
 		SetCenter(x, y);
 	}
 }
@@ -125,7 +125,7 @@ void CLine::Resize(float frac, bool& flag)
 	Point2.x = Center.x - (DsFromCenter.x * frac);
 	Point1.y = Center.y + (DsFromCenter.y * frac);
 	Point2.y = Center.y - (DsFromCenter.y * frac);
-	if (Point1.x < UI.ToolBarHeight + 1 || Point2.x < UI.ToolBarHeight + 1 ||
+	if (Point1.x < UI.ToolBarHeight + UI.PenWidth || Point2.x < UI.ToolBarHeight + UI.PenWidth ||
 		Point1.x > UI.width || Point2.x > UI.width)
 	{
 		Point1.x = Center.x + (DsFromCenter.x);
@@ -134,9 +134,9 @@ void CLine::Resize(float frac, bool& flag)
 		Point2.y = Center.y - (DsFromCenter.y);
 		flag = false;
 	}
-	if (Point1.y < UI.ToolBarHeight + 1 || Point2.y < UI.ToolBarHeight + 1 ||
-		Point1.y > UI.height - UI.StatusBarHeight - 1 ||
-		Point2.y > UI.height - UI.StatusBarHeight - 1)
+	if (Point1.y < UI.ToolBarHeight + UI.PenWidth || Point2.y < UI.ToolBarHeight + UI.PenWidth ||
+		Point1.y > UI.height - UI.StatusBarHeight - UI.PenWidth ||
+		Point2.y > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
 		Point1.x = Center.x + (DsFromCenter.x);
 		Point2.x = Center.x - (DsFromCenter.x);

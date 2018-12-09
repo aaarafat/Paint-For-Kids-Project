@@ -1,0 +1,9 @@
+Blue    Green
+7
+ELLIPSE    1    100    152    548    Blue    NO_FILL
+TRIANGLE    2    1018    598        1053    517    1142    590    Blue    NO_FILL
+TRIANGLE    201    52    133        87    52    176    125    Blue    NO_FILL
+TRIANGLE    202    1145    598        1180    517    1269    590    Blue    NO_FILL
+TRIANGLE    203    1153    133        1188    52    1277    125    Blue    NO_FILL
+TRIANGLE    204    1177    302        1212    221    1301    294    Blue    NO_FILL
+RHOMBUS    3    100    1185    502    Blue    NO_FILL

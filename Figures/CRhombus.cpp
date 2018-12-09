@@ -41,21 +41,21 @@ float CRhombus::area(int x1, int y1, int x2, int y2, int x3, int y3)
 
 void CRhombus::ShiftPoints(Point& C)
 {
-	if(C.y - r < UI.ToolBarHeight + 1)
+	if(C.y - r < UI.ToolBarHeight + UI.PenWidth)
 	{
-		C.y = UI.ToolBarHeight + r + 1;
+		C.y = UI.ToolBarHeight + r + UI.PenWidth;
 	}
-	if(C.x - r/2 < UI.ToolBarHeight + 1)
+	if(C.x - r/2 < UI.ToolBarHeight + UI.PenWidth)
 	{
-		C.x = UI.ToolBarHeight + r/2 + 1;
+		C.x = UI.ToolBarHeight + r/2 + UI.PenWidth;
 	}
-	if (C.x + r/2 > UI.width - 1)
+	if (C.x + r/2 > UI.width - UI.PenWidth)
 	{
 		C.x = UI.width - r/2 - 15;
 	}
-	if(C.y + r > UI.height - UI.StatusBarHeight - 1)
+	if(C.y + r > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
-		C.y = UI.height - UI.StatusBarHeight - r + 1;
+		C.y = UI.height - UI.StatusBarHeight - r + UI.PenWidth;
 	}
 }
 
@@ -109,22 +109,22 @@ void CRhombus::Resize(float frac, bool& flag)
 {
 	frac = sqrt(frac);
 	r *= frac;
-	if(Center.y - r < UI.ToolBarHeight + 1)
+	if(Center.y - r < UI.ToolBarHeight + UI.PenWidth)
 	{
 		r /= frac;
 		flag = false;
 	}
-	else if(Center.x - r/2 < UI.ToolBarHeight + 1)
+	else if(Center.x - r/2 < UI.ToolBarHeight + UI.PenWidth)
 	{
 		r /= frac;
 		flag = false;
 	}
-	else if(Center.y + r > UI.height - UI.StatusBarHeight - 1)
+	else if(Center.y + r > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
 		r /= frac;
 		flag = false;
 	}
-	else if (Center.x + r/2 > UI.width - 1)
+	else if (Center.x + r/2 > UI.width - UI.PenWidth)
 	{
 		r /= frac;
 		flag = false;
