@@ -72,15 +72,16 @@ void CRhombus::Save(ofstream &OutFile, ofstream& colors, ofstream& figures)
 {
 	figures<<"RHOMBUS"<<endl;
 	colors<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl;
-	OutFile<<"RHOMBUS    "<<ID<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
+	OutFile<<"RHOMBUS    "<<ID<<"    "<<r<<"    "<<Center.x<<"    "<<Center.y<<"    "<<strDrawClr()<<"    "<<((FigGfxInfo.isFilled) ? strFillClr() : "NO_FILL")<<endl; 
 }
 void CRhombus::Load(ifstream &Infile)
 {
 	string dc,fc;
-	int id;
+	int id, r;
 	int x, y;
 	
-	Infile>>id>>x>>y>>dc>>fc;
+	Infile>>id>>r>>x>>y>>dc>>fc;
+	this->r = r;
     ID =id;
 	Center.x = x;
     Center.y = y;

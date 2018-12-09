@@ -25,26 +25,27 @@ void ByTypeAction::ReadActionParameters()
 	InFile>>tN;
 	if(tN!=0)
 	{
-	srand(time(NULL));
-	r = rand()%tN;
-	for(int i = 0; i < r; i++)
-	{
-		char c;
-		while (InFile.get(c)){if(c == '\n') break;}
-	}
-	InFile>>rFigure;
-	string t;
-
-	InFile.close();
-	InFile.open("F.KKK");
-	for (int i = 0; i < tN; i++)
-	{
-		InFile>>t;
-		if (t == rFigure)
+		InFile.close();
+		InFile.open("F.KKK");
+		srand(time(NULL));
+		r = rand()%tN;
+		for(int i = 0; i < r; i++)
 		{
-			FigC++;
+			InFile>>rFigure;
 		}
-	}
+		InFile>>rFigure;
+		string t;
+
+		InFile.close();
+		InFile.open("F.KKK");
+		for (int i = 0; i < tN; i++)
+		{
+			InFile>>t;
+			if (t == rFigure)
+			{
+				FigC++;
+			}
+		}
 	}
 	InFile.close();
 }
