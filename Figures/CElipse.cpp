@@ -34,10 +34,6 @@ void CElipse::ShiftPoints(Point& C)
 	{
 		C.x = UI.ToolBarHeight + r + UI.PenWidth;
 	}
-	if (C.x + r > UI.width - 1)
-	{
-		C.x = UI.width - r - 15;
-	}
 	if(C.y + r/2 > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
 		C.y = UI.height - UI.StatusBarHeight - r/2 - UI.PenWidth;
