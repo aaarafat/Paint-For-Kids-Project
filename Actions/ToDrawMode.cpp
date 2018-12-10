@@ -10,14 +10,19 @@ void ToDrawMode::ReadActionParameters()
 	Output* pOut = pManager->GetOutput();
 	pOut->CreateDrawToolBar();
 	pOut->ClearStatusBar();
+	SetFileAttributes("SWITCH", FILE_ATTRIBUTE_NORMAL);
+	InFile.open("SWITCH");
 }
 
 void ToDrawMode::Execute()
 {
 	ReadActionParameters();
-	InFile.open("SWITCH");
+
 	pManager->LoadAll(InFile);
 	InFile.close();
+	remove( "SWITCH" );
+	remove( "C.KKK" );
+	remove( "F.KKK" );
 
 }
 

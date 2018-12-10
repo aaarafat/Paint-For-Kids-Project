@@ -1,6 +1,7 @@
 #ifndef ACTION_H
 #define ACTION_H
 #include <windows.h>
+#include <stdio.h>
 #include "..\DefS.h"
 #include "..\GUI\UI_Info.h"
 #include "..\GUI\Output.h"
