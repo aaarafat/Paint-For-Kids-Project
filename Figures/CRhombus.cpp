@@ -49,10 +49,6 @@ void CRhombus::ShiftPoints(Point& C)
 	{
 		C.x = UI.ToolBarHeight + r/2 + UI.PenWidth;
 	}
-	if (C.x + r/2 > UI.width - UI.PenWidth)
-	{
-		C.x = UI.width - r/2 - 15;
-	}
 	if(C.y + r > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
 		C.y = UI.height - UI.StatusBarHeight - r - UI.PenWidth;
