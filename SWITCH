@@ -1,9 +1,3 @@
-Green    Red
-7
-ELLIPSE    1    100    1200    260    Blue    NO_FILL
-RHOMBUS    2    100    1230    152    Blue    NO_FILL
-ELLIPSE    3    100    1206    337    Blue    NO_FILL
-RHOMBUS    5    100    750    184    Blue    NO_FILL
-TRIANGLE    6    241    174        149    379    446    385    Blue    NO_FILL
-LINE    7    573    449        797    268    Blue    NO_FILL
-ELLIPSE    4    141    433    239    Green    Red
+Blue    Green
+1
+RECTANGLE    1    257    193    256    193    Blue    NO_FILL
