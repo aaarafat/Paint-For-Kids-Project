@@ -15,7 +15,7 @@ void VoiceAction::ReadActionParameters(){
 void VoiceAction::Execute(){
 	ReadActionParameters();
 	Output *pOut = pManager->GetOutput();
-	if(UI.VoiceMode == MODE_MUTE) pOut->PrintMessage("Voice : Mute");
+	if(UI.VoiceMode == MODE_MUTE) pOut->PrintMessage("Voice : MUTE");
 	else pOut->PrintMessage("Voice : ON");
 	pOut->CreateVoiceIcon();
 

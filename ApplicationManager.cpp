@@ -22,9 +22,9 @@
 #include "Actions\ToBackAction.h"
 #include "Actions\ResizeAction.h"
 #include "Actions\VoiceAction.h"
-#include "GUI\UI_Info.h"
-#include "GUI\Output.h"
-#include "GUI\Input.h"
+#include "Actions\ExitAction.h"
+
+
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -129,8 +129,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new VoiceAction(this);
 			break;
 		case EXIT:
-			///create Exit Action here
-			
+			pAct = new ExitAction(this);
 			break;
 		case DEL:
 			pAct = new DeleteAction(this);
@@ -337,6 +336,10 @@ ApplicationManager::~ApplicationManager()
 	if(Clipboard)
 	{
 		delete Clipboard;
+	}
+	if(SelectedFig)
+	{
+		delete SelectedFig;
 	}
 	delete pIn;
 	delete pOut;

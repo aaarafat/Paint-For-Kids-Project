@@ -18,11 +18,14 @@ void ToDrawMode::Execute()
 {
 	ReadActionParameters();
 
+	Output* pOut = pManager->GetOutput();
 	pManager->LoadAll(InFile);
 	InFile.close();
 	remove( "SWITCH" );
 	remove( "C.KKK" );
 	remove( "F.KKK" );
+	if(UI.VoiceMode == MODE_MUTE) pOut->PrintMessage("Voice : MUTE");
+	else pOut->PrintMessage("Voice : ON");
 
 }
 

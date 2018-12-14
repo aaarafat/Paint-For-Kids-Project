@@ -37,7 +37,7 @@ Output::Output()
     
 	CreateDrawToolBar();
 	CreateStatusBar();
-
+	PrintMessage("Voice : MUTE ");
 }
 
 

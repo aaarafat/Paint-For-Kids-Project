@@ -153,8 +153,8 @@ void CFigure::Cut(bool c)
 		wasFilled = FigGfxInfo.isFilled;
 		LastDClr = FigGfxInfo.DrawClr;
 		LastFClr = FigGfxInfo.FillClr;
-		ChngFillClr(GREY);
-		ChngDrawClr(GREY);
+		ChngFillClr(LIGHTGRAY);
+		ChngDrawClr(LIGHTGRAY);
 	}
 	else
 	{
