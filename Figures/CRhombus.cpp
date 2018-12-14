@@ -51,7 +51,7 @@ void CRhombus::ShiftPoints(Point& C)
 	}
 	if(C.y + r > UI.height - UI.StatusBarHeight - UI.PenWidth)
 	{
-		C.y = UI.height - UI.StatusBarHeight - r + UI.PenWidth;
+		C.y = UI.height - UI.StatusBarHeight - r - UI.PenWidth;
 	}
 }
 
