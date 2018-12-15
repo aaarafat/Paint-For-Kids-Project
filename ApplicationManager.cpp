@@ -326,6 +326,8 @@ void ApplicationManager::DelFigList()
 	for(int i=0; i<FigCount; i++)
 	{
 		delete FigList[i];
+
+
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////////
@@ -333,17 +335,12 @@ void ApplicationManager::DelFigList()
 ApplicationManager::~ApplicationManager()
 {
 	DelFigList();
-	if(Clipboard)
-	{
-		delete Clipboard;
-	}
-	if(SelectedFig)
-	{
-		delete SelectedFig;
-	}
+	
 	delete pIn;
 	delete pOut;
-	
+	remove( "SWITCH" );
+	remove( "C.KKK" );
+	remove( "F.KKK" );
 }
 
 
