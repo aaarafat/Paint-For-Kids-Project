@@ -20,15 +20,21 @@ void CLine::Draw(Output* pOut) const
 
 bool CLine::IsInside(int x, int y)
 {
-   float A = 2 * area (Point1.x, Point1.y - 6, Point1.x, Point1.y + 6, Point2.x , Point2.y - 6);
+	Point a, b, c, d;
+	a.x = Point1.x - 6; a.y = Point1.y - 6;
+	b.x = Point1.x + 6; b.y = Point1.y + 6;
+	c.x = Point2.x - 6; c.y = Point2.y - 6;
+	d.x = Point2.x + 6; d.y = Point2.y + 6;
+
+   float A = 2 * area (a.x, a.y, b.x, b.y, c.x , c.y);
    
-   float A1 = area (x, y, Point1.x, Point1.y + 6, Point2.x, Point2.y + 6); 
+   float A1 = area (x, y, b.x, b.y, d.x, d.y); 
     
-   float A2 = area (Point1.x, Point1.y + 6, x, y, Point1.x, Point1.y - 6); 
+   float A2 = area (b.x, b.y, x, y, a.x, a.y); 
      
-   float A3 = area (Point2.x, Point2.y + 6, x, y, Point2.x, Point2.y - 6); 
+   float A3 = area (d.x, d.y, x, y, c.x, c.y); 
    
-   float A4 = area (Point1.x, Point1.y - 6, x, y, Point2.x, Point2.y - 6); 
+   float A4 = area (a.x, a.y, x, y, c.x, c.y); 
    /* Check if sum of A1, A2 and A3 and A4 is same as A */ 
    return (A == (A1 + A2 + A3 + A4)); 
 }
