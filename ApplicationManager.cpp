@@ -333,17 +333,17 @@ void ApplicationManager::DelFigList()
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
-	DelFigList();
-	if(Clipboard)
+	if(Clipboard && !Clipboard->isCut())
 	{
 		delete Clipboard;
 	}
+	DelFigList();
 	delete pIn;
 	delete pOut;
 	remove( "SWITCH" );
 	remove( "C.KKK" );
 	remove( "F.KKK" );
-	exit(0);
+	//exit(0);
 }
 
 

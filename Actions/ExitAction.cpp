@@ -19,4 +19,5 @@ void ExitAction::Execute()
 {
 	ReadActionParameters();
 	pManager->~ApplicationManager();
+	exit(0);
 }
