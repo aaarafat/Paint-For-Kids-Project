@@ -13,13 +13,10 @@ ExitAction::ExitAction(ApplicationManager *pApp):Action(pApp)
 void ExitAction::ReadActionParameters()
 {
 
-	Output* pOut = pManager->GetOutput();
-	Input* pIn = pManager->GetInput();
-	pOut->PrintMessage("Press Enter To Exit");
-	pIn->GetEnterPressed();
 }
 
 void ExitAction::Execute()
 {
 	ReadActionParameters();
+	pManager->~ApplicationManager();
 }

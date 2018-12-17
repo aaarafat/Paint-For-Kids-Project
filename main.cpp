@@ -8,7 +8,7 @@ int main()
 	//Create an object of ApplicationManager
 	ApplicationManager AppManager;
 
-	do
+	/*do
 	{
 		//Read user action
 		ActType = AppManager.GetUserAction();
@@ -21,7 +21,19 @@ int main()
 		AppManager.UpdateInterface();
 
 
-	}while(ActType != EXIT);
+	}while(ActType != EXIT);*/
+	while(true)
+	{
+		//Read user action
+		ActType = AppManager.GetUserAction();
+
+		//Exexute the action
+		AppManager.ExecuteAction(ActType);
+
+		//Update the interface
+		if(ActType !=TO_PLAY)
+		AppManager.UpdateInterface();
+	}
 	
 
 	
