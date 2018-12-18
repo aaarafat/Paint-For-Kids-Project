@@ -3,10 +3,14 @@
 class SelectAction :
 	public Action
 {
-	Point P;
+	Point P;   //point to detect the user's click 
 public:
 	SelectAction(ApplicationManager *pApp);
+	
+	//Reads parameters required for action to execute
 	virtual void ReadActionParameters();
+	
+	//Execute action
 	virtual void Execute();
 };
 

@@ -10,18 +10,17 @@
 
 #include "..\GUI\input.h"
 #include "..\GUI\Output.h"
-class CopyAction :public Action
+class CopyAction :
+	public Action
 {
-
-	CFigure *CopiedF;
+	CFigure *CopiedF;   //Pointer to a figure
 public:
     CopyAction(ApplicationManager *pApp);
 
-	//ReadsEllipse parameters
+	//Reads parameters required for action to execute
 	virtual void ReadActionParameters();
 	
-	//Add Ellipse to the ApplicationManager
-
+	//Execute action
 	virtual void Execute();
 };
 

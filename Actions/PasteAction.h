@@ -15,12 +15,14 @@
 class PasteAction :
 	public Action
 {
-	CFigure* CopiedF;
+	CFigure* CopiedF;   //Pointer to a figure
 public:
 	PasteAction(ApplicationManager *pApp);
 	
+	//Reads parameters required for action to execute
 	virtual void ReadActionParameters();
 
+	//Execute action
 	virtual void Execute();
 
 };

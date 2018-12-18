@@ -7,9 +7,12 @@ class DeleteAction :
 public:
 	DeleteAction(ApplicationManager *pApp);
 
+	//Reads parameters required for action to execute
 	virtual void ReadActionParameters();
+	
 	void DeleteFigure(CFigure* F); //delete figure
 
+	//Execute action
 	virtual void Execute();
 };
 

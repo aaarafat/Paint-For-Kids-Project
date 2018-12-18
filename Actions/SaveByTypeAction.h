@@ -3,13 +3,14 @@
 class SaveByTypeAction :
 	public Action
 {
-	string FileName;
-	ofstream OutFile;
-	ofstream colors;
-	ofstream figures;
+	string FileName;   //the file name
+	ofstream OutFile;  //switch file
+	ofstream colors;   //colors file
+	ofstream figures;  //figures file
+	//Pointers to the Input and Output classes
 	Output *pOut;
-	Input *pIn;
-	int type;
+	Input *pIn;  
+	int type;  //Type number
 public:
 	SaveByTypeAction(ApplicationManager *pApp);
 
@@ -17,7 +18,6 @@ public:
 	virtual void ReadActionParameters();
 	
 	//excutes action
-
 	virtual void Execute();
 };
 

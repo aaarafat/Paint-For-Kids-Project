@@ -12,9 +12,9 @@ protected:
 	int ID;		//Each figure has an ID
 	bool Selected;	//true if the figure is selected.
 	GfxInfo FigGfxInfo;	//Figure graphis info
-	int DCLR;
-	int FCLR;
-	int Type;
+	int DCLR;      //Draw color
+	int FCLR;	   //Fill color
+	int Type;	   //type number
 	bool IsCut;   //Bool to check if the figure is cut
 	color LastFClr; //fill color before cut
 	color LastDClr; //draw color before cut
@@ -27,8 +27,8 @@ public:
 	CFigure(CFigure&);
 	void SetSelected(bool s);	//select/unselect the figure
 	bool IsSelected() const;	//check whether fig is selected
-	virtual bool IsInside(int x, int y) = 0;
-	virtual void Resize(float frac,bool& flag) = 0;
+	virtual bool IsInside(int x, int y) = 0;   //Checks that the point is inside the figure
+	virtual void Resize(float frac,bool& flag) = 0;   //Resizes the figure
 	virtual void Draw(Output* pOut) const  = 0 ;		//Draw the figure
 	void ChngDrawClr(color Dclr);	//changes the figure's drawing color
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
@@ -40,8 +40,8 @@ public:
 	void setDrawClr() ; // sets an integer for each Draw Color
 	void setFillClr() ; // sets an integer for each Fill Color
 	color lClr(string); // return Color for the loaded Fig
-	virtual void setType() = 0;     // sets the type of the Figure
-	virtual int getType()=0;
+	virtual void setType() = 0;     //Sets the type of the Figure
+	virtual int getType()=0;		//Gets the type of the figure
 	string strDrawClr() ;  // returns Draw Color as a string 
 	string strFillClr() ;  // returns Fill Color as a string 
 	string strType();      // returns Type as a string

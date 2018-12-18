@@ -21,7 +21,7 @@ void ByColorAction::ReadActionParameters()
 	Output* pOut = pManager->GetOutput();
 	
 	InFile>>rColor>>rColor;
-	int  r;
+	int r;
 	InFile>>tN;
 	if(tN!=0)
 	{

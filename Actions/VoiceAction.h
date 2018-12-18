@@ -7,6 +7,7 @@ class VoiceAction :
 public:
 	VoiceAction(ApplicationManager* pApp);
 	
+	//Reads parameters required for action to execute
 	virtual void ReadActionParameters();
 	
 	//excutes action

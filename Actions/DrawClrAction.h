@@ -12,7 +12,11 @@ class DrawClrAction :
 {
 public:
 	DrawClrAction(ApplicationManager *pApp);
+	
+	//Reads parameters required for action to execute
 	virtual void ReadActionParameters();
+	
+	//Execute action
 	virtual void Execute();
 };
 

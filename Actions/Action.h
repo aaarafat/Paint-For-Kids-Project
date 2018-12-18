@@ -17,6 +17,7 @@ protected:
 	ApplicationManager *pManager;	//Actions needs AppMngr to do their job
 	GfxInfo ActGfxInfo; //Actions Graphic Informations
 public:
+	// Check that the point is in the drawing area
 	void CheckPoint(Point&P, Output* pOut, Input* pIn)
 	{
 		while(P.y < UI.ToolBarHeight + 1 || P.y > UI.height - UI.StatusBarHeight - 1 || P.x < UI.ToolBarHeight + 1)
