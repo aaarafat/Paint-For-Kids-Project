@@ -19,6 +19,11 @@ void ToPlayMode::ReadActionParameters()
 	{
 		pManager->setClipboard(NULL);
 	}
+	if(pManager->GetSelected())
+	{
+		pManager->AddSelected(NULL);
+	}
+
 	pManager->SaveAll(OutFile, colors, figures);
 	OutFile.close();
 	colors.close();

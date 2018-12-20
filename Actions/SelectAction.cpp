@@ -22,26 +22,6 @@ void SelectAction::Execute()
 {
 	ReadActionParameters();
 	CFigure* f = pManager->GetFigure(P.x, P.y);
-	if(pManager->GetSelected())
-	{
-		pManager->GetSelected()->SetSelected(false);
-	}
-	if(f && f != pManager->GetSelected())
-	{
-		if(f->IsSelected())
-		{
-			f->SetSelected(false);
-			pManager->AddSelected(NULL);
-		}
-		else
-		{
-			f->SetSelected(true);
-			pManager->AddSelected(f);
-		}
-	}
-	else
-	{
-		pManager->AddSelected(NULL);
-	}
+	pManager->AddSelected(f);
 
 }

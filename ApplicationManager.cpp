@@ -159,8 +159,16 @@ void ApplicationManager::AddFigure(CFigure* pFig)
 }
 void ApplicationManager::AddSelected(CFigure* S)
 {
+	if(SelectedFig)
+	{
+		SelectedFig->SetSelected(false);
+	}
 	SelectedFig = S;
-	if(SelectedFig!=NULL) SelectedFig->PrintInfo(pOut);
+	if(SelectedFig)
+	{
+		SelectedFig->PrintInfo(pOut);
+		SelectedFig->SetSelected(true);
+	}
 }
 
 

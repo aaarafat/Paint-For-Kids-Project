@@ -19,14 +19,11 @@ void CutAction::Execute()
 	Output* pOut = pManager->GetOutput();
 	ReadActionParameters();
 	if(CopiedF){
-		CopiedF->SetSelected(false);
 		if (CopiedF->isCut())
 		{
 			pOut->PrintMessage("The figure is Cut");
 			return;
 		}
-		if (pManager->getClipboard() && pManager->getClipboard()->isCut())
-			pManager->getClipboard()->Cut(false);
 		CopiedF->Cut(true);
 		pManager->setClipboard(CopiedF);
 		pManager->AddSelected(NULL);

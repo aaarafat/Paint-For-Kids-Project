@@ -53,10 +53,8 @@ void DrawClrAction::Execute()
 		if(F->isCut()) 
 		{
 			pManager->setClipboard(NULL);
-			F->Cut(false);
 		}
 		F->ChngDrawClr(UI.DrawColor);
-		F->SetSelected(false);
 		pManager->AddSelected(NULL);
 	}
 }

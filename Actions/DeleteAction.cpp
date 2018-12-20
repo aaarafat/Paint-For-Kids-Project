@@ -24,7 +24,6 @@ void DeleteAction::Execute()
 
 	if(SelectedF != NULL)
 	{
-		SelectedF->SetSelected(false);
 		DeleteFigure(SelectedF);
 		pOut->PrintMessage("The figure is deleted");
 		pManager->AddSelected(NULL);

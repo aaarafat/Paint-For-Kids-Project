@@ -48,15 +48,10 @@ void PasteAction::Execute()
 			CheckPoint(Center, pOut, pIn);
 			pOut->ClearStatusBar();
 			CopiedF->SetCenter(Center.x, Center.y);
-			if(pManager->GetSelected()) // if any fig selected -> unselect it
-			{
-				pManager->GetSelected()->SetSelected(false);
-				pManager->AddSelected(NULL);
-			}
+			pManager->AddSelected(NULL);
 			if (pManager->getClipboard()->isCut())
 			{
 				pManager->setClipboard(NULL);
-				CopiedF->Cut(false);
 			}
 		}
 		else
@@ -67,12 +62,7 @@ void PasteAction::Execute()
 			CheckPoint(Center, pOut, pIn);
 			pOut->ClearStatusBar();
 			CopiedF->SetCenter(Center.x, Center.y);
-			CopiedF->SetSelected(false);
-			if(pManager->GetSelected())
-			{
-				pManager->GetSelected()->SetSelected(false);
-				pManager->AddSelected(NULL);
-			}
+			pManager->AddSelected(NULL);
 			pManager->AddFigure(CopiedF);
 		}
 		
