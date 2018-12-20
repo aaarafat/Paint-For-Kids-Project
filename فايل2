@@ -1,0 +1,7 @@
+Red    Blue
+5
+RECTANGLE    1    91    97    323    228    Blue    Black
+RECTANGLE    14    244    246    334    310    Black    Red
+RECTANGLE    15    247    317    332    375    Black    White
+RECTANGLE    16    251    382    327    437    White    Black
+RECTANGLE    17    253    443    322    496    Black    Green

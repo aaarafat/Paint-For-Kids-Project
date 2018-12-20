@@ -58,34 +58,5 @@ struct GfxInfo	//Graphical info of each figure (you may add more members)
 	int BorderWdth;	//Width of figure borders
 
 };
-/*enum FClr{
-	BLACK,
-	WHITE,
-	RED,
-	GREEN,
-	BLUE,
-
-	COUNT,
-};
-enum DClr{
-	BLACK,
-	WHITE,
-	RED,
-	GREEN,
-	BLUE,
-
-	COUNT,
-};
-
-enum FType{
-RECT,
-LINE,
-TRI,
-RHOM,
-ELIPSE,
-
-COUNT,
-
-};*/
 
 #endif

@@ -1,0 +1,22 @@
+Red    Blue
+20
+RECTANGLE    1    91    97    323    228    Blue    Black
+RHOMBUS    2    100    166    372    White    Blue
+TRIANGLE    3    163    252        103    371    224    374    Red    Green
+ELLIPSE    4    100    200    160    Black    Red
+LINE    5    81    76        356    89    Black    NO_FILL
+LINE    6    80    77        70    494    Black    NO_FILL
+LINE    7    68    493        334    514    Black    NO_FILL
+LINE    8    356    90        335    513    Black    NO_FILL
+LINE    9    75    239        348    240    Black    NO_FILL
+LINE    10    326    89        327    239    Black    NO_FILL
+LINE    11    223    502        238    242    Black    NO_FILL
+LINE    12    152    243        72    399    Black    NO_FILL
+LINE    13    151    240        233    281    Black    NO_FILL
+RECTANGLE    14    244    246    334    310    Black    Red
+RECTANGLE    15    247    317    332    375    Black    White
+RECTANGLE    16    251    382    327    437    White    Black
+RECTANGLE    17    253    443    322    496    Black    Green
+ELLIPSE    18    100    462    153    Green    Blue
+RHOMBUS    19    100    457    366    Red    White
+RHOMBUS    201    100    589    325    Red    Blue

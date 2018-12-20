@@ -355,10 +355,6 @@ ApplicationManager::~ApplicationManager()
 	DelFigList();
 	delete pIn;
 	delete pOut;
-	remove( "SWITCH" );
-	remove( "C.KKK" );
-	remove( "F.KKK" );
-	//exit(0);
 }
 
 
