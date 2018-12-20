@@ -31,7 +31,6 @@ int main()
 		AppManager.ExecuteAction(ActType);
 
 		//Update the interface
-		if(ActType !=TO_PLAY)
 		AppManager.UpdateInterface();
 	}
 	

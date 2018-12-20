@@ -55,7 +55,6 @@ void FillClrAction::Execute()
 	CFigure* F = pManager->GetSelected();
 	if(dynamic_cast<CLine*>(F))
 	{
-		F->SetSelected(false);
 		pManager->AddSelected(NULL);
 		pManager->GetInput()->SetFilled();
 		return;
@@ -68,17 +67,14 @@ void FillClrAction::Execute()
 			if(F->isCut()) 
 			{
 				pManager->setClipboard(NULL);
-				F->Cut(false);
 			}
 			F->ChngFillClr(UI.FillColor);
-			F->SetSelected(false);
 			pManager->AddSelected(NULL);
 		}
 		pManager->GetInput()->SetFilled();
 	}
 	else if(F)
 	{
-		F->SetSelected(false);
 		pManager->AddSelected(NULL);
 	}
 }

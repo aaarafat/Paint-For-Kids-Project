@@ -161,8 +161,16 @@ void ApplicationManager::AddFigure(CFigure* pFig)
 //Set the selected Figure and prints its info
 void ApplicationManager::AddSelected(CFigure* S)
 {
+	if(SelectedFig)
+	{
+		SelectedFig->SetSelected(false);
+	}
 	SelectedFig = S;
-	if(SelectedFig!=NULL) SelectedFig->PrintInfo(pOut);
+	if(SelectedFig)
+	{
+		SelectedFig->PrintInfo(pOut);
+		SelectedFig->SetSelected(true);
+	}
 }
 
 //Set the Clipboard

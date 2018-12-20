@@ -1,4 +1,5 @@
 #include "CFigure.h"
+#include "CLine.h"
 CFigure::CFigure()
 {
 	Selected = false;
@@ -118,7 +119,10 @@ void CFigure::ChngDrawClr(color Dclr)
 
 void CFigure::ChngFillClr(color Fclr)
 {	
-	FigGfxInfo.isFilled = true;
+	if(!dynamic_cast<CLine*>(this))
+	{
+		FigGfxInfo.isFilled = true;
+	}
 	FigGfxInfo.FillClr = Fclr;
 	//LastFClr = Fclr;
 	//wasFilled = true;

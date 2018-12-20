@@ -73,7 +73,6 @@ void ResizeAction::Execute()
 			break;
 		}
 		pManager->AddSelected(NULL);
-		Fig->SetSelected(false);
 		if (!flag)
 			pOut->PrintMessage("Can't do it");
 	}
