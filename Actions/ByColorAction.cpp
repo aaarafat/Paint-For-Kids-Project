@@ -5,7 +5,6 @@
 
 ByColorAction::ByColorAction(ApplicationManager* pApp) : Action(pApp)
 {
-	UI.PickMode = MODE_BTYPE;
 	FigC = 0;
 	correct = 0;
 	incorrect = 0;
@@ -28,6 +27,7 @@ void ByColorAction::ReadActionParameters()
 		InFile.close();
 		InFile.open("C.KKK");
 		srand(time(NULL));
+		//Gets a random color
 		r = rand()%tN;
 		for(int i = 0; i < r; i++)
 		{
@@ -36,6 +36,7 @@ void ByColorAction::ReadActionParameters()
 		InFile>>rColor;
 		string t;
 
+		//Counts the figures that filled with the randomized color 
 		InFile.close();
 		InFile.open("C.KKK");
 		for (int i = 0; i < tN; i++)

@@ -21,12 +21,6 @@ enum CLR_MODE
 	MODE_TOOL,
 };
 
-enum PLAY_MODE
-{
-	MODE_BTYPE,
-	MODE_BCLR,
-};
-
 enum VOICE_MODE
 {
 	MODE_VOICE,
@@ -120,7 +114,6 @@ struct UI_Info	//User Interface Info.
 {
 	GUI_MODE InterfaceMode;
 	CLR_MODE ToolBarMode;
-	PLAY_MODE PickMode;
 	VOICE_MODE VoiceMode;
 	int	width, height,	    //Window width and height
 		wx , wy,			//Window starting coordinates

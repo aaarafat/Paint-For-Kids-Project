@@ -5,7 +5,6 @@
 
 ByTypeAction::ByTypeAction(ApplicationManager* pApp) : Action(pApp)
 {
-	UI.PickMode = MODE_BTYPE;
 	FigC = 0;
 	correct = 0;
 	incorrect = 0;
@@ -28,6 +27,7 @@ void ByTypeAction::ReadActionParameters()
 		InFile.close();
 		InFile.open("F.KKK");
 		srand(time(NULL));
+		//Gets a random figure
 		r = rand()%tN;
 		for(int i = 0; i < r; i++)
 		{
@@ -38,6 +38,7 @@ void ByTypeAction::ReadActionParameters()
 
 		InFile.close();
 		InFile.open("F.KKK");
+		//Counts figures of the randomized type
 		for (int i = 0; i < tN; i++)
 		{
 			InFile>>t;

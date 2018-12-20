@@ -10,10 +10,7 @@ AddTriAction::AddTriAction(ApplicationManager * pApp):Action(pApp)
 {
 		if(UI.VoiceMode == MODE_VOICE)
 	{
-		//mciSendString("open \"Voices\\3.mp3\" type mpegvideo alias mp3", NULL, 0, NULL);
-		//mciSendString("play mp3 from 0 wait", NULL, 0, NULL);
 		PlaySound(TEXT("Voices\\3.wav"), NULL, SND_ASYNC);
-		
 	}
 }
 

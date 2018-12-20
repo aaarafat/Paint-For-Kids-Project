@@ -157,13 +157,15 @@ void ApplicationManager::AddFigure(CFigure* pFig)
 		FigList[FigCount++] = pFig;	
 	
 }
+
+//Set the selected Figure and prints its info
 void ApplicationManager::AddSelected(CFigure* S)
 {
 	SelectedFig = S;
 	if(SelectedFig!=NULL) SelectedFig->PrintInfo(pOut);
 }
 
-
+//Set the Clipboard
 void ApplicationManager::setClipboard(CFigure *C){
 	if(Clipboard && !(Clipboard->isCut()))
 	{
@@ -177,7 +179,7 @@ void ApplicationManager::setClipboard(CFigure *C){
 }
 CFigure *ApplicationManager::getClipboard() const { return Clipboard; }
 
-//need to be put in DeleteAction class
+
 void ApplicationManager::DeleteFigure(CFigure* F)
 {
 	int selectedfigureindex;
@@ -207,6 +209,7 @@ void ApplicationManager::SaveAll(ofstream &OutFile, ofstream& colors, ofstream& 
 	OutFile<<FigCount<<endl;
 	for(int i = 0; i < FigCount; i++)
 	{
+		//Saves 3 Files Saved , a file contains the colors only and a file contains the types only
 		FigList[i]->Save(OutFile, colors, figures);
 	}
 
@@ -231,8 +234,11 @@ void ApplicationManager::LoadAll(ifstream &InFile)
 		else if(type=="TRIANGLE")F=new CTriangle;
 		else if(type=="RHOMBUS")F=new CRhombus;
 		else if(type=="ELLIPSE")F=new CElipse;
+		//Sets the type of the Loaded Figure
 		F->setType();
+		//Reads the parameters of that figure
 		F->Load(InFile);
+		//Adds the figure to the Figures List 
 		AddFigure(F);
 	}
 }
@@ -247,6 +253,7 @@ void ApplicationManager::SaveType(int type,ofstream& OutFile, ofstream& colors, 
 	OutFile<<count<<endl;
 	for(int i=0;i<FigCount;i++){
 		if(FigList[i]->getType()==type)
+			//Saves 3 Files Saved , a file contains the colors only and a file contains the chosen type only
 			FigList[i]->Save(OutFile, colors, figures);
 	}
 }
