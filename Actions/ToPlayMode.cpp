@@ -15,6 +15,10 @@ void ToPlayMode::ReadActionParameters()
 	OutFile.open("SWITCH");
 	colors.open("C.KKK");
 	figures.open("F.KKK");
+	if(pManager->getClipboard())
+	{
+		pManager->setClipboard(NULL);
+	}
 	pManager->SaveAll(OutFile, colors, figures);
 	OutFile.close();
 	colors.close();
