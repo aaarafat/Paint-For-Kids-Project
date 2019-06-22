@@ -322,7 +322,6 @@ class window {
 
     // Prints the contents of the window
     void Print();
-   
 };
 
 #endif  //CMUGRAPHICS_H
