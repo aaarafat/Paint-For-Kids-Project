@@ -8,9 +8,6 @@ PT-Project.sdf
 *.lo
 *.o
 *.obj
-*.sln
-*.vcxproj
-*.vcxproj.filters
 *.KKK
 # Precompiled Headers
 *.gch
